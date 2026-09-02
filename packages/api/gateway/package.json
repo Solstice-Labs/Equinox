@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-gateway",
+  "name": "@solsticeai/equinox-api-gateway",
   "description": "Typert Remote Host dispatcher and Client API endpoint",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/api/gateway"
   },
   "type": "module",
@@ -51,23 +51,23 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-deque": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/schemastery": "workspace:^",
+    "@solsticeai/equinox-deque": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/schemastery": "workspace:^",
     "ws": "^8.21.0",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^"
+    "@solsticeai/equinox-typert-protocol": "workspace:^"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-host-webserver": "workspace:^",
-    "@deepseek-ai/dsh-typert-registry": "workspace:^",
-    "@deepseek-ai/dsh-util-crypto": "workspace:^",
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/equinox-client-connection": "workspace:^",
+    "@solsticeai/equinox-host-webserver": "workspace:^",
+    "@solsticeai/equinox-typert-registry": "workspace:^",
+    "@solsticeai/equinox-util-crypto": "workspace:^",
     "@types/ws": "^8.18.1",
-    "@deepseek-ai/cordis": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
     "zod": "^4.4.3"
   }
 }

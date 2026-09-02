@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-workspace-controller",
+  "name": "@solsticeai/equinox-api-workspace-controller",
   "description": "Workspace Remote commands and reconnect-safe state transport",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/api/workspace-controller"
   },
   "type": "module",
@@ -65,28 +65,28 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-deque": "workspace:^",
+    "@solsticeai/equinox-deque": "workspace:^",
     "zod": "^4.4.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-api-gateway": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-host-directory-picker": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-storage-domain": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-workspace": "workspace:^"
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-api-gateway": "workspace:^",
+    "@solsticeai/equinox-client-connection": "workspace:^",
+    "@solsticeai/equinox-host-directory-picker": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-storage-domain": "workspace:^",
+    "@solsticeai/equinox-typert-protocol": "workspace:^",
+    "@solsticeai/equinox-workspace": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-api-gateway": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-client-store": "workspace:^",
-    "@deepseek-ai/dsh-host-directory-picker": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-storage-domain": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-workspace": "workspace:^"
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-api-gateway": "workspace:^",
+    "@solsticeai/equinox-client-connection": "workspace:^",
+    "@solsticeai/equinox-client-store": "workspace:^",
+    "@solsticeai/equinox-host-directory-picker": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-storage-domain": "workspace:^",
+    "@solsticeai/equinox-typert-protocol": "workspace:^",
+    "@solsticeai/equinox-workspace": "workspace:^"
   }
 }

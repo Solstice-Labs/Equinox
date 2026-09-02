@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-persona",
+  "name": "@solsticeai/equinox-persona",
   "description": "Composition-authored deployment persona section for the DeepSeek Harness",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/preset/persona"
   },
   "type": "module",
@@ -27,15 +27,15 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@solsticeai/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-scope": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-scope": "workspace:^",
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   }
 }

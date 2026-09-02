@@ -8,15 +8,15 @@ import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react
 import { useSyncExternalStore } from 'react'
 import type {
   QueuedMessage, SessionListState, SessionSnapshot,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { SnapshotSelectorHook } from '@deepseek-ai/dsh-client-ui-slots'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+} from '@solsticeai/equinox-api-session-controller/client'
+import type { SessionId } from '@solsticeai/equinox-session/types'
+import type { SnapshotSelectorHook } from '@solsticeai/equinox-client-ui-slots'
+import { createSnapshotStore } from '@solsticeai/equinox-client-store'
 import {
   bindSnapshotSelector, conversationSnapshot, makeTranslate,
-} from '@deepseek-ai/dsh-client-test-runtime'
-import type { SessionPendingInteractionSnapshot } from '@deepseek-ai/dsh-client-ui-session/client'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
+} from '@solsticeai/equinox-client-test-runtime'
+import type { SessionPendingInteractionSnapshot } from '@solsticeai/equinox-client-ui-session/client'
+import { zh as commonZh } from '@solsticeai/equinox-client-locale/src/locales/zh.ts'
 import type { QueueItemId } from '../src/client/contract/queue.ts'
 import type { InputState } from '../src/client/contract/input.ts'
 import { zh } from '../src/client/locales.ts'

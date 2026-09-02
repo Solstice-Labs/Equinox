@@ -7,11 +7,11 @@
  */
 
 import { describe, expect, it } from 'vitest'
-import type { Context as ClientContext } from '@deepseek-ai/cordis'
-import type { RemoteErrorCode } from '@deepseek-ai/dsh-api-remotes/client'
-import { RemoteError } from '@deepseek-ai/dsh-client-test-runtime'
-import type { SessionSummary } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import type { Context as ClientContext } from '@solsticeai/cordis'
+import type { RemoteErrorCode } from '@solsticeai/equinox-api-remotes/client'
+import { RemoteError } from '@solsticeai/equinox-client-test-runtime'
+import type { SessionSummary } from '@solsticeai/equinox-api-session-controller/client'
+import type { SessionId } from '@solsticeai/equinox-session/types'
 import {
   AGENT_PRESET_SETTINGS_NS, AgentPresetSettingsController, writeDefaultPreset,
 } from '../src/client/settings-store.ts'

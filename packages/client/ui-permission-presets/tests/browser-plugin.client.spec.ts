@@ -8,15 +8,15 @@
  * disposal removes the contribution (HMR safety). The same plugin registers
  * its Settings row and invalidates that row on host settings changes.
  */
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@solsticeai/cordis'
 import { describe, expect, it } from 'vitest'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { TestRemote, scriptedSettingsRemote } from '@deepseek-ai/dsh-client-test-runtime'
-import { apply as settingsApply, inject as settingsInject } from '@deepseek-ai/dsh-client-ui-settings/client'
-import type { CommandDecoration } from '@deepseek-ai/dsh-client-ui-commands/client'
-import type { PermissionSelect } from '@deepseek-ai/dsh-permission-presets/client'
+import { SlotRegistry } from '@solsticeai/equinox-client-ui-renderer/client'
+import type { SessionId } from '@solsticeai/equinox-session/types'
+import { LocaleRuntime } from '@solsticeai/equinox-client-locale/client'
+import { TestRemote, scriptedSettingsRemote } from '@solsticeai/equinox-client-test-runtime'
+import { apply as settingsApply, inject as settingsInject } from '@solsticeai/equinox-client-ui-settings/client'
+import type { CommandDecoration } from '@solsticeai/equinox-client-ui-commands/client'
+import type { PermissionSelect } from '@solsticeai/equinox-permission-presets/client'
 import {
   PermissionRow, type PermissionRowInjected,
 } from '../src/client/PermissionRow.tsx'

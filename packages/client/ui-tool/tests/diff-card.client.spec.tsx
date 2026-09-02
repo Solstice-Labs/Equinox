@@ -4,23 +4,23 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import {
   bindSnapshotSelector, conversationSnapshot, sessionSnapshot, workspaceSnapshot,
-} from '@deepseek-ai/dsh-client-test-runtime'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+} from '@solsticeai/equinox-client-test-runtime'
+import { createSnapshotStore } from '@solsticeai/equinox-client-store'
 import type {
   ChatSnapshot, ConversationNode, RunningToolCall, SelectionTarget, ToolResultNode,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
-import type { SessionListState } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
+} from '@solsticeai/equinox-client-ui-chat/client'
+import type { SessionListState } from '@solsticeai/equinox-api-session-controller/client'
+import type { SessionId } from '@solsticeai/equinox-session/types'
+import { makeTranslate } from '@solsticeai/equinox-client-test-runtime'
+import { zh as commonZh } from '@solsticeai/equinox-client-locale/src/locales/zh.ts'
 import { CHAT_DIFF_MAX_LINES, diffCardModel } from '../src/client/tool/models/diff-card-model.ts'
-import { createChatStore } from '@deepseek-ai/dsh-client-ui-chat/src/client/stores.ts'
+import { createChatStore } from '@solsticeai/equinox-client-ui-chat/src/client/stores.ts'
 import { GenericToolCard, type GenericToolCardProps } from '../src/client/tool/toolviews/GenericToolCard.tsx'
-import { DetailsPanel } from '@deepseek-ai/dsh-client-ui-chat/src/client/details/DetailsPanel.tsx'
+import { DetailsPanel } from '@solsticeai/equinox-client-ui-chat/src/client/details/DetailsPanel.tsx'
 import { FileMutationRow, fileMutationToolview } from '../src/client/tool/toolviews/file-mutation-row.tsx'
 import { renderToolDetails, toolChatSnapshot, useEmptyTrajectory } from './tool-details-render.client.tsx'
-import { zh } from '@deepseek-ai/dsh-client-ui-conversation/src/client/locales.ts'
-import { zh as chatZh } from '@deepseek-ai/dsh-client-ui-chat/src/client/locale.ts'
+import { zh } from '@solsticeai/equinox-client-ui-conversation/src/client/locales.ts'
+import { zh as chatZh } from '@solsticeai/equinox-client-ui-chat/src/client/locale.ts'
 
 afterEach(cleanup)
 

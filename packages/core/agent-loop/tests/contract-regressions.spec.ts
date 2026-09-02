@@ -1,17 +1,17 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import LlmRuntime, { createUserMessage, ToolCallId, LlmError, MessageSource, ProviderRequestId, StreamChunk  } from '@deepseek-ai/dsh-llm'
-import SessionStore, { Session, SessionEvent, SessionId, TurnEndReason, type UserMessage } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { defineContentToolFixture, type PostToolDecision } from '@deepseek-ai/dsh-tools'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import { Context } from '@solsticeai/cordis'
+import LlmRuntime, { createUserMessage, ToolCallId, LlmError, MessageSource, ProviderRequestId, StreamChunk  } from '@solsticeai/equinox-llm'
+import SessionStore, { Session, SessionEvent, SessionId, TurnEndReason, type UserMessage } from '@solsticeai/equinox-session'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime, { defineContentToolFixture, type PostToolDecision } from '@solsticeai/equinox-tools'
+import AgentRegistry, { type Agent } from '@solsticeai/equinox-agent'
+import AgentLoop from '@solsticeai/equinox-agent-loop'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
 import { ReactLoopAgent } from '../src/agent.ts'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
-import * as SessionInvariant from '@deepseek-ai/dsh-session/invariant'
-import * as AgentInvariant from '@deepseek-ai/dsh-agent/invariant'
-import * as AgentLoopInvariant from '@deepseek-ai/dsh-agent-loop/invariant'
+import InvariantRegistry from '@solsticeai/equinox-invariants'
+import * as SessionInvariant from '@solsticeai/equinox-session/invariant'
+import * as AgentInvariant from '@solsticeai/equinox-agent/invariant'
+import * as AgentLoopInvariant from '@solsticeai/equinox-agent-loop/invariant'
 import { MockAdapter, textResponse, toolCallResponse } from './mock-adapter.ts'
 
 async function mountInvariants(ctx: Context): Promise<void> {
@@ -863,7 +863,7 @@ describe('turn and step boundary recovery', () => {
     expect(adapter.requests).toHaveLength(1)
     expect(errors.map(error => error.message)).toEqual([
       'reject first step-end',
-      'invariant violated by "@deepseek-ai/dsh-session": turn/end 1 while step 1 is still open',
+      'invariant violated by "@solsticeai/equinox-session": turn/end 1 while step 1 is still open',
     ])
     expect(boundaryCounts(agent)).toMatchObject({
       turnStart: 1,

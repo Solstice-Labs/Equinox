@@ -1,8 +1,8 @@
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@solsticeai/cordis'
 import type {
   ConversationLocation, ConversationMatch, ConversationNodeDefinition,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type {} from '@deepseek-ai/dsh-llm-retry/types'
+} from '@solsticeai/equinox-client-ui-conversation/client'
+import type {} from '@solsticeai/equinox-llm-retry/types'
 import type { RetryChatData } from '../contract/chat-nodes.ts'
 import type { ModelRetryNode } from '../contract/snapshot.ts'
 import { chatNode } from './common.ts'

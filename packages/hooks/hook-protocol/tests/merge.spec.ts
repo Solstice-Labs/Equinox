@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { mergeHookOutputs } from '@deepseek-ai/dsh-hook-protocol'
-import type { HookOutput } from '@deepseek-ai/dsh-hook-protocol'
+import { mergeHookOutputs } from '@solsticeai/equinox-hook-protocol'
+import type { HookOutput } from '@solsticeai/equinox-hook-protocol'
 
 function out(over: Partial<HookOutput> = {}): HookOutput {
   return { exitCode: 0, stderr: '', stdout: '', ...over }

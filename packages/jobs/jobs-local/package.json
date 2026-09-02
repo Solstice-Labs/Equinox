@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-jobs-local",
+  "name": "@solsticeai/equinox-jobs-local",
   "description": "Process-local implementation of the DeepSeek Harness background job registry seam",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/jobs/jobs-local"
   },
   "type": "module",
@@ -27,24 +27,24 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-scope": "workspace:^",
-    "@deepseek-ai/dsh-jobs": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-scope": "workspace:^",
+    "@solsticeai/equinox-jobs": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@solsticeai/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:^",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-scope": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-jobs": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis-plugin-include": "workspace:^",
+    "@solsticeai/cordis-plugin-loader": "workspace:^",
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/equinox-scope": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-jobs": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   }
 }

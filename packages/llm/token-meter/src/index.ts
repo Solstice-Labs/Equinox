@@ -1,24 +1,24 @@
 /**
  * Single replay-aware token-meter service for request and surface pressure.
  *
- * @module @deepseek-ai/dsh-token-meter
+ * @module @solsticeai/equinox-token-meter
  */
 
-import { Context, Service } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { BlockAssembler } from '@deepseek-ai/dsh-llm'
-import type { LlmImageRequestPricing, Message, TokenUsage } from '@deepseek-ai/dsh-llm'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
+import { Context, Service } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { BlockAssembler } from '@solsticeai/equinox-llm'
+import type { LlmImageRequestPricing, Message, TokenUsage } from '@solsticeai/equinox-llm'
+import { deepFreeze } from '@solsticeai/equinox-util-values'
 import type {
   EpochHeader,
   Session,
   SessionEvent,
   SessionLogOffset as SessionLogOffsetType,
   SessionSeq as SessionSeqType,
-} from '@deepseek-ai/dsh-session'
-import { canonicalHeader, headerEquals, isSurfaceEvent, SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
+} from '@solsticeai/equinox-session'
+import { canonicalHeader, headerEquals, isSurfaceEvent, SessionLogOffset, SessionSeq } from '@solsticeai/equinox-session'
 // Type-only: activates the `ctx.sessionProjections` Context declaration.
-import type {} from '@deepseek-ai/dsh-session-projection'
+import type {} from '@solsticeai/equinox-session-projection'
 import type {
   TokenMeasurement,
   TokenMeasurementBaseline,
@@ -85,7 +85,7 @@ function validateConfigKeys(config: TokenMeterConfig): void {
   }
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     tokenMeter: TokenMeter
   }

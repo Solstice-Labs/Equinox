@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-tool-str-replace-editor",
+  "name": "@solsticeai/equinox-tool-str-replace-editor",
   "description": "Model-facing view, create, literal replace, and line insert tool over the Harness filesystem service",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/fs/tool-str-replace-editor"
   },
   "type": "module",
@@ -26,28 +26,28 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@solsticeai/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/dsh-fs-local": "workspace:^",
-    "@deepseek-ai/dsh-fs-observation-policy": "workspace:^",
-    "@deepseek-ai/dsh-fs-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^"
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/equinox-fs-local": "workspace:^",
+    "@solsticeai/equinox-fs-observation-policy": "workspace:^",
+    "@solsticeai/equinox-fs-sandbox": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^"
   }
 }

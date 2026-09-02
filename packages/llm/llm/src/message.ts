@@ -1,8 +1,8 @@
 /** Message value types, identity, and immutable construction helpers. */
 
-import { randomUUID } from '@deepseek-ai/dsh-util-crypto'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
+import { randomUUID } from '@solsticeai/equinox-util-crypto'
+import { brandString } from '@solsticeai/equinox-brand'
+import { deepFreeze } from '@solsticeai/equinox-util-values'
 import type { MessageId, ToolCallId } from './brand.ts'
 import type { ContentBlock, ToolResultBlock } from './types.ts'
 

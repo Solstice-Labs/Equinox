@@ -5,11 +5,11 @@ import {
 import {
   DisclosureRow, IconChevronRightOutline14, StateDot,
   type DisclosureRowProps, type StateDotState,
-} from '@deepseek-ai/dsh-client-ui-primitives'
-import type { PropsLocale, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
-import type { SessionListState } from '@deepseek-ai/dsh-api-session-controller/client'
-import { shallowEqual } from '@deepseek-ai/dsh-client-store'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+} from '@solsticeai/equinox-client-ui-primitives'
+import type { PropsLocale, PropsRuntime } from '@solsticeai/equinox-client-ui-slots'
+import type { SessionListState } from '@solsticeai/equinox-api-session-controller/client'
+import { shallowEqual } from '@solsticeai/equinox-client-store'
+import type { SessionId } from '@solsticeai/equinox-session/types'
 import type { WorkflowRunKey } from './locales.ts'
 import type {
   WorkflowRunMemberData, WorkflowRunPhaseData, WorkflowRunStatus,

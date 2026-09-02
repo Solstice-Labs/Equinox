@@ -6,10 +6,10 @@
  * deferral — the stage follows list.current), binding identity, breadcrumb
  * projection, create.
  */
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@solsticeai/cordis'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import type { SessionId } from '@deepseek-ai/dsh-api-remotes/client'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
+import type { SessionId } from '@solsticeai/equinox-api-remotes/client'
+import { RemoteError } from '@solsticeai/equinox-typert-protocol'
 import { ClientSessions, SessionCreateError } from '../src/client/sessions/service.ts'
 import { scopeOf } from '../src/client/scope.ts'
 import type { SessionFollowFrame } from '../src/types.ts'

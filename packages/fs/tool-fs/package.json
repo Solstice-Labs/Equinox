@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-tool-fs",
+  "name": "@solsticeai/equinox-tool-fs",
   "description": "Model-facing filesystem tools (read, write, edit) over the DeepSeek Harness filesystem seam (ctx.fs)",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/fs/tool-fs"
   },
   "type": "module",
@@ -28,37 +28,37 @@
   "license": "MIT",
   "dependencies": {
     "diff": "^9.0.0",
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@solsticeai/schemastery": "workspace:^"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/dsh-user-approval": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-attachment": "workspace:^",
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^",
+    "@solsticeai/equinox-user-approval": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/dsh-fs-local": "workspace:^",
-    "@deepseek-ai/dsh-fs-observation-policy": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-llm-deepseek": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/dsh-user-approval": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^"
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-agent-loop": "workspace:^",
+    "@solsticeai/equinox-agent-loop-testkit": "workspace:^",
+    "@solsticeai/equinox-attachment": "workspace:^",
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/equinox-fs-local": "workspace:^",
+    "@solsticeai/equinox-fs-observation-policy": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-llm-deepseek": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^",
+    "@solsticeai/equinox-user-approval": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^"
   }
 }

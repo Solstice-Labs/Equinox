@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-fs-sandbox",
+  "name": "@solsticeai/equinox-fs-sandbox",
   "description": "Sandbox-enforcing implementation of the DeepSeek Harness filesystem seam: fences write/edit by the per-call sandbox mode (read-only denies mutation, workspace-write contains it to the workspace + temp roots) while reads pass through",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/fs/fs-sandbox"
   },
   "type": "module",
@@ -27,18 +27,18 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/dsh-fs-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/equinox-fs-local": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/dsh-fs-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^"
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/equinox-fs-local": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^"
   }
 }

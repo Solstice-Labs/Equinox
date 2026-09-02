@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-tool-pwsh-persistent",
+  "name": "@solsticeai/equinox-tool-pwsh-persistent",
   "description": "Model-facing owner-scoped persistent PowerShell tool backed by the Harness PTY service",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/shell/tool-pwsh-persistent"
   },
   "type": "module",
@@ -26,31 +26,31 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-terminal": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-terminal": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@solsticeai/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:^",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-terminal": "workspace:^",
-    "@deepseek-ai/dsh-terminal-bash": "workspace:^",
-    "@deepseek-ai/dsh-pwsh-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis-plugin-include": "workspace:^",
+    "@solsticeai/cordis-plugin-loader": "workspace:^",
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-terminal": "workspace:^",
+    "@solsticeai/equinox-terminal-bash": "workspace:^",
+    "@solsticeai/equinox-pwsh-local": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^",
+    "@solsticeai/equinox-subprocess-local": "workspace:^",
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   }
 }

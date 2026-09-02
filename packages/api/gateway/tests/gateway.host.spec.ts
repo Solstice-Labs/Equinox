@@ -1,11 +1,11 @@
 import { createServer } from 'node:http'
 import type { AddressInfo } from 'node:net'
 import { describe, expect, it } from 'vitest'
-import { Context, Service, symbols } from '@deepseek-ai/cordis'
+import { Context, Service, symbols } from '@solsticeai/cordis'
 import { z } from 'zod'
-import { apply as applyConnection, inject as connectionInject } from '@deepseek-ai/dsh-client-connection'
-import type { HostConnectionHandle } from '@deepseek-ai/dsh-client-connection'
-import type { WebServer, WebRoute } from '@deepseek-ai/dsh-host-webserver'
+import { apply as applyConnection, inject as connectionInject } from '@solsticeai/equinox-client-connection'
+import type { HostConnectionHandle } from '@solsticeai/equinox-client-connection'
+import type { WebServer, WebRoute } from '@solsticeai/equinox-host-webserver'
 import {
   bindTypertRemote,
   Remote,
@@ -15,9 +15,9 @@ import {
   type TypertContext,
   type TypertLookup,
   type TypertLookupProvider,
-} from '@deepseek-ai/dsh-typert-protocol'
-import TypertRegistry, { type TypertContribution } from '@deepseek-ai/dsh-typert-registry'
-import TypertGatewayService, { TypertGatewayError } from '@deepseek-ai/dsh-api-gateway'
+} from '@solsticeai/equinox-typert-protocol'
+import TypertRegistry, { type TypertContribution } from '@solsticeai/equinox-typert-registry'
+import TypertGatewayService, { TypertGatewayError } from '@solsticeai/equinox-api-gateway'
 import { provideBrowserCredentials } from './browser-credentials.ts'
 
 interface FixtureAgent {
@@ -28,7 +28,7 @@ interface MarkedContext extends Context {
   readonly fixtureScope?: string
 }
 
-declare module '@deepseek-ai/dsh-typert-protocol' {
+declare module '@solsticeai/equinox-typert-protocol' {
   interface TypertLookupMap {
     gatewayFixture: TypertLookup<FixtureAgent, string>
     gatewayFixtureAlias: TypertLookup<FixtureAgent, string>

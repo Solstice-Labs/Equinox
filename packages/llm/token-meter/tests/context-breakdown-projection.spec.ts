@@ -2,15 +2,15 @@
 // plus the shared estimator's pricing branches.
 
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, ToolSchema } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionSeq as SessionSeqType } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import TokenMeter from '@deepseek-ai/dsh-token-meter'
-import type { ContextBreakdownProjection } from '@deepseek-ai/dsh-token-meter/client'
-import { CompactionId } from '@deepseek-ai/dsh-compaction'
+import { Context } from '@solsticeai/cordis'
+import { createMessage, createUserMessage } from '@solsticeai/equinox-llm'
+import type { ContentBlock, ToolSchema } from '@solsticeai/equinox-llm'
+import SessionStore, { SessionSeq } from '@solsticeai/equinox-session'
+import type { Session, SessionEvent, SessionSeq as SessionSeqType } from '@solsticeai/equinox-session'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import TokenMeter from '@solsticeai/equinox-token-meter'
+import type { ContextBreakdownProjection } from '@solsticeai/equinox-token-meter/client'
+import { CompactionId } from '@solsticeai/equinox-compaction'
 import { contextBreakdownProjectionDefinition } from '../src/breakdown-projection.ts'
 import {
   estimateContent,

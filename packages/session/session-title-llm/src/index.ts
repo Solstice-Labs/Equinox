@@ -1,27 +1,27 @@
 /**
  * Shared route, framing, timeout, assembly, and validation policy for
  * model-backed session-title providers.
- * @module @deepseek-ai/dsh-session-title-llm
+ * @module @solsticeai/equinox-session-title-llm
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { createUserMessage, BlockAssembler } from '@deepseek-ai/dsh-llm'
-import type { FinishReason, GenerateOptions, Message } from '@deepseek-ai/dsh-llm'
-import { deadline, MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
-import type { SessionSeq } from '@deepseek-ai/dsh-session'
+import type { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { createUserMessage, BlockAssembler } from '@solsticeai/equinox-llm'
+import type { FinishReason, GenerateOptions, Message } from '@solsticeai/equinox-llm'
+import { deadline, MAX_TIMER_DELAY_MS } from '@solsticeai/equinox-timeout'
+import { deepFreeze } from '@solsticeai/equinox-util-values'
+import type { SessionSeq } from '@solsticeai/equinox-session'
 import {
   normalizeSessionTitle,
   SessionTitleProviderId,
-} from '@deepseek-ai/dsh-session-title'
+} from '@solsticeai/equinox-session-title'
 import type {
   SessionTitleAutomaticMode,
   SessionTitleModelProvenance,
   SessionTitleProviderRequest,
   SessionTitleProviderResult,
   SessionTitleUserMessage,
-} from '@deepseek-ai/dsh-session-title'
+} from '@solsticeai/equinox-session-title'
 
 /** Exact model-visible request recorded before one auxiliary title dispatch. */
 export interface SessionTitleLlmRequestEventData {
@@ -39,7 +39,7 @@ export interface SessionTitleLlmRequestEventData {
   readonly maxTokens: number
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@solsticeai/equinox-session/types' {
   interface SessionEventMap {
     /** Log-only pre-dispatch record of one session-title model request. */
     'session/title-llm-request': SessionTitleLlmRequestEventData

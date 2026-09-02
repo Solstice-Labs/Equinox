@@ -1,10 +1,10 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-code-runtime-python",
+  "name": "@solsticeai/equinox-experimental-code-runtime-python",
   "description": "CPython subprocess implementation of the DeepSeek Harness code-execution seam",
   "version": "0.1.2-alpha.5",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/experimental/code-runtime-python"
   },
   "type": "module",
@@ -24,19 +24,19 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-code-runtime": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-util-values": "workspace:^"
+    "@solsticeai/equinox-code-runtime": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-util-values": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-code-runtime": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-util-values": "workspace:^"
+    "@solsticeai/equinox-code-runtime": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-util-values": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@solsticeai/schemastery": "workspace:^"
   },
   "private": true
 }

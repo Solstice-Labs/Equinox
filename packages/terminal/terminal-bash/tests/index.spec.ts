@@ -1,28 +1,28 @@
 import { describe, expect, it, vi } from 'vitest'
 import { PassThrough } from 'node:stream'
 import { resolve } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import SessionStore, { Session, SessionId } from '@deepseek-ai/dsh-session'
-import AgentRegistry, { Inbox, type Agent } from '@deepseek-ai/dsh-agent'
-import SandboxProvider from '@deepseek-ai/dsh-sandbox'
-import type { ConfinedArgv, SandboxPolicy } from '@deepseek-ai/dsh-sandbox'
-import SandboxPolicyService, { setSandboxMode } from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import TerminalSessionService, { TerminalBackendCleanupError, TerminalSessionId } from '@deepseek-ai/dsh-terminal'
-import type { TerminalSendRequest, TerminalWaitReason } from '@deepseek-ai/dsh-terminal'
-import { BashTerminalBackend, PWSH_PROMPT_SETUP } from '@deepseek-ai/dsh-terminal-bash'
-import { ENCODING_PREAMBLE } from '@deepseek-ai/dsh-pwsh-local'
-import * as ptyLocal from '@deepseek-ai/dsh-terminal-bash'
-import type { ResolvedConfig } from '@deepseek-ai/dsh-terminal-bash/src/config.ts'
-import type { LocalPtySession } from '@deepseek-ai/dsh-terminal-bash/src/session.ts'
-import { SubprocessRuntime } from '@deepseek-ai/dsh-subprocess'
+import { Context } from '@solsticeai/cordis'
+import Loader from '@solsticeai/cordis-plugin-loader'
+import SessionStore, { Session, SessionId } from '@solsticeai/equinox-session'
+import AgentRegistry, { Inbox, type Agent } from '@solsticeai/equinox-agent'
+import SandboxProvider from '@solsticeai/equinox-sandbox'
+import type { ConfinedArgv, SandboxPolicy } from '@solsticeai/equinox-sandbox'
+import SandboxPolicyService, { setSandboxMode } from '@solsticeai/equinox-sandbox-policy'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import TerminalSessionService, { TerminalBackendCleanupError, TerminalSessionId } from '@solsticeai/equinox-terminal'
+import type { TerminalSendRequest, TerminalWaitReason } from '@solsticeai/equinox-terminal'
+import { BashTerminalBackend, PWSH_PROMPT_SETUP } from '@solsticeai/equinox-terminal-bash'
+import { ENCODING_PREAMBLE } from '@solsticeai/equinox-pwsh-local'
+import * as ptyLocal from '@solsticeai/equinox-terminal-bash'
+import type { ResolvedConfig } from '@solsticeai/equinox-terminal-bash/src/config.ts'
+import type { LocalPtySession } from '@solsticeai/equinox-terminal-bash/src/session.ts'
+import { SubprocessRuntime } from '@solsticeai/equinox-subprocess'
 import type {
   SubprocessHandle,
   SubprocessSpawnSpec,
   SubprocessTerminalHandle,
   SubprocessTerminalSpawnSpec,
-} from '@deepseek-ai/dsh-subprocess'
+} from '@solsticeai/equinox-subprocess'
 
 class EmptySandbox extends SandboxProvider {
   confine(_argv: readonly string[], _policy: SandboxPolicy): ConfinedArgv {

@@ -1,11 +1,11 @@
-import type { Context } from '@deepseek-ai/cordis'
-import type { ChunkRowEvent } from '@deepseek-ai/dsh-api-session-controller/types'
+import type { Context } from '@solsticeai/cordis'
+import type { ChunkRowEvent } from '@solsticeai/equinox-api-session-controller/types'
 import type {
   ConversationLocation, ConversationNodeContext, ConversationNodeDefinition, TurnLocation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type {} from '@deepseek-ai/dsh-llm-retry/types'
-import { isAppendSurfaceEvent } from '@deepseek-ai/dsh-session/surface'
-import type {} from '@deepseek-ai/dsh-tools/types'
+} from '@solsticeai/equinox-client-ui-conversation/client'
+import type {} from '@solsticeai/equinox-llm-retry/types'
+import { isAppendSurfaceEvent } from '@solsticeai/equinox-session/surface'
+import type {} from '@solsticeai/equinox-tools/types'
 import { hasAssistantReplyContent } from '../contract/assistant-content.ts'
 import type { AssistantChatData, ChatNode, FinalAssistantChatData } from '../contract/chat-nodes.ts'
 import {
@@ -21,7 +21,7 @@ declare module '../contract/chat-nodes.ts' {
   }
 }
 
-declare module '@deepseek-ai/dsh-client-ui-conversation/client' {
+declare module '@solsticeai/equinox-client-ui-conversation/client' {
   interface ConversationTurnDataMap {
     /** Process range and finalized answer boundary for this Turn. */
     'turn-process': TurnProcessSpec

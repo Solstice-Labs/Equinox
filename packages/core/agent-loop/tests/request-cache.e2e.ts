@@ -1,15 +1,15 @@
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
+import { createUserMessage } from '@solsticeai/equinox-llm'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import LlmRuntime from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { defineContentToolFixture } from '@deepseek-ai/dsh-tools'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
+import { Context } from '@solsticeai/cordis'
+import LlmRuntime from '@solsticeai/equinox-llm'
+import SessionStore, { SessionId } from '@solsticeai/equinox-session'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime, { defineContentToolFixture } from '@solsticeai/equinox-tools'
+import AgentRegistry, { type Agent } from '@solsticeai/equinox-agent'
 
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import * as LlmDeepSeek from '@deepseek-ai/dsh-llm-deepseek'
+import AgentLoop from '@solsticeai/equinox-agent-loop'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import * as LlmDeepSeek from '@solsticeai/equinox-llm-deepseek'
 
 /**
  * With-key proof that log-derived requests translate into real provider cache hits: a

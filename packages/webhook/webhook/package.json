@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-webhook",
+  "name": "@solsticeai/equinox-webhook",
   "description": "Fire-and-forget webhook rule runtime that creates Workspace-backed DeepSeek Harness Sessions",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/webhook/webhook"
   },
   "type": "module",
@@ -37,33 +37,33 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-default-model": "workspace:^",
-    "@deepseek-ai/dsh-agent-presets": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-permission-presets": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-workspace": "workspace:^"
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-agent-default-model": "workspace:^",
+    "@solsticeai/equinox-agent-presets": "workspace:^",
+    "@solsticeai/equinox-invariants": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-permission-presets": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-session-title": "workspace:^",
+    "@solsticeai/equinox-workspace": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/cordis-plugin-include": "workspace:^",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-default-model": "workspace:^",
-    "@deepseek-ai/dsh-agent-presets": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-permission-presets": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-workspace": "workspace:^"
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/cordis-plugin-include": "workspace:^",
+    "@solsticeai/cordis-plugin-loader": "workspace:^",
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-agent-default-model": "workspace:^",
+    "@solsticeai/equinox-agent-presets": "workspace:^",
+    "@solsticeai/equinox-invariants": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-permission-presets": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-session-title": "workspace:^",
+    "@solsticeai/equinox-workspace": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-util-values": "workspace:^"
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/equinox-util-values": "workspace:^"
   }
 }

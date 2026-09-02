@@ -12,16 +12,16 @@
  * separate chain entry per shape would race the same carrier, so the shape
  * choice lives inside this entry — see QuestionComposer.
  */
-import type { Context as ClientContext } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import type { ISessions } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { ComposerChainProps } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
-import type { PendingInteractionPublisher } from '@deepseek-ai/dsh-client-ui-session/client'
-import type { TypertClientEventListener } from '@deepseek-ai/dsh-typert-protocol'
+import type { Context as ClientContext } from '@solsticeai/cordis'
+import type {} from '@solsticeai/equinox-api-remotes/client'
+import type { ISessions } from '@solsticeai/equinox-api-session-controller/client'
+import type { ComposerChainProps } from '@solsticeai/equinox-client-ui-conversation/client'
+import type {} from '@solsticeai/equinox-client-ui-renderer/client'
+import type { PendingInteractionPublisher } from '@solsticeai/equinox-client-ui-session/client'
+import type { TypertClientEventListener } from '@solsticeai/equinox-typert-protocol'
 // Type-only: pulls the locale plugin's Context merge (ctx.locale).
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type {} from '@deepseek-ai/dsh-api-session-controller/client'
+import type {} from '@solsticeai/equinox-client-locale/client'
+import type {} from '@solsticeai/equinox-api-session-controller/client'
 import { PendingQuestion } from './contract/slots.ts'
 import { createQuestionDraftStore } from './draft-store.ts'
 import { QuestionComposer } from './QuestionComposer.tsx'
@@ -32,7 +32,7 @@ export type {
 } from './contract/slots.ts'
 export type { QuestionKey } from './locales.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-slots' {
+declare module '@solsticeai/equinox-client-ui-slots' {
   interface LocaleNamespaceMap {
     /** The question composer's copy. */
     question: QuestionKey

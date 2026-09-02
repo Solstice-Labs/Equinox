@@ -2,10 +2,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import { AttachmentId, ImageVariantId } from '@deepseek-ai/dsh-attachment'
-import type { AttachmentStore, ImageAttachmentRef, RequestImageAttachment } from '@deepseek-ai/dsh-attachment'
-import { createLaunchEnvironmentSnapshot } from '@deepseek-ai/dsh-launch-environment'
+import { Context } from '@solsticeai/cordis'
+import { AttachmentId, ImageVariantId } from '@solsticeai/equinox-attachment'
+import type { AttachmentStore, ImageAttachmentRef, RequestImageAttachment } from '@solsticeai/equinox-attachment'
+import { createLaunchEnvironmentSnapshot } from '@solsticeai/equinox-launch-environment'
 import LlmRuntime, { ToolCallId, createUserMessage,
   CONTEXT_WINDOW_EXCEEDED_CODE,
   LlmError,
@@ -13,14 +13,14 @@ import LlmRuntime, { ToolCallId, createUserMessage,
   QUOTA_EXCEEDED_CODE,
   ReasoningEffortId,
   userAgent,
-} from '@deepseek-ai/dsh-llm'
-import { MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
-import { getOrCreateAnonymousUserId, type AnonymousUserId } from '@deepseek-ai/dsh-anonymous-user-id'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import DeepSeekLlmApiExtensionRegistry from '@deepseek-ai/dsh-deepseek-llm-api-extensions'
-import type { PreparedDeepSeekLlmApiExtensions } from '@deepseek-ai/dsh-deepseek-llm-api-extensions'
-import * as LlmDeepSeek from '@deepseek-ai/dsh-llm-deepseek'
-import { DeepSeekAdapter, resolveAdapterOptions } from '@deepseek-ai/dsh-llm-deepseek'
+} from '@solsticeai/equinox-llm'
+import { MAX_TIMER_DELAY_MS } from '@solsticeai/equinox-timeout'
+import { getOrCreateAnonymousUserId, type AnonymousUserId } from '@solsticeai/equinox-anonymous-user-id'
+import { SessionId } from '@solsticeai/equinox-session'
+import DeepSeekLlmApiExtensionRegistry from '@solsticeai/equinox-deepseek-llm-api-extensions'
+import type { PreparedDeepSeekLlmApiExtensions } from '@solsticeai/equinox-deepseek-llm-api-extensions'
+import * as LlmDeepSeek from '@solsticeai/equinox-llm-deepseek'
+import { DeepSeekAdapter, resolveAdapterOptions } from '@solsticeai/equinox-llm-deepseek'
 import { httpErrorCode } from '../src/adapter.ts'
 import { resolveRequestImagePolicy } from '../src/request-pricing.ts'
 import { assemble } from './assemble.ts'

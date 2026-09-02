@@ -6,10 +6,10 @@
  * compaction cannot change. The plugin owns only the fold; delivery is the
  * seam's.
  *
- * @module @deepseek-ai/dsh-session-stats
+ * @module @solsticeai/equinox-session-stats
  */
 
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@solsticeai/cordis'
 import { sessionStatsProjectionDefinition } from './projection.ts'
 
 export type * from './types.ts'

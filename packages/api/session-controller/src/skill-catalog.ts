@@ -1,15 +1,15 @@
 /** Session-addressed, cold-readable skill catalog Remote. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-agent-presets/types'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import { SessionQueryError } from '@deepseek-ai/dsh-session-query'
-import { isUserInvocable } from '@deepseek-ai/dsh-skill'
-import type { ScopeKey } from '@deepseek-ai/dsh-scope'
-import { Remote, RemoteError, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
+import type { Context } from '@solsticeai/cordis'
+import type {} from '@solsticeai/equinox-agent-presets/types'
+import type { SessionId } from '@solsticeai/equinox-session'
+import { SessionQueryError } from '@solsticeai/equinox-session-query'
+import { isUserInvocable } from '@solsticeai/equinox-skill'
+import type { ScopeKey } from '@solsticeai/equinox-scope'
+import { Remote, RemoteError, TypertRemoteService } from '@solsticeai/equinox-typert-protocol'
 import type { SkillListRequest, SkillListValue } from './types.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     /** Host owner of the Session-addressed `skills` Remote namespace. */
     sessionSkillCatalog: SessionSkillCatalog
@@ -67,7 +67,7 @@ export class SessionSkillCatalog extends TypertRemoteService {
     if (skillRegistry === undefined) {
       throw new RemoteError(
         'gateway/internal',
-        'skill registry is absent: neither this session\'s agent preset nor the host composition mounts @deepseek-ai/dsh-skill',
+        'skill registry is absent: neither this session\'s agent preset nor the host composition mounts @solsticeai/equinox-skill',
         {},
       )
     }

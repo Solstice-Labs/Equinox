@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-llm-retry",
+  "name": "@solsticeai/equinox-llm-retry",
   "description": "Provider-routed LLM request retry policy for the DeepSeek Harness",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/llm/llm-retry"
   },
   "type": "module",
@@ -36,36 +36,36 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^"
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-invariants": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^",
+    "@solsticeai/schemastery": "workspace:^",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/cordis-plugin-include": "workspace:^",
-    "@deepseek-ai/cordis-plugin-loader": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-llm-deepseek": "workspace:^",
-    "@deepseek-ai/dsh-llm-mock-server": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^"
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/cordis-plugin-include": "workspace:^",
+    "@solsticeai/cordis-plugin-loader": "workspace:^",
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-agent-loop": "workspace:^",
+    "@solsticeai/equinox-agent-loop-testkit": "workspace:^",
+    "@solsticeai/equinox-invariants": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-llm-deepseek": "workspace:^",
+    "@solsticeai/equinox-llm-mock-server": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-session-persistence-jsonl": "workspace:^",
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/equinox-timeout": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^"
   }
 }

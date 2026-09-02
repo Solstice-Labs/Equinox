@@ -1,13 +1,13 @@
 /**
  * Model-facing, workspace-authorized session-history search and read tools.
  *
- * @module @deepseek-ai/dsh-tool-session-query
+ * @module @solsticeai/equinox-tool-session-query
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
-import { defineTool } from '@deepseek-ai/dsh-tools'
+import type { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { MAX_TIMER_DELAY_MS } from '@solsticeai/equinox-timeout'
+import { defineTool } from '@solsticeai/equinox-tools'
 import { toolInput } from './input.ts'
 import { operations } from './operations.ts'
 import { presentation } from './presentation.ts'

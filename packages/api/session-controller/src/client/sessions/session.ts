@@ -1,11 +1,11 @@
 // Sessions remain resident after creation so their open Remote sources keep running off-screen.
 
-import type { Context } from '@deepseek-ai/cordis'
-import { randomUUID } from '@deepseek-ai/dsh-util-crypto'
-import type { AttachmentIdType, ImageAttachmentRef } from '@deepseek-ai/dsh-attachment'
-import type { SubagentAddress } from '@deepseek-ai/dsh-subagent/client'
-import type { MessageId } from '@deepseek-ai/dsh-llm/brand'
-import { SessionLogOffset, SessionSeq, type SessionId } from '@deepseek-ai/dsh-session/types'
+import type { Context } from '@solsticeai/cordis'
+import { randomUUID } from '@solsticeai/equinox-util-crypto'
+import type { AttachmentIdType, ImageAttachmentRef } from '@solsticeai/equinox-attachment'
+import type { SubagentAddress } from '@solsticeai/equinox-subagent/client'
+import type { MessageId } from '@solsticeai/equinox-llm/brand'
+import { SessionLogOffset, SessionSeq, type SessionId } from '@solsticeai/equinox-session/types'
 import { SessionEventStream } from '../transport.ts'
 import type { SessionJournalChange } from '../transport.ts'
 import type {
@@ -28,8 +28,8 @@ import type {
   SessionEventLikeEntry, SessionLiveEventEntry,
 } from '../contract/events.ts'
 import { Notifier } from './notifier.ts'
-import { isRemoteFailure } from '@deepseek-ai/dsh-api-gateway/client'
-import type { RemoteFailure, RemoteResult } from '@deepseek-ai/dsh-typert-protocol'
+import { isRemoteFailure } from '@solsticeai/equinox-api-gateway/client'
+import type { RemoteFailure, RemoteResult } from '@solsticeai/equinox-typert-protocol'
 import type { SessionRemotes } from './remotes.ts'
 import { ProjectionValueStore } from './projection-store.ts'
 import type { ProjectionsBaseline } from './projection-store.ts'

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-bash-sandbox",
+  "name": "@solsticeai/equinox-bash-sandbox",
   "description": "Sandbox-consuming implementation of the DeepSeek Harness bash executor seam (confines every command via ctx.sandbox, reports denial/enforcement result facts)",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/shell/bash-sandbox"
   },
   "type": "module",
@@ -27,21 +27,21 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-shell": "workspace:^",
-    "@deepseek-ai/dsh-bash-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-shell": "workspace:^",
+    "@solsticeai/equinox-bash-local": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-shell": "workspace:^",
-    "@deepseek-ai/dsh-bash-local": "workspace:^",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/node-addon-landlock-run": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^"
+    "@solsticeai/equinox-shell": "workspace:^",
+    "@solsticeai/equinox-bash-local": "workspace:^",
+    "@solsticeai/equinox-subprocess-local": "workspace:^",
+    "@solsticeai/equinox-sandbox": "workspace:^",
+    "@solsticeai/equinox-sandbox-local": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/node-addon-landlock-run": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^"
   }
 }

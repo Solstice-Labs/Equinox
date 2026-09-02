@@ -1,14 +1,14 @@
 /** Workspace command implementation and stable Remote failure mapping. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Workspace } from '@deepseek-ai/dsh-workspace'
+import type { Context } from '@solsticeai/cordis'
+import type { Workspace } from '@solsticeai/equinox-workspace'
 import {
   WorkspaceId,
   WorkspaceMoveInvalidError,
   WorkspaceOrderInvalidError,
   WorkspaceUnknownSessionError,
-} from '@deepseek-ai/dsh-workspace'
-import { RemoteError, remoteErrorOf } from '@deepseek-ai/dsh-typert-protocol'
+} from '@solsticeai/equinox-workspace'
+import { RemoteError, remoteErrorOf } from '@solsticeai/equinox-typert-protocol'
 import { workspaceView } from './feed.ts'
 import type {
   WorkspaceArchiveSessionRequest,

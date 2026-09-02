@@ -4,60 +4,60 @@
 
 - insert:
     - id: sdk-app-startup
-      name: '@deepseek-ai/dsh-sdk-app'
+      name: '@solsticeai/equinox-sdk-app'
       config:
         profile: sdk-minimal
 
     - id: sdk-jsonrpc-server
-      name: '@deepseek-ai/dsh-sdk-jsonrpc-server'
+      name: '@solsticeai/equinox-sdk-jsonrpc-server'
       inject: [sdkAppStartup, loader]
       config:
         maxTokensAsSuccess: false
 
     - id: deepseek-llm-api-extensions
-      name: '@deepseek-ai/dsh-deepseek-llm-api-extensions'
+      name: '@solsticeai/equinox-deepseek-llm-api-extensions'
 
     - id: session-log-deepseek
-      name: '@deepseek-ai/dsh-session-log-deepseek'
+      name: '@solsticeai/equinox-session-log-deepseek'
 
     - id: plugin-package-inventory-deepseek
-      name: '@deepseek-ai/dsh-plugin-package-inventory-deepseek'
+      name: '@solsticeai/equinox-plugin-package-inventory-deepseek'
 
     - id: llm-deepseek
-      name: '@deepseek-ai/dsh-llm-deepseek'
+      name: '@solsticeai/equinox-llm-deepseek'
       config:
         apiKeyEnv: DEEPSEEK_API_KEY
         defaultContextWindow: !!js Number(process.env.DSH_CONTEXT_WINDOW ?? 1000000)
         streamIdleTimeoutMs: 172800000
 
     - id: sandbox
-      name: '@deepseek-ai/dsh-sandbox-local'
+      name: '@solsticeai/equinox-sandbox-local'
 
     # Shared projection registry: sandbox-policy and terminal-bash fold
     # sandbox-mode state through its units and require it as a hard injection.
     - id: session-projection
-      name: '@deepseek-ai/dsh-session-projection'
+      name: '@solsticeai/equinox-session-projection'
 
     - id: sandbox-policy
-      name: '@deepseek-ai/dsh-sandbox-policy'
+      name: '@solsticeai/equinox-sandbox-policy'
       config:
         mode: danger-full-access
         workspaceRoot: !!js process.cwd()
 
     - id: subprocess
-      name: '@deepseek-ai/dsh-subprocess-local'
+      name: '@solsticeai/equinox-subprocess-local'
 
     - id: pty
-      name: '@deepseek-ai/dsh-terminal'
+      name: '@solsticeai/equinox-terminal'
 
     - id: terminal-bash
-      name: '@deepseek-ai/dsh-terminal-bash'
+      name: '@solsticeai/equinox-terminal-bash'
       disabled: !!js process.platform === 'win32'
       config:
         timeoutMs: 300000
 
     - id: terminal-pwsh
-      name: '@deepseek-ai/dsh-terminal-bash'
+      name: '@solsticeai/equinox-terminal-bash'
       disabled: !!js process.platform !== 'win32'
       config:
         shellDialect: pwsh
@@ -66,69 +66,69 @@
     # The editor uses the bare local filesystem; persistent Bash still consumes
     # the shared danger-full-access sandbox policy above.
     - id: fs-local
-      name: '@deepseek-ai/dsh-fs-local'
+      name: '@solsticeai/equinox-fs-local'
       config:
         cwd: !!js process.cwd()
 
     # Keep the minimal agent kernel explicit: unlike dsh-base, this profile
     # owns each service row and omits every optional producer it does not use.
     - id: timer
-      name: '@deepseek-ai/cordis-plugin-timer'
+      name: '@solsticeai/cordis-plugin-timer'
 
     - id: llm
-      name: '@deepseek-ai/dsh-llm'
+      name: '@solsticeai/equinox-llm'
 
     - id: session
-      name: '@deepseek-ai/dsh-session'
+      name: '@solsticeai/equinox-session'
 
     - id: session-title
-      name: '@deepseek-ai/dsh-session-title'
+      name: '@solsticeai/equinox-session-title'
       config:
         fallbackMaxWords: 5
         fallbackMaxBytes: 40
         maxTitleBytes: 80
 
     - id: system-prompt
-      name: '@deepseek-ai/dsh-system-prompt'
+      name: '@solsticeai/equinox-system-prompt'
       config:
         includeHarnessIdentity: false
         includeRuntimeContext: false
         persona: !!js process.env.DSH_SYSTEM_PROMPT ?? 'You are a helpful software engineer assistant.'
 
     - id: tools
-      name: '@deepseek-ai/dsh-tools'
+      name: '@solsticeai/equinox-tools'
 
     - id: agent
-      name: '@deepseek-ai/dsh-agent'
+      name: '@solsticeai/equinox-agent'
 
     - id: llm-retry
-      name: '@deepseek-ai/dsh-llm-retry'
+      name: '@solsticeai/equinox-llm-retry'
 
     - id: jobs
-      name: '@deepseek-ai/dsh-jobs-local'
+      name: '@solsticeai/equinox-jobs-local'
 
     - id: invariants
-      name: '@deepseek-ai/dsh-invariants'
+      name: '@solsticeai/equinox-invariants'
 
     - id: session-invariant
-      name: '@deepseek-ai/dsh-session/invariant'
+      name: '@solsticeai/equinox-session/invariant'
 
     - id: agent-invariant
-      name: '@deepseek-ai/dsh-agent/invariant'
+      name: '@solsticeai/equinox-agent/invariant'
 
     - id: scope-invariant
-      name: '@deepseek-ai/dsh-scope/invariant'
+      name: '@solsticeai/equinox-scope/invariant'
 
     - id: agent-loop-invariant
-      name: '@deepseek-ai/dsh-agent-loop/invariant'
+      name: '@solsticeai/equinox-agent-loop/invariant'
 
     - id: agent-loop
-      name: '@deepseek-ai/dsh-agent-loop'
+      name: '@solsticeai/equinox-agent-loop'
       config:
         agents: []
 
     - id: persistent-bash
-      name: '@deepseek-ai/dsh-tool-bash-persistent'
+      name: '@solsticeai/equinox-tool-bash-persistent'
       disabled: !!js process.platform === 'win32'
       config:
         timeoutMs: 300000
@@ -143,7 +143,7 @@
           * Please run long lived commands in the background, e.g. 'sleep 10 &' or start a server in the background.
 
     - id: persistent-pwsh
-      name: '@deepseek-ai/dsh-tool-pwsh-persistent'
+      name: '@solsticeai/equinox-tool-pwsh-persistent'
       disabled: !!js process.platform !== 'win32'
       config:
         timeoutMs: 300000
@@ -157,12 +157,12 @@
           * Please run long lived commands in the background, e.g. 'Start-Job' or start a server with Start-Process.
 
     - id: str-replace-editor
-      name: '@deepseek-ai/dsh-tool-str-replace-editor'
+      name: '@solsticeai/equinox-tool-str-replace-editor'
       config:
         maxOutputChars: 16000
 
     - id: sessions
-      name: '@deepseek-ai/dsh-session-persistence-jsonl'
+      name: '@solsticeai/equinox-session-persistence-jsonl'
       config:
         root: !!js dshHomePath('sessions')
         compression: none

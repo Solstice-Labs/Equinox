@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-goal",
+  "name": "@solsticeai/equinox-client-ui-goal",
   "description": "Session goal surface: GoalBar docked above the composer, read from the goal session projection",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/client/ui-goal"
   },
   "type": "module",
@@ -45,28 +45,28 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-api-remotes": "workspace:^",
-    "@deepseek-ai/dsh-api-session-controller": "workspace:^",
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-test-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-chat": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-conversation": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-renderer": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-session": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-goal": "workspace:^",
+    "@solsticeai/equinox-api-remotes": "workspace:^",
+    "@solsticeai/equinox-api-session-controller": "workspace:^",
+    "@solsticeai/equinox-client-locale": "workspace:^",
+    "@solsticeai/equinox-client-test-runtime": "workspace:^",
+    "@solsticeai/equinox-client-ui-chat": "workspace:^",
+    "@solsticeai/equinox-client-ui-conversation": "workspace:^",
+    "@solsticeai/equinox-client-ui-primitives": "workspace:^",
+    "@solsticeai/equinox-client-ui-slots": "workspace:^",
+    "@solsticeai/equinox-client-ui-renderer": "workspace:^",
+    "@solsticeai/equinox-client-ui-session": "workspace:^",
+    "@solsticeai/equinox-commands": "workspace:^",
+    "@solsticeai/equinox-goal": "workspace:^",
     "@testing-library/react": "^16.1.0",
     "@types/react": "~18.3.1",
-    "@deepseek-ai/cordis": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^"
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-typert-protocol": "workspace:^"
   },
   "files": [
     "lib/index.js",

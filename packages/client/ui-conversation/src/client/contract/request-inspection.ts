@@ -1,5 +1,5 @@
-import type { ContentBlock, ToolSchema } from '@deepseek-ai/dsh-llm/types'
-import type { SessionEvent } from '@deepseek-ai/dsh-session/types'
+import type { ContentBlock, ToolSchema } from '@solsticeai/equinox-llm/types'
+import type { SessionEvent } from '@solsticeai/equinox-session/types'
 import type {
   AssistantProvenanceView, AssistantRequestConfig,
 } from './records.ts'

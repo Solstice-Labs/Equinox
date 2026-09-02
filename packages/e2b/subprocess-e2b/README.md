@@ -3,7 +3,7 @@ description: "Shell commands and terminals inside the shared remote sandbox: wha
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-subprocess-e2b
+# @solsticeai/equinox-subprocess-e2b
 
 English | [中文](README.zh.md)
 

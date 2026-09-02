@@ -2,12 +2,12 @@
  * Crash-recovery repair for an interrupted session log. It preserves a fully
  * written final turn and supplies the missing tool, step, and turn boundaries
  * needed to resume with a provider-valid transcript.
- * @module @deepseek-ai/dsh-session/repair
+ * @module @solsticeai/equinox-session/repair
  */
 
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type { MessageId, ToolCallId, ToolResultMessage } from '@deepseek-ai/dsh-llm'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
+import { brandString } from '@solsticeai/equinox-brand'
+import type { MessageId, ToolCallId, ToolResultMessage } from '@solsticeai/equinox-llm'
+import { deepFreeze } from '@solsticeai/equinox-util-values'
 import { SessionSeq } from './types.ts'
 import type { SessionEvent, SessionSeq as SessionSeqType } from './types.ts'
 

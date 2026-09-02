@@ -3,10 +3,10 @@
  * model-free: the vocabulary comes from successful first-party mutation
  * calls, never presentation data or the closing prose.
  */
-import { isAppendSurfaceEvent } from '@deepseek-ai/dsh-session/surface'
-import type { TurnTailOwnerProps } from '@deepseek-ai/dsh-client-ui-chat/client'
-import type { ConversationNodeDefinition } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { MarkdownFileMentions } from '@deepseek-ai/dsh-client-ui-primitives'
+import { isAppendSurfaceEvent } from '@solsticeai/equinox-session/surface'
+import type { TurnTailOwnerProps } from '@solsticeai/equinox-client-ui-chat/client'
+import type { ConversationNodeDefinition } from '@solsticeai/equinox-client-ui-conversation/client'
+import type { MarkdownFileMentions } from '@solsticeai/equinox-client-ui-primitives'
 
 interface ProducedPath {
   readonly seq: number
@@ -18,7 +18,7 @@ export interface DeliverablesTurnData {
   readonly produced: readonly ProducedPath[]
 }
 
-declare module '@deepseek-ai/dsh-client-ui-conversation/client' {
+declare module '@solsticeai/equinox-client-ui-conversation/client' {
   interface ConversationTurnDataMap {
     /** Successful mutation paths accumulated in this Turn. */
     deliverables: DeliverablesTurnData

@@ -1,19 +1,19 @@
 /**
  * Service Definition for combined session-history reads, traces, filters, and full-text search.
  *
- * @module @deepseek-ai/dsh-session-query
+ * @module @solsticeai/equinox-session-query
  */
 
-import { Context, Service } from '@deepseek-ai/cordis'
+import { Context, Service } from '@solsticeai/cordis'
 import {
   Session,
   SessionSeq,
   snapshotSessionEvent,
   type SessionId,
   type SessionSeq as SessionSeqType,
-} from '@deepseek-ai/dsh-session'
-import { foldSessionTitle } from '@deepseek-ai/dsh-session-title'
-import type { SessionTitleSnapshot } from '@deepseek-ai/dsh-session-title'
+} from '@solsticeai/equinox-session'
+import { foldSessionTitle } from '@solsticeai/equinox-session-title'
+import type { SessionTitleSnapshot } from '@solsticeai/equinox-session-title'
 import type {
   SessionEventResultFilter,
   SessionEventSearchPage,
@@ -81,7 +81,7 @@ export {
 export { assertSessionHeadersCompatible } from './sources.ts'
 export type { SessionObservation, SessionObservationOptions } from './observation.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     sessionQuery: SessionQueryEngine
   }

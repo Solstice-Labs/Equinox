@@ -1,7 +1,7 @@
-/** Client-safe question, answer, and event types. @module @deepseek-ai/dsh-user-questions/types */
+/** Client-safe question, answer, and event types. @module @solsticeai/equinox-user-questions/types */
 
-import type { Scoped } from '@deepseek-ai/dsh-scope'
-import type { Agent } from '@deepseek-ai/dsh-agent/types'
+import type { Scoped } from '@solsticeai/equinox-scope'
+import type { Agent } from '@solsticeai/equinox-agent/types'
 
 /** One selectable answer offered to the user. */
 export interface AskUserQuestionOption {
@@ -73,12 +73,12 @@ export interface AskUserQuestionRequestEvent {
   signal?: AbortSignal
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Events {
     /**
      * Ask composed answerers for structured user input. Return an answer to
      * claim the request or call `next()` to delegate. Scope-filtered dispatch
-     * (`@deepseek-ai/dsh-scope`): agent-scoped listeners receive only that agent.
+     * (`@solsticeai/equinox-scope`): agent-scoped listeners receive only that agent.
      * @param request - pending user-question request.
      * @mode waterfall
      */

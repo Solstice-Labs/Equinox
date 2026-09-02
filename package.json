@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-root",
+  "name": "@solsticeai/equinox-root",
   "version": "0.1.2-alpha.5",
   "license": "MIT",
   "private": true,
@@ -158,8 +158,8 @@
     "postinstall": "node scripts/install-lefthook.mjs"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-tool-session-query": "workspace:^",
-    "@deepseek-ai/dsh-web-fetch-http": "workspace:^",
+    "@solsticeai/equinox-tool-session-query": "workspace:^",
+    "@solsticeai/equinox-web-fetch-http": "workspace:^",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.2",

@@ -22,12 +22,12 @@
  */
 
 import { Zip, ZipDeflate } from 'fflate'
-import type { Context } from '@deepseek-ai/cordis'
-import type { AttachmentStore, ImageAttachmentRef } from '@deepseek-ai/dsh-attachment'
-import type { SessionLineageNode, SessionQueryEngine } from '@deepseek-ai/dsh-session-query'
-import type { SessionEvent, SessionHeader, SessionId, SessionStore } from '@deepseek-ai/dsh-session'
-import type { SessionHandle, SessionPersistence } from '@deepseek-ai/dsh-session-persistence'
-import { SessionPersistenceNotFoundError } from '@deepseek-ai/dsh-session-persistence'
+import type { Context } from '@solsticeai/cordis'
+import type { AttachmentStore, ImageAttachmentRef } from '@solsticeai/equinox-attachment'
+import type { SessionLineageNode, SessionQueryEngine } from '@solsticeai/equinox-session-query'
+import type { SessionEvent, SessionHeader, SessionId, SessionStore } from '@solsticeai/equinox-session'
+import type { SessionHandle, SessionPersistence } from '@solsticeai/equinox-session-persistence'
+import { SessionPersistenceNotFoundError } from '@solsticeai/equinox-session-persistence'
 
 /** Valid fflate DEFLATE levels accepted by session-log export. */
 export type SessionLogCompressionLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9

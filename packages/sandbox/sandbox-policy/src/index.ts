@@ -17,18 +17,18 @@
  * reads session state once at each operation boundary; executors and providers
  * remain session-free.
  *
- * @module @deepseek-ai/dsh-sandbox-policy
+ * @module @solsticeai/equinox-sandbox-policy
  */
 
 import { resolve as resolvePath } from 'node:path'
-import { Context, Service } from '@deepseek-ai/cordis'
+import { Context, Service } from '@solsticeai/cordis'
 import { z as zod } from 'zod'
-import z from '@deepseek-ai/schemastery'
-import type {} from '@deepseek-ai/dsh-agent'
-import { canonicalPath, type SandboxExecutionPolicy, type SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import type { Session } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type {} from '@deepseek-ai/dsh-system-prompt'
+import z from '@solsticeai/schemastery'
+import type {} from '@solsticeai/equinox-agent'
+import { canonicalPath, type SandboxExecutionPolicy, type SandboxMode } from '@solsticeai/equinox-sandbox'
+import type { Session } from '@solsticeai/equinox-session'
+import type {} from '@solsticeai/equinox-session-projection'
+import type {} from '@solsticeai/equinox-system-prompt'
 
 export { SANDBOX_MODES, setSandboxMode } from './session-mode.ts'
 
@@ -54,7 +54,7 @@ function renderPolicyContext(policy: SandboxExecutionPolicy): string {
   }
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     sandboxPolicy: SandboxPolicyService
   }
@@ -93,7 +93,7 @@ const sandboxModeStateSchema = zod.union([
 ]).nullable()
 
 type SandboxModeState = zod.infer<typeof sandboxModeStateSchema>
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@solsticeai/equinox-session-projection/types' {
   interface SessionProjectionStateMap {
     /** Last logged sandbox-mode override, or null before one (deployment default applies at resolve time). */
     sandboxMode: SandboxModeState

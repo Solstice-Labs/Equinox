@@ -3,7 +3,7 @@ description: "The read-before-edit filesystem policy plugin for deployments and 
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-fs-observation-policy
+# @solsticeai/equinox-fs-observation-policy
 
 English | [中文](README.zh.md)
 
@@ -32,9 +32,9 @@ Load this plugin alongside a `ctx.fs` backend and the `dsh-tool-fs` tools when a
 Load a backend, then this plugin, then the tools. The policy listener should be the first decider registered for the `fs/*`-intent slots.
 
 ```yaml
-- name: '@deepseek-ai/dsh-fs-local'
-- name: '@deepseek-ai/dsh-fs-observation-policy'
-- name: '@deepseek-ai/dsh-tool-fs'
+- name: '@solsticeai/equinox-fs-local'
+- name: '@solsticeai/equinox-fs-observation-policy'
+- name: '@solsticeai/equinox-tool-fs'
 ```
 
 ### What changes for the model

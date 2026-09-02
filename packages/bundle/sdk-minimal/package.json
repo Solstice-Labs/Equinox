@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-sdk-minimal",
+  "name": "@solsticeai/equinox-sdk-minimal",
   "description": "The standalone minimal SDK profile bundle: JSON-RPC, one DeepSeek adapter, persistent shell, editor, and JSONL sessions",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/bundle/sdk-minimal"
   },
   "type": "module",
@@ -34,40 +34,40 @@
     }
   },
   "dependencies": {
-    "@deepseek-ai/cordis-plugin-timer": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop": "workspace:^",
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": "workspace:^",
-    "@deepseek-ai/dsh-fs-local": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-jobs-local": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-llm-deepseek": "workspace:^",
-    "@deepseek-ai/dsh-llm-retry": "workspace:^",
-    "@deepseek-ai/dsh-plugin-package-inventory-deepseek": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-scope": "workspace:^",
-    "@deepseek-ai/dsh-sdk-app": "workspace:^",
-    "@deepseek-ai/dsh-sdk-jsonrpc-server": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-log-deepseek": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-terminal": "workspace:^",
-    "@deepseek-ai/dsh-terminal-bash": "workspace:^",
-    "@deepseek-ai/dsh-tool-bash-persistent": "workspace:^",
-    "@deepseek-ai/dsh-tool-pwsh-persistent": "workspace:^",
-    "@deepseek-ai/dsh-tool-str-replace-editor": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^"
+    "@solsticeai/cordis-plugin-timer": "workspace:^",
+    "@solsticeai/equinox-agent": "workspace:^",
+    "@solsticeai/equinox-agent-loop": "workspace:^",
+    "@solsticeai/equinox-deepseek-llm-api-extensions": "workspace:^",
+    "@solsticeai/equinox-fs-local": "workspace:^",
+    "@solsticeai/equinox-invariants": "workspace:^",
+    "@solsticeai/equinox-jobs-local": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-llm-deepseek": "workspace:^",
+    "@solsticeai/equinox-llm-retry": "workspace:^",
+    "@solsticeai/equinox-plugin-package-inventory-deepseek": "workspace:^",
+    "@solsticeai/equinox-sandbox-local": "workspace:^",
+    "@solsticeai/equinox-sandbox-policy": "workspace:^",
+    "@solsticeai/equinox-scope": "workspace:^",
+    "@solsticeai/equinox-sdk-app": "workspace:^",
+    "@solsticeai/equinox-sdk-jsonrpc-server": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-session-log-deepseek": "workspace:^",
+    "@solsticeai/equinox-session-persistence-jsonl": "workspace:^",
+    "@solsticeai/equinox-session-projection": "workspace:^",
+    "@solsticeai/equinox-session-title": "workspace:^",
+    "@solsticeai/equinox-subprocess-local": "workspace:^",
+    "@solsticeai/equinox-system-prompt": "workspace:^",
+    "@solsticeai/equinox-terminal": "workspace:^",
+    "@solsticeai/equinox-terminal-bash": "workspace:^",
+    "@solsticeai/equinox-tool-bash-persistent": "workspace:^",
+    "@solsticeai/equinox-tool-pwsh-persistent": "workspace:^",
+    "@solsticeai/equinox-tool-str-replace-editor": "workspace:^",
+    "@solsticeai/equinox-tools": "workspace:^"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   }
 }

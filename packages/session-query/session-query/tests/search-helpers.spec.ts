@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createUserMessage, ToolCallId , createMessage, createToolResultMessage } from '@deepseek-ai/dsh-llm'
+import { Context } from '@solsticeai/cordis'
+import { createUserMessage, ToolCallId , createMessage, createToolResultMessage } from '@solsticeai/equinox-llm'
 import SessionStore, {
   SESSION_FORMAT_VERSION,
   SessionId,
   SessionSeq,
-} from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { SessionEvent, SessionHeader } from '@deepseek-ai/dsh-session'
+} from '@solsticeai/equinox-session'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import type { SessionEvent, SessionHeader } from '@solsticeai/equinox-session'
 import {
   buildSessionEventRecords,
   buildSessionEventSearchDocuments,
@@ -18,7 +18,7 @@ import {
   materializeSessionEventResultFilters,
   materializeSessionResultFilters,
   type SessionQueryErrorCode,
-} from '@deepseek-ai/dsh-session-query'
+} from '@solsticeai/equinox-session-query'
 import { TestSessionQueryEngine } from './test-service.ts'
 
 const id = SessionId('session')

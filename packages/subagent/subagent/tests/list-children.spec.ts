@@ -3,31 +3,31 @@ import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { z } from 'zod'
-import { Context } from '@deepseek-ai/cordis'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import SessionStore, { SessionLogOffset, SessionSeq, SESSION_FORMAT_VERSION, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionHeader } from '@deepseek-ai/dsh-session'
-import type { SessionObservation } from '@deepseek-ai/dsh-session-query'
-import JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
-import SessionProjectionCache from '@deepseek-ai/dsh-session-projection-cache'
-import Storage from '@deepseek-ai/dsh-storage'
+import { Context } from '@solsticeai/cordis'
+import { createUserMessage } from '@solsticeai/equinox-llm'
+import AgentLoop from '@solsticeai/equinox-agent-loop'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { mountAgentLoopTestDependencies } from '@solsticeai/equinox-agent-loop-testkit'
+import SessionStore, { SessionLogOffset, SessionSeq, SESSION_FORMAT_VERSION, SessionId } from '@solsticeai/equinox-session'
+import type { SessionEvent, SessionHeader } from '@solsticeai/equinox-session'
+import type { SessionObservation } from '@solsticeai/equinox-session-query'
+import JsonlSessionPersistence from '@solsticeai/equinox-session-persistence-jsonl'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import type { ProjectionDefinition } from '@solsticeai/equinox-session-projection'
+import SessionProjectionCache from '@solsticeai/equinox-session-projection-cache'
+import Storage from '@solsticeai/equinox-storage'
 import {
   apply as storageJsonApply, Config as storageJsonConfig, inject as storageJsonInject, name as storageJsonName,
-} from '@deepseek-ai/dsh-storage-json'
+} from '@solsticeai/equinox-storage-json'
 import {
   apply as storageDomainApply, Config as storageDomainConfig, inject as storageDomainInject, name as storageDomainName,
-} from '@deepseek-ai/dsh-storage-domain'
+} from '@solsticeai/equinox-storage-domain'
 import SubagentRuntime, {
   SUBAGENT_DESCRIPTOR_VERSION,
   SubagentError,
-} from '@deepseek-ai/dsh-subagent'
-import * as SubagentSpawn from '@deepseek-ai/dsh-subagent-spawn-in-process'
-import * as SubagentFork from '@deepseek-ai/dsh-subagent-fork-in-process'
+} from '@solsticeai/equinox-subagent'
+import * as SubagentSpawn from '@solsticeai/equinox-subagent-spawn-in-process'
+import * as SubagentFork from '@solsticeai/equinox-subagent-fork-in-process'
 import { MockAdapter, textResponse } from '../../../core/agent-loop/tests/mock-adapter.ts'
 import { TestSessionQuery } from './test-session-query.ts'
 import { seedStoredSession } from './persistence-helpers.ts'
@@ -166,7 +166,7 @@ function descriptorPayload(label: string, version = SUBAGENT_DESCRIPTOR_VERSION)
   return { version, mode: 'continuable' as const, provider: 'spawn', label }
 }
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@solsticeai/equinox-session-projection/types' {
   interface SessionProjectionStateMap {
     subagentListHostileProbe: { poisoned?: boolean | undefined }
   }

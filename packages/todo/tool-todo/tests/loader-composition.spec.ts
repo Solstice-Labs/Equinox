@@ -6,17 +6,17 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import AgentRegistry, { Inbox } from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import * as ToolTodo from '@deepseek-ai/dsh-tool-todo'
+import { Context } from '@solsticeai/cordis'
+import Loader from '@solsticeai/cordis-plugin-loader'
+import Include from '@solsticeai/cordis-plugin-include'
+import { ToolCallId } from '@solsticeai/equinox-llm'
+import { Session, SessionId } from '@solsticeai/equinox-session'
+import AgentRegistry, { Inbox } from '@solsticeai/equinox-agent'
+import type { Agent } from '@solsticeai/equinox-agent'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime from '@solsticeai/equinox-tools'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import * as ToolTodo from '@solsticeai/equinox-tool-todo'
 
 let root: string | undefined
 let context: Context | undefined
@@ -56,11 +56,11 @@ async function boot(configLines: readonly string[]): Promise<Context> {
   root = await mkdtemp(join(tmpdir(), 'dsh-todo-loader-'))
   const configPath = join(root, 'cordis.yml')
   await writeFile(configPath, [
-    "- name: '@deepseek-ai/dsh-agent'",
-    "- name: '@deepseek-ai/dsh-system-prompt'",
-    "- name: '@deepseek-ai/dsh-tools'",
-    "- name: '@deepseek-ai/dsh-session-projection'",
-    "- name: '@deepseek-ai/dsh-tool-todo'",
+    "- name: '@solsticeai/equinox-agent'",
+    "- name: '@solsticeai/equinox-system-prompt'",
+    "- name: '@solsticeai/equinox-tools'",
+    "- name: '@solsticeai/equinox-session-projection'",
+    "- name: '@solsticeai/equinox-tool-todo'",
     ...configLines.length > 0 ? ['  config:', ...configLines] : [],
     '',
   ].join('\n'))
@@ -71,11 +71,11 @@ async function boot(configLines: readonly string[]): Promise<Context> {
   await ctx.plugin(Loader)
   ctx.loader.builtins.include = Include
   const modules = new Map<string, unknown>([
-    ['@deepseek-ai/dsh-agent', AgentRegistry],
-    ['@deepseek-ai/dsh-system-prompt', SystemPrompt],
-    ['@deepseek-ai/dsh-tools', ToolRuntime],
-    ['@deepseek-ai/dsh-session-projection', SessionProjectionRegistry],
-    ['@deepseek-ai/dsh-tool-todo', ToolTodo],
+    ['@solsticeai/equinox-agent', AgentRegistry],
+    ['@solsticeai/equinox-system-prompt', SystemPrompt],
+    ['@solsticeai/equinox-tools', ToolRuntime],
+    ['@solsticeai/equinox-session-projection', SessionProjectionRegistry],
+    ['@solsticeai/equinox-tool-todo', ToolTodo],
   ])
   ctx.loader.internal = {
     version: 'v2',

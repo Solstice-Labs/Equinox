@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-acp-app",
+  "name": "@solsticeai/equinox-acp-app",
   "description": "The dsh ACP profile bundle: automation-only JSON-RPC stdio and process lifecycle over dsh-base",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/bundle/acp-app"
   },
   "type": "module",
@@ -34,15 +34,15 @@
     }
   },
   "dependencies": {
-    "@deepseek-ai/dsh-acp": "workspace:^",
-    "@deepseek-ai/dsh-cmdline": "workspace:^",
+    "@solsticeai/equinox-acp": "workspace:^",
+    "@solsticeai/equinox-cmdline": "workspace:^",
     "commander": "^15.0.0"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-include": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis-plugin-include": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   }
 }

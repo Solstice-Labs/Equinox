@@ -1,7 +1,7 @@
 /** Host registration for browser conversation preferences. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-settings'
+import type { Context } from '@solsticeai/cordis'
+import type {} from '@solsticeai/equinox-settings'
 import { CONVERSATION_SETTINGS_NAMESPACE, ConversationSettingsSchema } from './submission-settings.ts'
 
 export {

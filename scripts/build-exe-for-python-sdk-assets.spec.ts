@@ -21,8 +21,8 @@ describe('Python runtime executable assets', () => {
     })
 
     expect(result.status).toBe(0)
-    expect(result.stdout).toContain('node_modules/@deepseek-ai/dsh-web-frontend/dist/**/*')
-    expect(result.stdout).toContain('node_modules/@deepseek-ai/dsh-skill-badge/assets/**/*')
+    expect(result.stdout).toContain('node_modules/@solsticeai/equinox-web-frontend/dist/**/*')
+    expect(result.stdout).toContain('node_modules/@solsticeai/equinox-skill-badge/assets/**/*')
     expect(result.stdout).not.toContain('node_modules/**/*.py')
   })
 })

@@ -1,22 +1,22 @@
 /** Session commands whose activation policy is explicit at each Remote method. */
 
 import { randomUUID } from 'node:crypto'
-import type { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type { Agent, ModelSelection as AgentModelSelection } from '@deepseek-ai/dsh-agent'
-import { AttachmentError, admitPromptContent } from '@deepseek-ai/dsh-attachment'
-import type { ImageAttachmentRef } from '@deepseek-ai/dsh-attachment'
+import type { Context } from '@solsticeai/cordis'
+import { brandString } from '@solsticeai/equinox-brand'
+import type { Agent, ModelSelection as AgentModelSelection } from '@solsticeai/equinox-agent'
+import { AttachmentError, admitPromptContent } from '@solsticeai/equinox-attachment'
+import type { ImageAttachmentRef } from '@solsticeai/equinox-attachment'
 import {
   ReasoningEffortId, createUserMessage, freezeMessage,
-} from '@deepseek-ai/dsh-llm'
-import type { MessageSource } from '@deepseek-ai/dsh-llm'
-import { SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@deepseek-ai/dsh-session'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { SessionTitleInvalidError } from '@deepseek-ai/dsh-session-title'
-import { canonicalClientTimeZone } from '@deepseek-ai/dsh-util-time'
-import { RemoteError, remoteErrorOf } from '@deepseek-ai/dsh-typert-protocol'
-import type { Workspace } from '@deepseek-ai/dsh-workspace'
+} from '@solsticeai/equinox-llm'
+import type { MessageSource } from '@solsticeai/equinox-llm'
+import { SessionLogOffset, SessionSeq } from '@solsticeai/equinox-session'
+import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@solsticeai/equinox-session'
+import { SessionQueryError, type SessionObservation } from '@solsticeai/equinox-session-query'
+import { SessionTitleInvalidError } from '@solsticeai/equinox-session-title'
+import { canonicalClientTimeZone } from '@solsticeai/equinox-util-time'
+import { RemoteError, remoteErrorOf } from '@solsticeai/equinox-typert-protocol'
+import type { Workspace } from '@solsticeai/equinox-workspace'
 import {
   ApiSessionAgentController,
   ApiSessionCwdConflict,

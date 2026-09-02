@@ -1,16 +1,16 @@
 /** Client owner for forwarded Remote Event subscriptions and deliveries. */
 
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@solsticeai/cordis'
 import type {
   ConnectionGenerationSource,
   ConnectionHostInfo,
   ConnectionHandle,
-} from '@deepseek-ai/dsh-client-connection/client'
+} from '@solsticeai/equinox-client-connection/client'
 import type {
   TypertClientEventListener,
   TypertRemoteEvent,
-} from '@deepseek-ai/dsh-typert-protocol'
-import { randomUUID } from '@deepseek-ai/dsh-util-crypto'
+} from '@solsticeai/equinox-typert-protocol'
+import { randomUUID } from '@solsticeai/equinox-util-crypto'
 import {
   REMOTE_EVENT_RESULT_ENDPOINT,
   REMOTE_EVENT_STREAM_ENDPOINT,

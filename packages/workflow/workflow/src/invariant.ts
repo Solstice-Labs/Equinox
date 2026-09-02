@@ -1,7 +1,7 @@
-/** Package-owned workflow lifecycle invariants. @module @deepseek-ai/dsh-workflow/invariant */
+/** Package-owned workflow lifecycle invariants. @module @solsticeai/equinox-workflow/invariant */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantFailure, InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@solsticeai/cordis'
+import type { InvariantFailure, InvariantInstaller } from '@solsticeai/equinox-invariants'
 import type {
   WorkflowAgentEndInfo,
   WorkflowAgentInfo,
@@ -9,7 +9,7 @@ import type {
   WorkflowRunInfo,
 } from './types.ts'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-workflow'
+const PACKAGE_NAME = '@solsticeai/equinox-workflow'
 
 /** Cordis companion plugin name. */
 export const name = 'workflow-invariant'

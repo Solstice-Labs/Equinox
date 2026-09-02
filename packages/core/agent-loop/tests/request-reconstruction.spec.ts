@@ -6,16 +6,16 @@
  */
 
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import LlmRuntime, { createUserMessage, LlmError, ReasoningEffortId  } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, LlmModelReasoningInfo, LlmResolvedModelInfo, StreamChunk } from '@deepseek-ai/dsh-llm'
-import SessionStore, { Session, SessionId, foldRequestHeader } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { defineContentToolFixture } from '@deepseek-ai/dsh-tools'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
+import { Context } from '@solsticeai/cordis'
+import LlmRuntime, { createUserMessage, LlmError, ReasoningEffortId  } from '@solsticeai/equinox-llm'
+import type { GenerateOptions, LlmModelReasoningInfo, LlmResolvedModelInfo, StreamChunk } from '@solsticeai/equinox-llm'
+import SessionStore, { Session, SessionId, foldRequestHeader } from '@solsticeai/equinox-session'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime, { defineContentToolFixture } from '@solsticeai/equinox-tools'
+import AgentRegistry, { type Agent } from '@solsticeai/equinox-agent'
 
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import AgentLoop from '@solsticeai/equinox-agent-loop'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
 import { MockAdapter, textResponse, toolCallResponse } from './mock-adapter.ts'
 
 async function harness(adapter: MockAdapter, persona = 'stable base') {

@@ -1,15 +1,15 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import SessionStore, { Session, SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import type { ApprovalPolicy } from '@deepseek-ai/dsh-user-approval'
+import { Context } from '@solsticeai/cordis'
+import SessionStore, { Session, SessionId } from '@solsticeai/equinox-session'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import type { SandboxMode } from '@solsticeai/equinox-sandbox'
+import type { ApprovalPolicy } from '@solsticeai/equinox-user-approval'
 import PermissionPresetService, {
   CUSTOM_PRESET, PERMISSION_SETTINGS_NAMESPACE,
-} from '@deepseek-ai/dsh-permission-presets'
-import type { Config } from '@deepseek-ai/dsh-permission-presets'
-import { SettingsProvider } from '@deepseek-ai/dsh-settings'
-import type { SettingsNamespace } from '@deepseek-ai/dsh-settings'
+} from '@solsticeai/equinox-permission-presets'
+import type { Config } from '@solsticeai/equinox-permission-presets'
+import { SettingsProvider } from '@solsticeai/equinox-settings'
+import type { SettingsNamespace } from '@solsticeai/equinox-settings'
 
 /** Writable memory provider for the permission/settings lifecycle specs. */
 class MemorySettings extends SettingsProvider {

@@ -7,12 +7,12 @@
  * listeners on each Session context and owns the default-sink choreography: every session is a
  * real host entity, so the sink is one unconditional prompt path.
  */
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@solsticeai/cordis'
 import type {
   ISessions, SessionBinding, SessionFace,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { TranslateNS } from '@deepseek-ai/dsh-client-locale/client'
+} from '@solsticeai/equinox-api-session-controller/client'
+import type { SessionId } from '@solsticeai/equinox-session/types'
+import type { TranslateNS } from '@solsticeai/equinox-client-locale/client'
 import { queueReadFaceOf } from './queue-store.ts'
 import type {
   ComposerKeyboard, DraftAttachmentId, InputTriggerController, SessionInputResolver, SessionInput,

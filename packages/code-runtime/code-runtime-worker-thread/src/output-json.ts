@@ -1,6 +1,6 @@
-/** JSON string-prefix accounting for the outer-output ledger. @module @deepseek-ai/dsh-code-runtime-worker-thread/output-json */
+/** JSON string-prefix accounting for the outer-output ledger. @module @solsticeai/equinox-code-runtime-worker-thread/output-json */
 
-import type { CodeJsonValue } from '@deepseek-ai/dsh-code-runtime'
+import type { CodeJsonValue } from '@solsticeai/equinox-code-runtime'
 
 type IntrinsicCallable = (this: unknown, ...args: unknown[]) => unknown
 

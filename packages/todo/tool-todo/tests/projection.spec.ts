@@ -8,18 +8,18 @@
  */
 
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { Session } from '@deepseek-ai/dsh-session'
-import type { TodoItem } from '@deepseek-ai/dsh-tool-todo'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import UserQuestionService from '@deepseek-ai/dsh-user-questions'
-import * as ToolTodo from '@deepseek-ai/dsh-tool-todo'
+import { Context } from '@solsticeai/cordis'
+import AgentRegistry from '@solsticeai/equinox-agent'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { createUserMessage } from '@solsticeai/equinox-llm'
+import SessionStore from '@solsticeai/equinox-session'
+import type { Session } from '@solsticeai/equinox-session'
+import type { TodoItem } from '@solsticeai/equinox-tool-todo'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime from '@solsticeai/equinox-tools'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import UserQuestionService from '@solsticeai/equinox-user-questions'
+import * as ToolTodo from '@solsticeai/equinox-tool-todo'
 
 interface Bench {
   ctx: Context

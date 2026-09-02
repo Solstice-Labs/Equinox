@@ -2,26 +2,26 @@ import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import Group from '@deepseek-ai/cordis-plugin-group'
-import LlmRuntime from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import AgentRegistry, { assembleContextFor, type Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
+import { Context } from '@solsticeai/cordis'
+import Loader from '@solsticeai/cordis-plugin-loader'
+import Include from '@solsticeai/cordis-plugin-include'
+import Group from '@solsticeai/cordis-plugin-group'
+import LlmRuntime from '@solsticeai/equinox-llm'
+import SessionStore, { SessionId } from '@solsticeai/equinox-session'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime from '@solsticeai/equinox-tools'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import AgentRegistry, { assembleContextFor, type Agent } from '@solsticeai/equinox-agent'
+import AgentLoop from '@solsticeai/equinox-agent-loop'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import AgentPresets, {
   COMPOSITION_FILE, leakedServices, livePresetMounts, mountPreset, serviceForAgent,
-} from '@deepseek-ai/dsh-agent-presets'
-import type { Config } from '@deepseek-ai/dsh-agent-presets'
-import type {} from '@deepseek-ai/dsh-agent-presets/types'
-import { bindScopeParent, createScope, scopeOf } from '@deepseek-ai/dsh-scope'
+} from '@solsticeai/equinox-agent-presets'
+import type { Config } from '@solsticeai/equinox-agent-presets'
+import type {} from '@solsticeai/equinox-agent-presets/types'
+import { bindScopeParent, createScope, scopeOf } from '@solsticeai/equinox-scope'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     /** Published by the `isolated` fixture preset behind an entry-local realm. */
     fixtureIsolatedSvc: { label: string }

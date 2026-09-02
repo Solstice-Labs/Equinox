@@ -3,7 +3,7 @@ description: "The on-demand /compact command for interactive compositions: what 
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-command-compact
+# @solsticeai/equinox-command-compact
 
 English | [中文](README.zh.md)
 
@@ -55,11 +55,11 @@ Mount the command registry, one condensation backend, and this plugin:
 
 ```yaml
 - id: commands
-  name: '@deepseek-ai/dsh-commands'
+  name: '@solsticeai/equinox-commands'
 - id: compaction-basic
-  name: '@deepseek-ai/dsh-compaction-basic'
+  name: '@solsticeai/equinox-compaction-basic'
 - id: command-compact
-  name: '@deepseek-ai/dsh-command-compact'
+  name: '@solsticeai/equinox-command-compact'
 ```
 
 The shipped `dsh` base mounts it beside the default backend, and the Web client provides the command adapter. Automation surfaces that compose no command adapter keep automatic condensation only.

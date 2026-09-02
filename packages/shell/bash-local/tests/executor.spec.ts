@@ -2,11 +2,11 @@ import { mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { LocalBashExecutor } from '@deepseek-ai/dsh-bash-local'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
-import { MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
-import type { ShellProcess } from '@deepseek-ai/dsh-shell'
+import { Context } from '@solsticeai/cordis'
+import { LocalBashExecutor } from '@solsticeai/equinox-bash-local'
+import LocalSubprocessRuntime from '@solsticeai/equinox-subprocess-local'
+import { MAX_TIMER_DELAY_MS } from '@solsticeai/equinox-timeout'
+import type { ShellProcess } from '@solsticeai/equinox-shell'
 
 const spillDir = mkdtempSync(join(tmpdir(), 'dsh-bash-exec-spec-'))
 

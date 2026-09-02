@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-connection",
+  "name": "@solsticeai/equinox-client-connection",
   "description": "Authenticated RPC transport, generation lifecycle, and browser fixture",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/client/connection"
   },
   "type": "module",
@@ -34,8 +34,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-credentials": "workspace:^",
-    "@deepseek-ai/schemastery": "workspace:^",
+    "@solsticeai/equinox-credentials": "workspace:^",
+    "@solsticeai/schemastery": "workspace:^",
     "zod": "^4.4.3"
   },
   "files": [
@@ -44,19 +44,19 @@
     "lib/types/**/*.d.ts"
   ],
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-host-directory-picker": "workspace:^",
-    "@deepseek-ai/dsh-host-webserver": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-settings": "workspace:^",
-    "@deepseek-ai/dsh-tool-todo": "workspace:^",
-    "@deepseek-ai/dsh-util-values": "workspace:^"
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-attachment": "workspace:^",
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/equinox-commands": "workspace:^",
+    "@solsticeai/equinox-host-directory-picker": "workspace:^",
+    "@solsticeai/equinox-host-webserver": "workspace:^",
+    "@solsticeai/equinox-llm": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
+    "@solsticeai/equinox-settings": "workspace:^",
+    "@solsticeai/equinox-tool-todo": "workspace:^",
+    "@solsticeai/equinox-util-values": "workspace:^"
   }
 }

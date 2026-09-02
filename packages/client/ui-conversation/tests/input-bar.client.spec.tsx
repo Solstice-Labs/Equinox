@@ -14,12 +14,12 @@ import { $getRoot, $isTextNode } from 'lexical'
 import {
   bindSnapshotSelector, conversationSnapshot as conversationFixture, makeTranslate, RemoteError,
   sessionSnapshot as sessionFixture,
-} from '@deepseek-ai/dsh-client-test-runtime'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { SessionListState, SessionSnapshot } from '@deepseek-ai/dsh-api-session-controller/client'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
-import type { Context } from '@deepseek-ai/cordis'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+} from '@solsticeai/equinox-client-test-runtime'
+import { createSnapshotStore } from '@solsticeai/equinox-client-store'
+import type { SessionListState, SessionSnapshot } from '@solsticeai/equinox-api-session-controller/client'
+import { zh as commonZh } from '@solsticeai/equinox-client-locale/src/locales/zh.ts'
+import type { Context } from '@solsticeai/cordis'
+import type { SessionId } from '@solsticeai/equinox-session/types'
 import type { SubmitOutcome } from '../src/client/contract/input.ts'
 import { SessionInputShell } from '../src/client/input/facade.ts'
 import { $replaceDetectSpanWithText, $selectDetectSpan } from '../src/client/input/editor/span-map.ts'

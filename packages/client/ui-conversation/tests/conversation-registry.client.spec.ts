@@ -1,20 +1,20 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@solsticeai/cordis'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { SessionSeq } from '@deepseek-ai/dsh-session/types'
-import type { SessionEvent, SessionId } from '@deepseek-ai/dsh-session/types'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
+import { SessionSeq } from '@solsticeai/equinox-session/types'
+import type { SessionEvent, SessionId } from '@solsticeai/equinox-session/types'
+import { createSnapshotStore } from '@solsticeai/equinox-client-store'
 import {
   createScope, MutableSessionEventSource,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@solsticeai/equinox-api-session-controller/client'
 import type {
   ISessions, SessionBinding, SessionFace, SessionListState, SessionSnapshot,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@solsticeai/equinox-api-session-controller/client'
 import {
   ConversationEventRegistry, ConversationNodeAssembler, ConversationViewRegistry, UiConversation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@solsticeai/equinox-client-ui-conversation/client'
 import type {
   ConversationNodeDefinition, ConversationViewDefinition, ConversationViewNode,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@solsticeai/equinox-client-ui-conversation/client'
 
 const SESSION_ID = 'resident' as SessionId
 

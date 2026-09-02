@@ -1,13 +1,13 @@
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import { boot } from '@deepseek-ai/dsh-app-boot'
-import { Inbox } from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-fs-e2b'
-import type {} from '@deepseek-ai/dsh-bash-local'
-import type {} from '@deepseek-ai/dsh-lsp-stdio'
-import type {} from '@deepseek-ai/dsh-terminal-bash'
+import { boot } from '@solsticeai/equinox-app-boot'
+import { Inbox } from '@solsticeai/equinox-agent'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { Session, SessionId } from '@solsticeai/equinox-session'
+import type {} from '@solsticeai/equinox-fs-e2b'
+import type {} from '@solsticeai/equinox-bash-local'
+import type {} from '@solsticeai/equinox-lsp-stdio'
+import type {} from '@solsticeai/equinox-terminal-bash'
 
 const configPath = process.argv[2]
 if (configPath === undefined) throw new Error('usage: bin.ts <cordis.yml>')

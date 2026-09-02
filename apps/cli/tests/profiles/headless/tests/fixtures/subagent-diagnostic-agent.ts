@@ -4,8 +4,8 @@
  * @module subagent-diagnostic-agent
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { SessionId } from '@deepseek-ai/dsh-session'
+import type { Context } from '@solsticeai/cordis'
+import type { SessionId } from '@solsticeai/equinox-session'
 
 /** Fixture plugin name. */
 export const name = 'subagent-diagnostic-agent'

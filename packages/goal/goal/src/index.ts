@@ -1,21 +1,21 @@
 /**
  * Same-session goal domain: event-sourced state, compare-and-set mutations,
  * and process-local continuation activation.
- * @module @deepseek-ai/dsh-goal
+ * @module @solsticeai/equinox-goal
  */
 
 import { randomUUID } from 'node:crypto'
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
+import { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
 import { z as zod } from 'zod'
 import type { ZodType } from 'zod'
-import { agentEvents } from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionLogOffset } from '@deepseek-ai/dsh-session'
-import { TypertRemoteService, Remote } from '@deepseek-ai/dsh-typert-protocol'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
+import { agentEvents } from '@solsticeai/equinox-agent'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { SessionSeq } from '@solsticeai/equinox-session'
+import type { Session, SessionEvent, SessionLogOffset } from '@solsticeai/equinox-session'
+import { TypertRemoteService, Remote } from '@solsticeai/equinox-typert-protocol'
+import type {} from '@solsticeai/equinox-session-projection'
+import type { ProjectionDefinition } from '@solsticeai/equinox-session-projection'
 import {
   applyGoalEvent,
   goalChangeRef,
@@ -56,7 +56,7 @@ export type * from './domain.ts'
 export { GOAL_CHANGE_VERSION, GoalError, GoalId } from './runtime.ts'
 export { decodeGoalChange, foldGoal, goalChangeRef } from './fold.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     goals: GoalService
   }

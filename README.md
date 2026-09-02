@@ -1,7 +1,7 @@
 # Equinox
 
 > **Universal Self-Improving Agent Harness for Local & Open-Source LLMs** — Solstice-AI.
-> Foundation: Pre-forked from [DeepSeek Harness (`deepseek-ai/deepseek-harness`)](https://github.com/deepseek-ai/deepseek-harness).
+> Foundation: Pre-forked from [DeepSeek Harness (`deepseek-ai/deepseek-harness`)](https://github.com/Solstice-Labs/Equinox).
 
 Equinox transforms any local or remote model into an autonomous, self-improving reasoning agent. By combining **DeepSeek Harness's plugin-first runtime** with **Solstice's Dual-Plane Activation Profiler (`imatrix`) & Self-Distillation Flywheel**, Equinox profiles your model, adapts to its cognitive strengths, learns from failures, and produces optimized quantization recipes.
 

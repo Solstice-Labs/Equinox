@@ -1,12 +1,12 @@
 /** Models section registration: slot declaration injection, the locale-following label thunk, and HMR recovery. */
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@solsticeai/cordis'
 import { describe, expect, it, vi } from 'vitest'
-import { resolveSlotLabel } from '@deepseek-ai/dsh-client-ui-slots'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { TestRemote, scriptedSettingsRemote } from '@deepseek-ai/dsh-client-test-runtime'
-import { apply as settingsApply, inject as settingsInject } from '@deepseek-ai/dsh-client-ui-settings/client'
-import { apply, inject, refreshIfLoaded } from '@deepseek-ai/dsh-client-ui-settings-models/client'
+import { resolveSlotLabel } from '@solsticeai/equinox-client-ui-slots'
+import { SlotRegistry } from '@solsticeai/equinox-client-ui-renderer/client'
+import { LocaleRuntime } from '@solsticeai/equinox-client-locale/client'
+import { TestRemote, scriptedSettingsRemote } from '@solsticeai/equinox-client-test-runtime'
+import { apply as settingsApply, inject as settingsInject } from '@solsticeai/equinox-client-ui-settings/client'
+import { apply, inject, refreshIfLoaded } from '@solsticeai/equinox-client-ui-settings-models/client'
 import {
   WELCOME_NOTICE_ACK_FIELD, WELCOME_NOTICE_SETTINGS_NAMESPACE, WELCOME_NOTICE_VERSION,
 } from '../src/onboarding-copy.ts'

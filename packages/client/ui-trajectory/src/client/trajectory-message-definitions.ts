@@ -1,9 +1,9 @@
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@solsticeai/cordis'
 import type {
   ContextMessageNode, ConversationNodeDefinition, ConversationPreviousContext,
   SteeringMessageNode, UserMessageNode,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type {} from '@deepseek-ai/dsh-agent/types'
+} from '@solsticeai/equinox-client-ui-conversation/client'
+import type {} from '@solsticeai/equinox-agent/types'
 import { trajectoryNode } from './trajectory-definition-common.ts'
 import { contextForm, contextProvenance } from './trajectory-event-projection.ts'
 

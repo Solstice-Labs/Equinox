@@ -9,21 +9,21 @@ import type {
   LegacyConversationSlice, ModelRetryNode, RunningToolCall, SelectionTarget, SteeringMessageNode,
   ToolCallBlock, ToolResultNode, TurnErrorNode, TurnMaxTokensNode, UseChatNodeTurnData,
   TranscriptViewMode, UserMessageNode,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
+} from '@solsticeai/equinox-client-ui-chat/client'
 import type {
   SessionListState, SessionSnapshot,
-} from '@deepseek-ai/dsh-api-session-controller/client'
+} from '@solsticeai/equinox-api-session-controller/client'
 import type {
   ConversationLocationDataStore, ConversationTurnDataMap,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { WorkspaceSnapshot } from '@deepseek-ai/dsh-api-workspace-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { SessionPendingInteractionSnapshot } from '@deepseek-ai/dsh-client-ui-session/client'
-import type { KeyedSnapshotSelectorHook, SnapshotSelectorHook } from '@deepseek-ai/dsh-client-ui-slots'
-import { bindSnapshotSelector, makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
-import { createSnapshotStore, type ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
-import { EMPTY_CONVERSATION_SNAPSHOT } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
+} from '@solsticeai/equinox-client-ui-conversation/client'
+import type { WorkspaceSnapshot } from '@solsticeai/equinox-api-workspace-controller/client'
+import type { SessionId } from '@solsticeai/equinox-session/types'
+import type { SessionPendingInteractionSnapshot } from '@solsticeai/equinox-client-ui-session/client'
+import type { KeyedSnapshotSelectorHook, SnapshotSelectorHook } from '@solsticeai/equinox-client-ui-slots'
+import { bindSnapshotSelector, makeTranslate } from '@solsticeai/equinox-client-test-runtime'
+import { createSnapshotStore, type ObservableSnapshot } from '@solsticeai/equinox-client-store'
+import { EMPTY_CONVERSATION_SNAPSHOT } from '@solsticeai/equinox-client-ui-conversation/client'
+import { zh as commonZh } from '@solsticeai/equinox-client-locale/src/locales/zh.ts'
 import { createChatStore } from '../src/client/stores.ts'
 import { ChatView } from '../src/client/chat/ChatView.tsx'
 import { ChatNodeSeat } from '../src/client/chat/ChatNodeSeat.tsx'

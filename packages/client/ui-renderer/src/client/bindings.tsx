@@ -7,7 +7,7 @@ import type {
   SlotRendererHost,
   SnapshotSelectorHook,
   StandardSourceBinding,
-} from '@deepseek-ai/dsh-client-ui-slots'
+} from '@solsticeai/equinox-client-ui-slots'
 import { bindSnapshotSelector } from './bind.ts'
 
 /** Missing renderer assembly dependency. */

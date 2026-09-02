@@ -1,19 +1,19 @@
 /**
  * Model-facing Cordis runtime/package inspection, define, run, stop, and remove tools.
- * @module @deepseek-ai/dsh-tool-cordis
+ * @module @solsticeai/equinox-tool-cordis
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
+import type { Context } from '@solsticeai/cordis'
+import type { Agent, PreStepDecision } from '@solsticeai/equinox-agent'
 import {
   CordisDynamicPackageId, CordisDynamicPluginId,
-} from '@deepseek-ai/dsh-cordis-host-runner'
-import type { DynamicCordisReference } from '@deepseek-ai/dsh-cordis-host-runner'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { ToolExecution } from '@deepseek-ai/dsh-tools'
+} from '@solsticeai/equinox-cordis-host-runner'
+import type { DynamicCordisReference } from '@solsticeai/equinox-cordis-host-runner'
+import { createUserMessage } from '@solsticeai/equinox-llm'
+import type { JsonValue } from '@solsticeai/equinox-util-values'
+import type { UserMessage } from '@solsticeai/equinox-session'
+import { defineTool } from '@solsticeai/equinox-tools'
+import type { ToolExecution } from '@solsticeai/equinox-tools'
 import { missingServices, providedServices } from './inspect.ts'
 import {
   presentDefineCall, presentInspectListCall, presentInspectQueryCall, presentInspectSelfCall, presentRunCall,

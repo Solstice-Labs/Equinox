@@ -69,30 +69,30 @@ describe('npm resolution benchmark', () => {
       devDependencies: { ignored: '^1.0.0' },
     })
     writeJson(root, 'apps/cli/package.json', {
-      name: '@deepseek-ai/dsh',
+      name: '@solsticeai/equinox',
       version: '0.1.0',
-      dependencies: { '@deepseek-ai/dsh-child': 'workspace:^', external: '^2.0.0' },
+      dependencies: { '@solsticeai/equinox-child': 'workspace:^', external: '^2.0.0' },
       devDependencies: { ignored: 'workspace:^' },
     })
     writeJson(root, 'packages/core/child/package.json', {
-      name: '@deepseek-ai/dsh-child',
+      name: '@solsticeai/equinox-child',
       version: '0.1.0',
     })
 
     const index = buildRegistryIndex(root)
 
     expect(index.get('external')?.get('2.0.0')).toMatchObject({ dependencies: { child: '^1.0.0' } })
-    expect(index.get('@deepseek-ai/dsh')?.get('0.1.0')).toEqual({
-      name: '@deepseek-ai/dsh',
+    expect(index.get('@solsticeai/equinox')?.get('0.1.0')).toEqual({
+      name: '@solsticeai/equinox',
       version: '0.1.0',
-      dependencies: { '@deepseek-ai/dsh-child': '^0.1.0', external: '^2.0.0' },
+      dependencies: { '@solsticeai/equinox-child': '^0.1.0', external: '^2.0.0' },
     })
   })
 
   it('runs npm against the local registry without requesting an archive', async () => {
     const index: RegistryIndex = new Map([[
-      '@deepseek-ai/dsh',
-      new Map([['0.1.0', { name: '@deepseek-ai/dsh', version: '0.1.0' }]]),
+      '@solsticeai/equinox',
+      new Map([['0.1.0', { name: '@solsticeai/equinox', version: '0.1.0' }]]),
     ]])
     const result = await benchmarkNpmResolution(index, '0.1.0', 10_000)
 
@@ -104,22 +104,22 @@ describe('npm resolution benchmark', () => {
 
   it('returns npm placement for two aliased package versions without requesting archives', async () => {
     const index: RegistryIndex = new Map([[
-      '@deepseek-ai/dsh',
+      '@solsticeai/equinox',
       new Map([
-        ['0.1.0', { name: '@deepseek-ai/dsh', version: '0.1.0' }],
-        ['0.2.0', { name: '@deepseek-ai/dsh', version: '0.2.0' }],
+        ['0.1.0', { name: '@solsticeai/equinox', version: '0.1.0' }],
+        ['0.2.0', { name: '@solsticeai/equinox', version: '0.2.0' }],
       ]),
     ]])
 
     const result = await resolveNpmPackageLock(index, {
-      '@deepseek-ai/dsh': '0.2.0',
-      'dsh-previous': 'npm:@deepseek-ai/dsh@0.1.0',
+      '@solsticeai/equinox': '0.2.0',
+      'dsh-previous': 'npm:@solsticeai/equinox@0.1.0',
     }, 10_000)
 
     expect(result.archiveRequests).toBe(0)
-    expect(result.packageLock.packages['node_modules/@deepseek-ai/dsh']?.version).toBe('0.2.0')
+    expect(result.packageLock.packages['node_modules/@solsticeai/equinox']?.version).toBe('0.2.0')
     expect(result.packageLock.packages['node_modules/dsh-previous']).toMatchObject({
-      name: '@deepseek-ai/dsh',
+      name: '@solsticeai/equinox',
       version: '0.1.0',
     })
   })
@@ -139,21 +139,21 @@ describe('npm resolution benchmark', () => {
     process.env.npm_config_omit = 'peer'
     try {
       const index: RegistryIndex = new Map([
-        ['@deepseek-ai/dsh', new Map([['0.1.0', {
-          name: '@deepseek-ai/dsh',
+        ['@solsticeai/equinox', new Map([['0.1.0', {
+          name: '@solsticeai/equinox',
           version: '0.1.0',
-          peerDependencies: { '@deepseek-ai/dsh-peer': '1.0.0' },
+          peerDependencies: { '@solsticeai/equinox-peer': '1.0.0' },
         }]])],
-        ['@deepseek-ai/dsh-peer', new Map([['1.0.0', {
-          name: '@deepseek-ai/dsh-peer',
+        ['@solsticeai/equinox-peer', new Map([['1.0.0', {
+          name: '@solsticeai/equinox-peer',
           version: '1.0.0',
         }]])],
       ])
 
-      const result = await resolveNpmPackageLock(index, { '@deepseek-ai/dsh': '0.1.0' }, 10_000)
+      const result = await resolveNpmPackageLock(index, { '@solsticeai/equinox': '0.1.0' }, 10_000)
 
       expect(result.archiveRequests).toBe(0)
-      expect(result.packageLock.packages['node_modules/@deepseek-ai/dsh-peer']?.version).toBe('1.0.0')
+      expect(result.packageLock.packages['node_modules/@solsticeai/equinox-peer']?.version).toBe('1.0.0')
     } finally {
       if (previous.userConfig === undefined) delete process.env.npm_config_userconfig
       else process.env.npm_config_userconfig = previous.userConfig

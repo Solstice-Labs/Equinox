@@ -1,19 +1,19 @@
 /** Raw Session journal transport and message-aligned pagination coverage. */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import SessionStore, { SessionSeq } from '@deepseek-ai/dsh-session'
-import { decodeStorageRecord, type ChunkRow } from '@deepseek-ai/dsh-session/chunk-rows'
-import { ToolCallId, createMessage, createToolResultMessage, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { Session, SessionEvent, SessionId } from '@deepseek-ai/dsh-session'
-import { SessionHistoryController } from '@deepseek-ai/dsh-api-session-controller/src/history.ts'
+import { Context } from '@solsticeai/cordis'
+import AgentRegistry from '@solsticeai/equinox-agent'
+import SessionStore, { SessionSeq } from '@solsticeai/equinox-session'
+import { decodeStorageRecord, type ChunkRow } from '@solsticeai/equinox-session/chunk-rows'
+import { ToolCallId, createMessage, createToolResultMessage, createUserMessage } from '@solsticeai/equinox-llm'
+import type { Session, SessionEvent, SessionId } from '@solsticeai/equinox-session'
+import { SessionHistoryController } from '@solsticeai/equinox-api-session-controller/src/history.ts'
 import type {
   ChunkRowEvent,
   SessionFollowFrame,
   SessionPage,
   SessionWireEvent,
-} from '@deepseek-ai/dsh-api-session-controller/types'
+} from '@solsticeai/equinox-api-session-controller/types'
 import { createSessionTestRemote, installSessionReadTestServices } from './test-remote.ts'
 
 /** Append a production-shaped human prompt to the session surface. */

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-sandbox-windows-acl",
+  "name": "@solsticeai/equinox-sandbox-windows-acl",
   "description": "Windows ACL write-restriction sandbox backend (restricted-token spawn with capability-SID write allowlist) for the DeepSeek Harness sandbox seam",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/sandbox/sandbox-windows-acl"
   },
   "type": "module",
@@ -33,15 +33,15 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-win32-process": "workspace:^",
+    "@solsticeai/equinox-win32-process": "workspace:^",
     "koffi": "^3.1.0"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-pwsh-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-pwsh-local": "workspace:^",
+    "@solsticeai/equinox-sandbox-local": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   }
 }

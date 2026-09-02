@@ -1,12 +1,12 @@
 /**
  * Durable agent session-event vocabulary shared with type-only consumers.
  *
- * @module @deepseek-ai/dsh-agent/types
+ * @module @solsticeai/equinox-agent/types
  */
 
-import type { UserMessage } from '@deepseek-ai/dsh-llm/types'
-import type { OptionalSessionSeq, SessionId, SessionSeq } from '@deepseek-ai/dsh-session/types'
-import type { TypertContext, TypertLookup } from '@deepseek-ai/dsh-typert-protocol'
+import type { UserMessage } from '@solsticeai/equinox-llm/types'
+import type { OptionalSessionSeq, SessionId, SessionSeq } from '@solsticeai/equinox-session/types'
+import type { TypertContext, TypertLookup } from '@solsticeai/equinox-typert-protocol'
 
 /** Public live-agent handle; the runtime face augments its live capabilities. */
 export interface Agent {
@@ -14,7 +14,7 @@ export interface Agent {
   readonly id: SessionId
 }
 
-declare module '@deepseek-ai/dsh-typert-protocol' {
+declare module '@solsticeai/equinox-typert-protocol' {
   interface TypertLookupMap {
     agent: TypertLookup<Agent, SessionId>
   }
@@ -48,7 +48,7 @@ export interface TurnBoundaryProjection {
   readonly lastTurn: number
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@solsticeai/equinox-session/types' {
   interface SessionEventMap {
     /**
      * One normalized mutation of an agent's durable pending-message lists.

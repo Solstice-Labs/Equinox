@@ -3,10 +3,10 @@
 
 - insert:
     - id: time-context
-      name: '@deepseek-ai/dsh-time-context'
+      name: '@solsticeai/equinox-time-context'
 
     - id: schedule
-      name: '@deepseek-ai/dsh-schedule'
+      name: '@solsticeai/equinox-schedule'
 
 - id: ui-schedule
   disabled: false

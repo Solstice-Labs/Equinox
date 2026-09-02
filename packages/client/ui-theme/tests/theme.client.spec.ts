@@ -1,13 +1,13 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { stubSettingsScope, type StubSettingsScope } from '@deepseek-ai/dsh-client-test-runtime'
+import { Context } from '@solsticeai/cordis'
+import { stubSettingsScope, type StubSettingsScope } from '@solsticeai/equinox-client-test-runtime'
 import type {
   ThemeSettings,
   ThemeSnapshot,
   ThemeTokenOverrides,
-} from '@deepseek-ai/dsh-client-ui-theme/client'
-import { ThemeRuntime } from '@deepseek-ai/dsh-client-ui-theme/client'
+} from '@solsticeai/equinox-client-ui-theme/client'
+import { ThemeRuntime } from '@solsticeai/equinox-client-ui-theme/client'
 
 const make = (host = stubSettingsScope<ThemeSettings>()): {
   ctx: Context

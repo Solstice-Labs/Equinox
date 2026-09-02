@@ -1,10 +1,10 @@
 import { fileURLToPath } from 'node:url'
-import { agentEvents, Inbox, type Agent } from '@deepseek-ai/dsh-agent'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { boot, loadOverlayPatches } from '@deepseek-ai/dsh-app-boot'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-skill'
-import type {} from '@deepseek-ai/dsh-tools'
+import { agentEvents, Inbox, type Agent } from '@solsticeai/equinox-agent'
+import { ToolCallId } from '@solsticeai/equinox-llm'
+import { boot, loadOverlayPatches } from '@solsticeai/equinox-app-boot'
+import { SessionId } from '@solsticeai/equinox-session'
+import type {} from '@solsticeai/equinox-skill'
+import type {} from '@solsticeai/equinox-tools'
 
 const overlayPath = process.argv[2]
 if (overlayPath === undefined) throw new Error('dsh-badge snapshot requires an overlay path')

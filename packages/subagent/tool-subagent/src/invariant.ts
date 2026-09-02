@@ -1,14 +1,14 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-tool-subagent`.
- * @module @deepseek-ai/dsh-tool-subagent/invariant
+ * Package-owned invariant companion for `@solsticeai/equinox-tool-subagent`.
+ * @module @solsticeai/equinox-tool-subagent/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantFailure, InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@solsticeai/cordis'
+import type { InvariantFailure, InvariantInstaller } from '@solsticeai/equinox-invariants'
 import { subagentModelSelectionPolicy } from './model-selection-state.ts'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-tool-subagent'
+const PACKAGE_NAME = '@solsticeai/equinox-tool-subagent'
 
 /** Cordis companion plugin name. */
 export const name = 'tool-subagent-invariant'

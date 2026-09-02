@@ -1,15 +1,15 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-session-title`.
- * @module @deepseek-ai/dsh-session-title/invariant
+ * Package-owned invariant companion for `@solsticeai/equinox-session-title`.
+ * @module @solsticeai/equinox-session-title/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantFailure, InvariantInstaller } from '@deepseek-ai/dsh-invariants'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent } from '@deepseek-ai/dsh-session'
+import type { Context } from '@solsticeai/cordis'
+import type { InvariantFailure, InvariantInstaller } from '@solsticeai/equinox-invariants'
+import { SessionSeq } from '@solsticeai/equinox-session'
+import type { Session, SessionEvent } from '@solsticeai/equinox-session'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-session-title'
+const PACKAGE_NAME = '@solsticeai/equinox-session-title'
 
 /** Cordis companion plugin name. */
 export const name = 'session-title-invariant'

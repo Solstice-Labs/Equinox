@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-web-frontend",
+  "name": "@solsticeai/equinox-web-frontend",
   "description": "Web application entry: vite build over the @deepseek-ai/dsh-client-web shell library; dist/ served by apps/cli's dsh web",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "apps/web"
   },
   "type": "module",
@@ -30,16 +30,16 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-group": "workspace:^",
-    "@deepseek-ai/dsh-client-modules": "workspace:^",
-    "@deepseek-ai/dsh-client-store": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-client-web": "workspace:^",
-    "@deepseek-ai/dsh-cmdline": "workspace:^",
-    "@deepseek-ai/dsh-pwsh-local": "workspace:^",
-    "@deepseek-ai/dsh-experimental-webworker-packer": "workspace:^",
-    "@deepseek-ai/dsh-experimental-webworker-runtime": "workspace:^",
+    "@solsticeai/cordis-plugin-group": "workspace:^",
+    "@solsticeai/equinox-client-modules": "workspace:^",
+    "@solsticeai/equinox-client-store": "workspace:^",
+    "@solsticeai/equinox-client-ui-primitives": "workspace:^",
+    "@solsticeai/equinox-client-ui-slots": "workspace:^",
+    "@solsticeai/equinox-client-web": "workspace:^",
+    "@solsticeai/equinox-cmdline": "workspace:^",
+    "@solsticeai/equinox-pwsh-local": "workspace:^",
+    "@solsticeai/equinox-experimental-webworker-packer": "workspace:^",
+    "@solsticeai/equinox-experimental-webworker-runtime": "workspace:^",
     "@types/node": "^22.0.0",
     "@types/react": "~18.3.1",
     "@types/react-dom": "~18.3.0",

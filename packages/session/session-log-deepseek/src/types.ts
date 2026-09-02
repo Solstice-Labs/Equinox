@@ -1,7 +1,7 @@
 /** Wire types for lossless incremental DeepSeek session-log upload. */
 
-import type { SessionEvent } from '@deepseek-ai/dsh-session'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
+import type { SessionEvent } from '@solsticeai/equinox-session'
+import type { JsonValue } from '@solsticeai/equinox-util-values'
 
 /** Version-0 Session header fields serialized on the external request wire. */
 export interface DeepSeekSessionLogWireHeader {
@@ -45,20 +45,20 @@ export interface DeepSeekSessionLogExtension {
   readonly events: readonly DeepSeekSessionLogWireEvent[]
 }
 
-declare module '@deepseek-ai/dsh-deepseek-llm-api-extensions/types' {
+declare module '@solsticeai/equinox-deepseek-llm-api-extensions/types' {
   interface DeepSeekLlmApiExtensionMap {
     dsh_session_log: DeepSeekSessionLogExtension
   }
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@solsticeai/equinox-session/types' {
   interface SessionEventMap {
     /** Records that the configured endpoint accepted one delivery through `throughSeq`. */
     'session-log-deepseek/delivery-accepted': {
       /** Session identity the accepted delivery carried; inherited fork markers retain the parent's id. */
-      sessionId: import('@deepseek-ai/dsh-session/types').SessionId
+      sessionId: import('@solsticeai/equinox-session/types').SessionId
       /** Last canonical event included in the accepted request. */
-      throughSeq: import('@deepseek-ai/dsh-session/types').SessionSeq
+      throughSeq: import('@solsticeai/equinox-session/types').SessionSeq
     }
   }
 }

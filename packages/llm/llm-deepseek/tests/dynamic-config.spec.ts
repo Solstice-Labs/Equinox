@@ -1,10 +1,10 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Context, Service } from '@deepseek-ai/cordis'
+import { Context, Service } from '@solsticeai/cordis'
 import { access, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import LlmRuntime, { createUserMessage, INVALID_CREDENTIAL_CODE } from '@deepseek-ai/dsh-llm'
-import AttachmentStore, { AttachmentId, ImageVariantId } from '@deepseek-ai/dsh-attachment'
+import LlmRuntime, { createUserMessage, INVALID_CREDENTIAL_CODE } from '@solsticeai/equinox-llm'
+import AttachmentStore, { AttachmentId, ImageVariantId } from '@solsticeai/equinox-attachment'
 import type {
   ImageAttachmentLimits,
   ImageAttachmentRef,
@@ -12,11 +12,11 @@ import type {
   RequestImageAttachment,
   SaveImageAttachment,
   StoredImageAttachment,
-} from '@deepseek-ai/dsh-attachment'
-import { credentialRef } from '@deepseek-ai/dsh-credentials'
-import { LocalCredentialProvider } from '@deepseek-ai/dsh-credentials-local'
-import { FileSettingsProvider } from '@deepseek-ai/dsh-settings-file'
-import * as LlmDeepSeek from '@deepseek-ai/dsh-llm-deepseek'
+} from '@solsticeai/equinox-attachment'
+import { credentialRef } from '@solsticeai/equinox-credentials'
+import { LocalCredentialProvider } from '@solsticeai/equinox-credentials-local'
+import { FileSettingsProvider } from '@solsticeai/equinox-settings-file'
+import * as LlmDeepSeek from '@solsticeai/equinox-llm-deepseek'
 import { assemble } from './assemble.ts'
 import { closeMockServers, mockServer, textEvents } from './mock-server.ts'
 

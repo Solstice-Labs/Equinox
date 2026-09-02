@@ -13,13 +13,13 @@ import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promis
 import { existsSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join, parse } from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import { FsError, FsTargetKey } from '@deepseek-ai/dsh-fs'
-import type { FsTarget } from '@deepseek-ai/dsh-fs'
-import SandboxPolicyService from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import { SandboxedFileSystem } from '@deepseek-ai/dsh-fs-sandbox'
+import { Context } from '@solsticeai/cordis'
+import { FsError, FsTargetKey } from '@solsticeai/equinox-fs'
+import type { FsTarget } from '@solsticeai/equinox-fs'
+import SandboxPolicyService from '@solsticeai/equinox-sandbox-policy'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import type { SandboxMode } from '@solsticeai/equinox-sandbox'
+import { SandboxedFileSystem } from '@solsticeai/equinox-fs-sandbox'
 
 let base: string
 let workspace: string

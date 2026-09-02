@@ -1,13 +1,13 @@
 /** Session Remote owner: cold reads, explicit Agent commands, and live control state. */
 
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { errorChain } from '@deepseek-ai/dsh-llm'
-import { canOpenNativePath, openNativePath } from '@deepseek-ai/dsh-native-command'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionInspection } from '@deepseek-ai/dsh-session-persistence'
-import type { SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { Remote, RemoteError, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
+import { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { errorChain } from '@solsticeai/equinox-llm'
+import { canOpenNativePath, openNativePath } from '@solsticeai/equinox-native-command'
+import type { SessionId } from '@solsticeai/equinox-session'
+import type { SessionInspection } from '@solsticeai/equinox-session-persistence'
+import type { SessionObservation } from '@solsticeai/equinox-session-query'
+import { Remote, RemoteError, TypertRemoteService } from '@solsticeai/equinox-typert-protocol'
 import {
   ApiSessionAgentController,
   inspectApiSession,
@@ -61,7 +61,7 @@ export { ApiSessionNotFound } from './agent.ts'
 export { SessionFileReferences } from './file-references.ts'
 export { SessionSkillCatalog } from './skill-catalog.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     /** Host Session business API and Remote namespace owner. */
     sessionController: SessionController

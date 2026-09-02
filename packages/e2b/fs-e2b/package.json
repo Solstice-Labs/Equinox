@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-fs-e2b",
+  "name": "@solsticeai/equinox-fs-e2b",
   "description": "E2B filesystem implementation for DeepSeek Harness",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/e2b/fs-e2b"
   },
   "type": "module",
@@ -27,13 +27,13 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-e2b": "workspace:^",
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-e2b": "workspace:^",
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-e2b": "workspace:^",
-    "@deepseek-ai/dsh-fs": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-e2b": "workspace:^",
+    "@solsticeai/equinox-fs": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   }
 }

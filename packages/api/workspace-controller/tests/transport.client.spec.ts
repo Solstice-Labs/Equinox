@@ -1,14 +1,14 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@solsticeai/cordis'
 import { describe, expect, it, vi } from 'vitest'
 import {
   RemoteStream,
   RemoteStreamCarrierError,
   type ClientRemote,
   type RemoteStreamOptions,
-} from '@deepseek-ai/dsh-api-gateway/client'
-import type { ConnectionHandle } from '@deepseek-ai/dsh-client-connection/client'
-import { SessionId } from '@deepseek-ai/dsh-session/types'
-import { RemoteError, type RemoteFailure, type RemoteResult } from '@deepseek-ai/dsh-typert-protocol'
+} from '@solsticeai/equinox-api-gateway/client'
+import type { ConnectionHandle } from '@solsticeai/equinox-client-connection/client'
+import { SessionId } from '@solsticeai/equinox-session/types'
+import { RemoteError, type RemoteFailure, type RemoteResult } from '@solsticeai/equinox-typert-protocol'
 import * as WorkspaceClientPlugin from '../src/client/index.ts'
 import {
   ClientWorkspaceModel,

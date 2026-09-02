@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createScope } from '@deepseek-ai/dsh-scope'
-import type { Scope } from '@deepseek-ai/dsh-scope'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import CommandRuntime, { parseCommand, type CommandDefinition } from '@deepseek-ai/dsh-commands'
-import { AttachmentStore } from '@deepseek-ai/dsh-attachment'
+import { Context } from '@solsticeai/cordis'
+import { createScope } from '@solsticeai/equinox-scope'
+import type { Scope } from '@solsticeai/equinox-scope'
+import type { Agent } from '@solsticeai/equinox-agent'
+import SessionStore, { SessionId } from '@solsticeai/equinox-session'
+import CommandRuntime, { parseCommand, type CommandDefinition } from '@solsticeai/equinox-commands'
+import { AttachmentStore } from '@solsticeai/equinox-attachment'
 
 function command(name: string, text = `ran:${name}`): CommandDefinition {
   return {

@@ -7,16 +7,16 @@
  * imports no provider.
  *
  * Namespace plugin (named exports, no default export).
- * @module @deepseek-ai/dsh-tool-lsp
+ * @module @solsticeai/equinox-tool-lsp
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import { LspError } from '@deepseek-ai/dsh-lsp'
-import type {} from '@deepseek-ai/dsh-lsp'
-import { MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
+import type { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { defineTool } from '@solsticeai/equinox-tools'
+import { LspError } from '@solsticeai/equinox-lsp'
+import type {} from '@solsticeai/equinox-lsp'
+import { MAX_TIMER_DELAY_MS } from '@solsticeai/equinox-timeout'
+import { assertNever } from '@solsticeai/equinox-util-values'
 import {
   DEFAULT_MAX_LOCATIONS,
   DEFAULT_MAX_RESULT_CHARS,

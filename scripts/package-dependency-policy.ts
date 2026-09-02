@@ -5,53 +5,53 @@ const CLIENT_FACE_INCLUDE: readonly string[] = []
 
 /** Packages exempted from automatic Client/Host treatment despite declaring `dsh.client`. */
 const CLIENT_FACE_EXCLUDE: readonly string[] = [
-  '@deepseek-ai/dsh-api-session-controller',
-  '@deepseek-ai/dsh-api-workspace-controller',
+  '@solsticeai/equinox-api-session-controller',
+  '@solsticeai/equinox-api-workspace-controller',
 ]
 
 /** Host-only packages whose peer relays are deliberately flattened. */
 const HOST_DEPENDENCY_PACKAGES: readonly string[] = [
-  '@deepseek-ai/dsh-llm',
-  '@deepseek-ai/dsh-session',
+  '@solsticeai/equinox-llm',
+  '@solsticeai/equinox-session',
 ]
 
 /** Development-only package relationships not represented by source imports. */
 const CONFIGURATION_ONLY_DEV_DEPENDENCIES = {
-  '@deepseek-ai/dsh-client-locale': ['@deepseek-ai/dsh-api-remotes'],
-  '@deepseek-ai/dsh-client-ui-conversation': [
-    '@deepseek-ai/dsh-api-remotes',
-    '@deepseek-ai/dsh-client-ui-workspace',
+  '@solsticeai/equinox-client-locale': ['@solsticeai/equinox-api-remotes'],
+  '@solsticeai/equinox-client-ui-conversation': [
+    '@solsticeai/equinox-api-remotes',
+    '@solsticeai/equinox-client-ui-workspace',
   ],
-  '@deepseek-ai/dsh-client-ui-model-selection': ['@deepseek-ai/dsh-client-ui-input-trigger'],
-  '@deepseek-ai/dsh-client-ui-sidebar': ['@deepseek-ai/dsh-client-ui-workspace'],
-  '@deepseek-ai/dsh-client-ui-subagent': ['@deepseek-ai/dsh-client-ui-input-trigger'],
-  '@deepseek-ai/dsh-client-ui-theme': ['@deepseek-ai/dsh-api-remotes'],
-  '@deepseek-ai/dsh-client-ui-tool': ['@deepseek-ai/dsh-api-remotes'],
+  '@solsticeai/equinox-client-ui-model-selection': ['@solsticeai/equinox-client-ui-input-trigger'],
+  '@solsticeai/equinox-client-ui-sidebar': ['@solsticeai/equinox-client-ui-workspace'],
+  '@solsticeai/equinox-client-ui-subagent': ['@solsticeai/equinox-client-ui-input-trigger'],
+  '@solsticeai/equinox-client-ui-theme': ['@solsticeai/equinox-api-remotes'],
+  '@solsticeai/equinox-client-ui-tool': ['@solsticeai/equinox-api-remotes'],
 } as const satisfies Readonly<Record<string, readonly string[]>>
 
 /** Workspace packages whose complete runtime surface is safe across duplicate installations. */
 const DUPLICATE_SAFE_PACKAGES: readonly string[] = [
-  '@deepseek-ai/dsh-brand',
-  '@deepseek-ai/dsh-typert-protocol',
-  '@deepseek-ai/dsh-util-crypto',
-  '@deepseek-ai/dsh-util-values',
+  '@solsticeai/equinox-brand',
+  '@solsticeai/equinox-typert-protocol',
+  '@solsticeai/equinox-util-crypto',
+  '@solsticeai/equinox-util-values',
 ]
 
 /**
  * Runtime exports whose values remain valid when npm installs another package copy.
  */
 const SAFE_HOST_DEPENDENCY_EXPORTS = {
-  '@deepseek-ai/dsh-credentials': ['credentialKey'],
-  '@deepseek-ai/dsh-deque': ['Deque'],
-  '@deepseek-ai/dsh-llm': ['callConfigEquals'],
-  '@deepseek-ai/dsh-timeout': ['MAX_TIMER_DELAY_MS'],
-  '@deepseek-ai/schemastery': ['default'],
+  '@solsticeai/equinox-credentials': ['credentialKey'],
+  '@solsticeai/equinox-deque': ['Deque'],
+  '@solsticeai/equinox-llm': ['callConfigEquals'],
+  '@solsticeai/equinox-timeout': ['MAX_TIMER_DELAY_MS'],
+  '@solsticeai/schemastery': ['default'],
 } as const satisfies HostDependencyExports
 
 /** Runtime exports that require every consumer to resolve the provider's shared peer instance. */
 const PEER_REQUIRED_HOST_EXPORTS = {
-  '@deepseek-ai/dsh-scope': ['carrierKeyOf', 'scopeOf', 'scopeTarget'],
-  '@deepseek-ai/dsh-session-persistence': ['SessionPersistenceNotFoundError'],
+  '@solsticeai/equinox-scope': ['carrierKeyOf', 'scopeOf', 'scopeTarget'],
+  '@solsticeai/equinox-session-persistence': ['SessionPersistenceNotFoundError'],
 } as const satisfies HostDependencyExports
 
 /** Exact import specifier to reviewed runtime exports. */

@@ -7,9 +7,9 @@ import type {
   SessionId,
 } from '../src/client/api.ts'
 import { RpcId } from '../src/client/api.ts'
-import { decodeStorageRecord } from '@deepseek-ai/dsh-session/chunk-rows'
-import type { ChunkRow } from '@deepseek-ai/dsh-session/chunk-rows'
-import { SessionSeq } from '@deepseek-ai/dsh-session/types'
+import { decodeStorageRecord } from '@solsticeai/equinox-session/chunk-rows'
+import type { ChunkRow } from '@solsticeai/equinox-session/chunk-rows'
+import { SessionSeq } from '@solsticeai/equinox-session/types'
 import {
   createFixtureConnectionRpc,
   createFixtureFaces,
@@ -18,9 +18,9 @@ import {
 import type {
   ClientConnectionRpc, ConnectionRpcResult,
 } from '../src/rpc.ts'
-import type { DirectoryListing } from '@deepseek-ai/dsh-host-directory-picker/types'
-import type { ModelCatalog } from '@deepseek-ai/dsh-api-session-controller/types'
-import type { ModelSelection } from '@deepseek-ai/dsh-api-session-controller/types'
+import type { DirectoryListing } from '@solsticeai/equinox-host-directory-picker/types'
+import type { ModelCatalog } from '@solsticeai/equinox-api-session-controller/types'
+import type { ModelSelection } from '@solsticeai/equinox-api-session-controller/types'
 
 const sid = (id: string): SessionId => id as SessionId
 type WorkspaceId = string & { readonly __fixtureWorkspaceId: 'WorkspaceId' }
@@ -720,7 +720,7 @@ describe('createFixtureApi', () => {
     const webSearch = results.find(event => event.data.turn === 70)
     expect(webSearch).toHaveProperty('data.meta.truncated', true)
     expect(webSearch).toHaveProperty('data.meta.sources', expect.arrayContaining([
-      expect.objectContaining({ url: 'https://github.com/deepseek-ai/deepseek-harness' }),
+      expect.objectContaining({ url: 'https://github.com/Solstice-Labs/Equinox' }),
     ]))
     expect(results.find(event => event.data.turn === 71)).toMatchObject({
       data: { meta: { url: 'https://www.deepseek.com/blog/harness-architecture', statusCode: 200 } },

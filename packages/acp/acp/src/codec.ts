@@ -1,10 +1,10 @@
 /**
  * Pure translation between the harness lifecycle and the automation-only ACP wire.
- * @module @deepseek-ai/dsh-acp/codec
+ * @module @solsticeai/equinox-acp/codec
  */
 
 import type { StopReason } from '@agentclientprotocol/sdk'
-import type { TurnEndReason } from '@deepseek-ai/dsh-session'
+import type { TurnEndReason } from '@solsticeai/equinox-session'
 
 /**
  * Map a harness turn ending to ACP's terminal reason vocabulary.

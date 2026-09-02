@@ -1,13 +1,13 @@
 /** Direct one-shot Agent driving, durable aggregation, flushing, and exit mapping. */
 
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { Inbox } from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentHandle, CreateAgentOptions } from '@deepseek-ai/dsh-agent'
-import AgentDefaultModelConfig from '@deepseek-ai/dsh-agent-default-model'
-import { createAssistantMessage } from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { Session, UserMessage } from '@deepseek-ai/dsh-session'
+import { Context } from '@solsticeai/cordis'
+import AgentRegistry, { Inbox } from '@solsticeai/equinox-agent'
+import type { Agent, AgentHandle, CreateAgentOptions } from '@solsticeai/equinox-agent'
+import AgentDefaultModelConfig from '@solsticeai/equinox-agent-default-model'
+import { createAssistantMessage } from '@solsticeai/equinox-llm'
+import SessionStore from '@solsticeai/equinox-session'
+import type { Session, UserMessage } from '@solsticeai/equinox-session'
 import { apply, Config, internals } from '../src/index.ts'
 
 const originalInternals = { ...internals }

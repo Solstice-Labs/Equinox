@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createUserMessage, ToolCallId , createMessage } from '@deepseek-ai/dsh-llm'
-import SessionStore, { Session, SessionForkError, SessionId, SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, TurnEndReason } from '@deepseek-ai/dsh-session'
+import { Context } from '@solsticeai/cordis'
+import { createUserMessage, ToolCallId , createMessage } from '@solsticeai/equinox-llm'
+import SessionStore, { Session, SessionForkError, SessionId, SessionLogOffset, SessionSeq } from '@solsticeai/equinox-session'
+import type { SessionEvent, TurnEndReason } from '@solsticeai/equinox-session'
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@solsticeai/equinox-session/types' {
   interface SessionEventMap {
     'test/log-only': { value: string }
     /** Stands in for a plugin's open/close bracket (`compaction/start`). */

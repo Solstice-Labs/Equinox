@@ -1,9 +1,9 @@
-/** Content-block structure helpers. @module @deepseek-ai/dsh-llm/content */
+/** Content-block structure helpers. @module @solsticeai/equinox-llm/content */
 
 import type { ContentBlock } from './types.ts'
 import type { Message } from './message.ts'
-import type { AttachmentStore, ImageAttachmentRef, ImageMediaType, RequestImageAttachment } from '@deepseek-ai/dsh-attachment'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
+import type { AttachmentStore, ImageAttachmentRef, ImageMediaType, RequestImageAttachment } from '@solsticeai/equinox-attachment'
+import { assertNever } from '@solsticeai/equinox-util-values'
 
 /** Execution-world path that model tools can use to read one normalized attachment. */
 export interface ImageAttachmentAccess {

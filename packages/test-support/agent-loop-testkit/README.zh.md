@@ -3,7 +3,7 @@ description: "为运行具体 AgentLoop 的测试挂载共享服务先决依赖�
 kind: "package-library"
 ---
 
-# @deepseek-ai/dsh-agent-loop-testkit
+# @solsticeai/equinox-agent-loop-testkit
 
 [English](README.md) | 中文
 
@@ -30,9 +30,9 @@ kind: "package-library"
 ### 最小示例
 
 ```ts
-import { Context } from '@deepseek-ai/cordis'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
+import { Context } from '@solsticeai/cordis'
+import AgentLoop from '@solsticeai/equinox-agent-loop'
+import { mountAgentLoopTestDependencies } from '@solsticeai/equinox-agent-loop-testkit'
 
 const ctx = new Context()
 

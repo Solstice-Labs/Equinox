@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-reference",
+  "name": "@solsticeai/equinox-client-ui-reference",
   "description": "Unified Web @file and @session reference source",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/client/ui-reference"
   },
   "type": "module",
@@ -43,22 +43,22 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-api-remotes": "workspace:^",
-    "@deepseek-ai/dsh-api-session-controller": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-test-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-input-trigger": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-file-reference": "workspace:^",
-    "@deepseek-ai/dsh-session-reference": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-util-workspace-path": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-api-remotes": "workspace:^",
+    "@solsticeai/equinox-api-session-controller": "workspace:^",
+    "@solsticeai/equinox-client-connection": "workspace:^",
+    "@solsticeai/equinox-client-locale": "workspace:^",
+    "@solsticeai/equinox-client-test-runtime": "workspace:^",
+    "@solsticeai/equinox-client-ui-input-trigger": "workspace:^",
+    "@solsticeai/equinox-client-ui-primitives": "workspace:^",
+    "@solsticeai/equinox-client-ui-slots": "workspace:^",
+    "@solsticeai/equinox-file-reference": "workspace:^",
+    "@solsticeai/equinox-session-reference": "workspace:^",
+    "@solsticeai/equinox-typert-protocol": "workspace:^",
+    "@solsticeai/equinox-util-workspace-path": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "files": [
     "lib/index.js",

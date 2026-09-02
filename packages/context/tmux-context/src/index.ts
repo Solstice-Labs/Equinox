@@ -15,16 +15,16 @@
  * absent `ctx.shell`, or a failed query is a no-op, never an error: an executor
  * rejection is contained and logged as a warning so the turn continues.
  *
- * @module @deepseek-ai/dsh-tmux-context
+ * @module @solsticeai/equinox-tmux-context
  */
 
-import type { Context, LoggerService } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
+import type { Context, LoggerService } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
 import { z as zod } from 'zod'
-import type { PreStepDecision } from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type { ShellExecutor, ShellRunResult } from '@deepseek-ai/dsh-shell'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
+import type { PreStepDecision } from '@solsticeai/equinox-agent'
+import type {} from '@solsticeai/equinox-session-projection'
+import type { ShellExecutor, ShellRunResult } from '@solsticeai/equinox-shell'
+import { createUserMessage } from '@solsticeai/equinox-llm'
 
 /** Cordis plugin name used by loader diagnostics. */
 export const name = 'tmux-context'
@@ -205,7 +205,7 @@ type TmuxContextState = zod.infer<typeof tmuxContextStateSchema>
  * @param config - durable refresh scheduling configuration.
  * @throws when the refresh interval is invalid.
  */
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@solsticeai/equinox-session-projection/types' {
   interface SessionProjectionStateMap {
     /** The stable state block of this plugin's latest durable injection, or null. */
     tmuxContext: TmuxContextState

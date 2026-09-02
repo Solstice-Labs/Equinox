@@ -8,7 +8,7 @@ import {
   parseSnapshotManifest,
   type Scenario,
   type SnapshotSuiteOptions,
-} from '@deepseek-ai/dsh-session-snapshot'
+} from '@solsticeai/equinox-session-snapshot'
 
 const corpusDir = fileURLToPath(new URL('./', import.meta.url))
 

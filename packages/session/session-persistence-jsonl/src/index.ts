@@ -3,11 +3,11 @@
  * events in one append-only file per session and serves the handle-based
  * `SessionPersistence` API: `create`/`open` return per-session handles, and
  * every read validates the same fail-closed storage contract.
- * @module @deepseek-ai/dsh-session-persistence-jsonl
+ * @module @solsticeai/equinox-session-persistence-jsonl
  */
 
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
+import { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
 import { readdirSync } from 'node:fs'
 import { open, mkdir, readFile, readdir, realpath, link, rm, stat, truncate } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
@@ -24,10 +24,10 @@ import {
   type SessionPersistenceListOptions, type SessionPersistenceOpenOptions,
   type SessionPersistenceSnapshot, type SessionPersistenceStatOptions,
   type SessionPersistenceRevision as PersistenceRevision,
-} from '@deepseek-ai/dsh-session-persistence'
+} from '@solsticeai/equinox-session-persistence'
 import { JsonlBackendTracker, JsonlSessionHandle } from './storage.ts'
-import { SessionLogOffset } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionId, SessionHeader, SessionLogOffset as SessionLogOffsetType } from '@deepseek-ai/dsh-session'
+import { SessionLogOffset } from '@solsticeai/equinox-session'
+import type { SessionEvent, SessionId, SessionHeader, SessionLogOffset as SessionLogOffsetType } from '@solsticeai/equinox-session'
 import {
   encodeSegment, eventLines, logPath, logSuffix, parseHeader, parseHeaderMeta, projectDir, scanLog, sessionDir,
   SessionLogScanner, toHeaderLine,

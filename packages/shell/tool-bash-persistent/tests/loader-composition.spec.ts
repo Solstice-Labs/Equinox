@@ -3,23 +3,23 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import Include from '@deepseek-ai/cordis-plugin-include'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import AgentRegistry, { Inbox } from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import TerminalSessionService from '@deepseek-ai/dsh-terminal'
-import * as TerminalLocal from '@deepseek-ai/dsh-terminal-bash'
-import SandboxProvider from '@deepseek-ai/dsh-sandbox'
-import type { ConfinedArgv, SandboxPolicy } from '@deepseek-ai/dsh-sandbox'
-import SandboxPolicyService from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import * as ToolBashPersistent from '@deepseek-ai/dsh-tool-bash-persistent'
+import { Context } from '@solsticeai/cordis'
+import Loader from '@solsticeai/cordis-plugin-loader'
+import Include from '@solsticeai/cordis-plugin-include'
+import { ToolCallId } from '@solsticeai/equinox-llm'
+import { Session, SessionId } from '@solsticeai/equinox-session'
+import AgentRegistry, { Inbox } from '@solsticeai/equinox-agent'
+import type { Agent } from '@solsticeai/equinox-agent'
+import TerminalSessionService from '@solsticeai/equinox-terminal'
+import * as TerminalLocal from '@solsticeai/equinox-terminal-bash'
+import SandboxProvider from '@solsticeai/equinox-sandbox'
+import type { ConfinedArgv, SandboxPolicy } from '@solsticeai/equinox-sandbox'
+import SandboxPolicyService from '@solsticeai/equinox-sandbox-policy'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import LocalSubprocessRuntime from '@solsticeai/equinox-subprocess-local'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime from '@solsticeai/equinox-tools'
+import * as ToolBashPersistent from '@solsticeai/equinox-tool-bash-persistent'
 
 let root: string | undefined
 let context: Context | undefined
@@ -71,18 +71,18 @@ suite('persistent Bash through a real cordis.yml Loader composition', () => {
     root = await mkdtemp(join(tmpdir(), 'dsh-persistent-bash-loader-'))
     const configPath = join(root, 'cordis.yml')
     await writeFile(configPath, [
-      "- name: '@deepseek-ai/dsh-agent'",
-      "- name: '@deepseek-ai/dsh-system-prompt'",
-      "- name: '@deepseek-ai/dsh-tools'",
-      "- name: '@deepseek-ai/dsh-terminal'",
-      "- name: '@deepseek-ai/dsh-test-sandbox'",
-      "- name: '@deepseek-ai/dsh-session-projection'",
-      "- name: '@deepseek-ai/dsh-sandbox-policy'",
+      "- name: '@solsticeai/equinox-agent'",
+      "- name: '@solsticeai/equinox-system-prompt'",
+      "- name: '@solsticeai/equinox-tools'",
+      "- name: '@solsticeai/equinox-terminal'",
+      "- name: '@solsticeai/equinox-test-sandbox'",
+      "- name: '@solsticeai/equinox-session-projection'",
+      "- name: '@solsticeai/equinox-sandbox-policy'",
       '  config:',
       '    mode: danger-full-access',
       `    workspaceRoot: ${JSON.stringify(root)}`,
-      "- name: '@deepseek-ai/dsh-subprocess-local'",
-      "- name: '@deepseek-ai/dsh-terminal-bash'",
+      "- name: '@solsticeai/equinox-subprocess-local'",
+      "- name: '@solsticeai/equinox-terminal-bash'",
       '  config:',
       '    pollIntervalMs: 10',
       '    exactProbeAfterMs: 20',
@@ -94,7 +94,7 @@ suite('persistent Bash through a real cordis.yml Loader composition', () => {
       '    scrollbackLines: 20000',
       '    timeoutMs: 2000',
       '    disposeGraceMs: 500',
-      "- name: '@deepseek-ai/dsh-tool-bash-persistent'",
+      "- name: '@solsticeai/equinox-tool-bash-persistent'",
       '  config:',
       '    timeoutMs: 5000',
       '',
@@ -105,16 +105,16 @@ suite('persistent Bash through a real cordis.yml Loader composition', () => {
     await context.plugin(Loader)
     context.loader.builtins.include = Include
     const modules = new Map<string, unknown>([
-      ['@deepseek-ai/dsh-agent', AgentRegistry],
-      ['@deepseek-ai/dsh-system-prompt', SystemPrompt],
-      ['@deepseek-ai/dsh-tools', ToolRuntime],
-      ['@deepseek-ai/dsh-terminal', TerminalSessionService],
-      ['@deepseek-ai/dsh-test-sandbox', PassthroughSandbox],
-      ['@deepseek-ai/dsh-session-projection', SessionProjectionRegistry],
-      ['@deepseek-ai/dsh-sandbox-policy', SandboxPolicyService],
-      ['@deepseek-ai/dsh-subprocess-local', LocalSubprocessRuntime],
-      ['@deepseek-ai/dsh-terminal-bash', TerminalLocal],
-      ['@deepseek-ai/dsh-tool-bash-persistent', ToolBashPersistent],
+      ['@solsticeai/equinox-agent', AgentRegistry],
+      ['@solsticeai/equinox-system-prompt', SystemPrompt],
+      ['@solsticeai/equinox-tools', ToolRuntime],
+      ['@solsticeai/equinox-terminal', TerminalSessionService],
+      ['@solsticeai/equinox-test-sandbox', PassthroughSandbox],
+      ['@solsticeai/equinox-session-projection', SessionProjectionRegistry],
+      ['@solsticeai/equinox-sandbox-policy', SandboxPolicyService],
+      ['@solsticeai/equinox-subprocess-local', LocalSubprocessRuntime],
+      ['@solsticeai/equinox-terminal-bash', TerminalLocal],
+      ['@solsticeai/equinox-tool-bash-persistent', ToolBashPersistent],
     ])
     context.loader.internal = {
       version: 'v2',

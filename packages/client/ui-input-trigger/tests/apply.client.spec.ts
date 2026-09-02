@@ -4,14 +4,14 @@
  * registration follows the slot declaration, resolves the per-session controller from the slot's
  * sessionId, and unregisters on fiber teardown.
  */
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@solsticeai/cordis'
 import { describe, expect, it } from 'vitest'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { createScope, scopeOf } from '@deepseek-ai/dsh-api-session-controller/client'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { apply, inject, InputTriggerService } from '@deepseek-ai/dsh-client-ui-input-trigger/client'
-import type { MenuViewInjected } from '@deepseek-ai/dsh-client-ui-input-trigger/client'
+import { LocaleRuntime } from '@solsticeai/equinox-client-locale/client'
+import { createScope, scopeOf } from '@solsticeai/equinox-api-session-controller/client'
+import { SlotRegistry } from '@solsticeai/equinox-client-ui-renderer/client'
+import type { SessionId } from '@solsticeai/equinox-session/types'
+import { apply, inject, InputTriggerService } from '@solsticeai/equinox-client-ui-input-trigger/client'
+import type { MenuViewInjected } from '@solsticeai/equinox-client-ui-input-trigger/client'
 
 const sid = (k: string): SessionId => k as SessionId
 

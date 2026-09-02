@@ -4,13 +4,13 @@ import { mkdtemp, rm } from 'node:fs/promises'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { launcherPath } from '@deepseek-ai/node-addon-landlock-run'
-import { LocalSandboxProvider } from '@deepseek-ai/dsh-sandbox-local'
-import { SandboxPolicyService } from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import { SandboxBashExecutor } from '@deepseek-ai/dsh-bash-sandbox'
-import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
+import { Context } from '@solsticeai/cordis'
+import { launcherPath } from '@solsticeai/node-addon-landlock-run'
+import { LocalSandboxProvider } from '@solsticeai/equinox-sandbox-local'
+import { SandboxPolicyService } from '@solsticeai/equinox-sandbox-policy'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import { SandboxBashExecutor } from '@solsticeai/equinox-bash-sandbox'
+import LocalSubprocessRuntime from '@solsticeai/equinox-subprocess-local'
 
 /**
  * KEYLESS consumer-integration proof: the REAL `LocalSandboxProvider` (bwrap
@@ -18,7 +18,7 @@ import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local'
  * REAL `SandboxBashExecutor`, driven through the executor's public run/start
  * paths. Verifies the WORLD (files exist or don't) plus the stamped result
  * facts; the backend-only confinement proofs live with
- * `@deepseek-ai/dsh-sandbox-local`.
+ * `@solsticeai/equinox-sandbox-local`.
  *
  * Self-skips when the running kernel does not enforce Landlock. CI builds the launcher from
  * `native/landlock-run` before running this file.

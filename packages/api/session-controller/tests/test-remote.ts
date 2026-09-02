@@ -1,9 +1,9 @@
 /** Test-only direct Remote face over the Session Controller's internal controllers. */
 
-import { SessionLogOffset } from '@deepseek-ai/dsh-session'
-import type { Context } from '@deepseek-ai/cordis'
-import type { ModelSelection as AgentModelSelection } from '@deepseek-ai/dsh-agent'
-import type { SessionEvent, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
+import { SessionLogOffset } from '@solsticeai/equinox-session'
+import type { Context } from '@solsticeai/cordis'
+import type { ModelSelection as AgentModelSelection } from '@solsticeai/equinox-agent'
+import type { SessionEvent, SessionHeader, SessionId } from '@solsticeai/equinox-session'
 import {
   SessionPersistenceNotFoundError,
   SessionPersistenceRevision,
@@ -15,15 +15,15 @@ import {
   type SessionPersistenceOpenOptions,
   type SessionPersistenceSnapshot,
   type SessionPersistenceStatOptions,
-} from '@deepseek-ai/dsh-session-persistence'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SessionQueryEngine from '@deepseek-ai/dsh-session-query'
+} from '@solsticeai/equinox-session-persistence'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import SessionQueryEngine from '@solsticeai/equinox-session-query'
 import { vi } from 'vitest'
 import {
   RemoteError,
   remoteErrorOf,
   type RemoteResult,
-} from '@deepseek-ai/dsh-typert-protocol'
+} from '@solsticeai/equinox-typert-protocol'
 import SessionController from '../src/index.ts'
 import type {
   ModelCatalog,

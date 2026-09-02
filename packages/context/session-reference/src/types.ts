@@ -2,12 +2,12 @@
  * Public session-reference request, candidate, and preparation records.
  * Imports stay on type-only subpaths so generated Remote clients can consume
  * this module without Host runtime code.
- * @module @deepseek-ai/dsh-session-reference/types
+ * @module @solsticeai/equinox-session-reference/types
  */
 
-import type { UserMessage } from '@deepseek-ai/dsh-llm/message'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm/types'
-import type { OptionalSessionSeq, SessionId } from '@deepseek-ai/dsh-session/types'
+import type { UserMessage } from '@solsticeai/equinox-llm/message'
+import type { ContentBlock } from '@solsticeai/equinox-llm/types'
+import type { OptionalSessionSeq, SessionId } from '@solsticeai/equinox-session/types'
 
 /** Durable source session, cited event seqs, and snapshot facts for prepared cross-session context. */
 export interface SessionReferenceSource {
@@ -29,7 +29,7 @@ export interface SessionReferenceSource {
   }[]
 }
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@solsticeai/equinox-llm' {
   interface MessageSourceMap {
     'session-reference': SessionReferenceSource
   }

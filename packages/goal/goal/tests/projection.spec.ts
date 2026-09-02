@@ -9,16 +9,16 @@
  */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { Inbox } from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentStatus } from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { Session } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import GoalService, { GoalId, applyGoalProjection, foldGoal, goalProjectionDefinition } from '@deepseek-ai/dsh-goal'
-import type { GoalProjection, GoalProjectionState, GoalRef } from '@deepseek-ai/dsh-goal'
+import { Context } from '@solsticeai/cordis'
+import AgentRegistry, { Inbox } from '@solsticeai/equinox-agent'
+import type { Agent, AgentStatus } from '@solsticeai/equinox-agent'
+import { createUserMessage } from '@solsticeai/equinox-llm'
+import type { UserMessage } from '@solsticeai/equinox-session'
+import SessionStore from '@solsticeai/equinox-session'
+import type { Session } from '@solsticeai/equinox-session'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import GoalService, { GoalId, applyGoalProjection, foldGoal, goalProjectionDefinition } from '@solsticeai/equinox-goal'
+import type { GoalProjection, GoalProjectionState, GoalRef } from '@solsticeai/equinox-goal'
 
 interface Bench {
   ctx: Context

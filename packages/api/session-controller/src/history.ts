@@ -1,23 +1,23 @@
 /** Cold Session history pagination and live-event source. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import { Deque } from '@deepseek-ai/dsh-deque'
+import type { Context } from '@solsticeai/cordis'
+import { Deque } from '@solsticeai/equinox-deque'
 import {
   isAppendSurfaceEvent,
   SessionLogOffset,
   SessionSeq,
-} from '@deepseek-ai/dsh-session'
-import { isChunkRow, packChunkRuns, type ChunkRow } from '@deepseek-ai/dsh-session/chunk-rows'
+} from '@solsticeai/equinox-session'
+import { isChunkRow, packChunkRuns, type ChunkRow } from '@solsticeai/equinox-session/chunk-rows'
 import type {
   SessionEvent,
   SessionHeader,
   SessionId,
   SessionLogOffset as SessionLogOffsetType,
   SessionSeqCursor,
-} from '@deepseek-ai/dsh-session'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import type {} from '@deepseek-ai/dsh-subagent'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
+} from '@solsticeai/equinox-session'
+import { SessionQueryError, type SessionObservation } from '@solsticeai/equinox-session-query'
+import type {} from '@solsticeai/equinox-subagent'
+import { RemoteError } from '@solsticeai/equinox-typert-protocol'
 import type {
   SessionAddress,
   SessionChunkRun,

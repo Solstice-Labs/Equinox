@@ -14,25 +14,25 @@ import type {
   InboxTarget,
   PreStepDecision,
   RequestErrorAction,
-} from '@deepseek-ai/dsh-agent'
-import { Inbox, agentEvents, assembleContextFor } from '@deepseek-ai/dsh-agent'
-import type { GenerateOptions, LlmCallConfig, Message, PreparedLlmCall } from '@deepseek-ai/dsh-llm'
+} from '@solsticeai/equinox-agent'
+import { Inbox, agentEvents, assembleContextFor } from '@solsticeai/equinox-agent'
+import type { GenerateOptions, LlmCallConfig, Message, PreparedLlmCall } from '@solsticeai/equinox-llm'
 import {
   BlockAssembler,
   LlmError,
   createAssistantMessage,
   errorChain,
   markAgentLoopRequest,
-} from '@deepseek-ai/dsh-llm'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
-import type { Scope } from '@deepseek-ai/dsh-scope'
-import { createScope } from '@deepseek-ai/dsh-scope'
-import type { EpochHeader, RequestContext, Session, SessionId, SessionSeq, TurnEndReason, UserMessage } from '@deepseek-ai/dsh-session'
-import { canonicalHeader, headerEquals } from '@deepseek-ai/dsh-session'
-import { joinContextSections, renderContextSections, renderPrompt } from '@deepseek-ai/dsh-system-prompt'
-import type { PromptAssembly } from '@deepseek-ai/dsh-system-prompt'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type { Context } from '@deepseek-ai/cordis'
+} from '@solsticeai/equinox-llm'
+import { deepFreeze } from '@solsticeai/equinox-util-values'
+import type { Scope } from '@solsticeai/equinox-scope'
+import { createScope } from '@solsticeai/equinox-scope'
+import type { EpochHeader, RequestContext, Session, SessionId, SessionSeq, TurnEndReason, UserMessage } from '@solsticeai/equinox-session'
+import { canonicalHeader, headerEquals } from '@solsticeai/equinox-session'
+import { joinContextSections, renderContextSections, renderPrompt } from '@solsticeai/equinox-system-prompt'
+import type { PromptAssembly } from '@solsticeai/equinox-system-prompt'
+import type {} from '@solsticeai/equinox-session-projection'
+import type { Context } from '@solsticeai/cordis'
 import { RuntimeContextProjection } from './runtime-context.ts'
 import { executeToolCalls } from './tool-calls.ts'
 

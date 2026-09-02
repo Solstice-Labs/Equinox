@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-anonymous-user-id",
+  "name": "@solsticeai/equinox-anonymous-user-id",
   "description": "Shared anonymous user identity for DeepSeek Harness telemetry and feedback correlation",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/identity/anonymous-user-id"
   },
   "type": "module",
@@ -27,13 +27,13 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-home-paths": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/equinox-home-paths": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-home-paths": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/equinox-brand": "workspace:^",
+    "@solsticeai/equinox-home-paths": "workspace:^",
+    "@solsticeai/cordis": "workspace:^"
   }
 }

@@ -8,20 +8,20 @@
  * anything, while an in-flight stream keeps the facts it started with. The
  * one registration-captured fact — the retry policy — re-registers the route
  * in place when it changes.
- * @module @deepseek-ai/dsh-llm-deepseek
+ * @module @solsticeai/equinox-llm-deepseek
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { assertUsableApiKey, LlmError, resolveImageAttachmentAccess, resolveRetryPolicy, RetryPolicySchema } from '@deepseek-ai/dsh-llm'
-import type { ModelModality, RetryPolicyConfig } from '@deepseek-ai/dsh-llm'
-import type {} from '@deepseek-ai/dsh-fs'
-import { credentialRef } from '@deepseek-ai/dsh-credentials'
-import { launchEnvironmentOf, type LaunchEnvironmentSnapshot } from '@deepseek-ai/dsh-launch-environment'
-import type {} from '@deepseek-ai/dsh-settings'
-import { MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
-import { deepEqualJson } from '@deepseek-ai/dsh-util-values'
-import { getOrCreateAnonymousUserId, type AnonymousUserId } from '@deepseek-ai/dsh-anonymous-user-id'
+import type { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { assertUsableApiKey, LlmError, resolveImageAttachmentAccess, resolveRetryPolicy, RetryPolicySchema } from '@solsticeai/equinox-llm'
+import type { ModelModality, RetryPolicyConfig } from '@solsticeai/equinox-llm'
+import type {} from '@solsticeai/equinox-fs'
+import { credentialRef } from '@solsticeai/equinox-credentials'
+import { launchEnvironmentOf, type LaunchEnvironmentSnapshot } from '@solsticeai/equinox-launch-environment'
+import type {} from '@solsticeai/equinox-settings'
+import { MAX_TIMER_DELAY_MS } from '@solsticeai/equinox-timeout'
+import { deepEqualJson } from '@solsticeai/equinox-util-values'
+import { getOrCreateAnonymousUserId, type AnonymousUserId } from '@solsticeai/equinox-anonymous-user-id'
 import {
   DEFAULT_CONTEXT_WINDOW,
   DEFAULT_FILE_EXPIRY_SECONDS,

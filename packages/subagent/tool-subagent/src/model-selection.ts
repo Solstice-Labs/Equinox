@@ -1,9 +1,9 @@
 /** Child LLM route selection for the subagent tool. */
 
-import { ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type { LlmRuntime } from '@deepseek-ai/dsh-llm'
-import type { AgentOptions } from '@deepseek-ai/dsh-agent'
-import z from '@deepseek-ai/schemastery'
+import { ReasoningEffortId } from '@solsticeai/equinox-llm'
+import type { LlmRuntime } from '@solsticeai/equinox-llm'
+import type { AgentOptions } from '@solsticeai/equinox-agent'
+import z from '@solsticeai/schemastery'
 
 /** One exact child LLM route authorized by a user setting. */
 export interface AllowedModelRoute {

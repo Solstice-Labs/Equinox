@@ -2,15 +2,15 @@
  * Concrete agent-loop plugin: creates scoped ReactLoopAgents, publishes them
  * through the agent/session registries, and owns their ordered teardown.
  *
- * @module @deepseek-ai/dsh-agent-loop
+ * @module @solsticeai/equinox-agent-loop
  */
 
-import { Context, FiberState, Service } from '@deepseek-ai/cordis'
+import { Context, FiberState, Service } from '@solsticeai/cordis'
 import { randomUUID } from 'node:crypto'
-import z from '@deepseek-ai/schemastery'
+import z from '@solsticeai/schemastery'
 import { z as zod } from 'zod'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import { emitAgentEvent } from '@deepseek-ai/dsh-agent'
+import { brandString } from '@solsticeai/equinox-brand'
+import { emitAgentEvent } from '@solsticeai/equinox-agent'
 import type {
   Agent,
   AgentFactory,
@@ -21,17 +21,17 @@ import type {
   ResumeAgentOptions,
   SessionStartSource,
   TurnBoundaryProjection,
-} from '@deepseek-ai/dsh-agent'
-import { errorChain, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type {} from '@deepseek-ai/dsh-settings'
-import { interruptedTurnClosers, SessionLogOffset, SessionPreparation, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-system-prompt'
-import type {} from '@deepseek-ai/dsh-tools'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
-import { SessionPersistenceNotFoundError } from '@deepseek-ai/dsh-session-persistence'
-import type { SessionHandle, SessionPersistence } from '@deepseek-ai/dsh-session-persistence'
+} from '@solsticeai/equinox-agent'
+import { errorChain, ReasoningEffortId } from '@solsticeai/equinox-llm'
+import type {} from '@solsticeai/equinox-settings'
+import { interruptedTurnClosers, SessionLogOffset, SessionPreparation, SessionSeq } from '@solsticeai/equinox-session'
+import type { Session, SessionHeader, SessionId } from '@solsticeai/equinox-session'
+import type {} from '@solsticeai/equinox-system-prompt'
+import type {} from '@solsticeai/equinox-tools'
+import type {} from '@solsticeai/equinox-session-projection'
+import type { ProjectionDefinition } from '@solsticeai/equinox-session-projection'
+import { SessionPersistenceNotFoundError } from '@solsticeai/equinox-session-persistence'
+import type { SessionHandle, SessionPersistence } from '@solsticeai/equinox-session-persistence'
 import { ReactLoopAgent } from './agent.ts'
 import { DEFAULT_MAX_PARALLEL_TOOL_CALLS } from './constants.ts'
 
@@ -220,7 +220,7 @@ interface PreparedAgent {
   dispose(): Promise<void>
 }
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     agentLoop: AgentLoop
     /**

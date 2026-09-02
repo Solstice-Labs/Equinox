@@ -13,13 +13,13 @@
  */
 
 import { useEffect, useRef, useState } from 'react'
-import type { SnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { InjectFace, PropsLocale, PropsRuntime } from '@deepseek-ai/dsh-client-ui-slots'
+import type { SnapshotStore } from '@solsticeai/equinox-client-store'
+import type { InjectFace, PropsLocale, PropsRuntime } from '@solsticeai/equinox-client-ui-slots'
 import {
   IconAgentPresetOutline16, IconChevronDownOutline14, IconWarningOutline16, Menu, Toast,
-} from '@deepseek-ai/dsh-client-ui-primitives'
+} from '@solsticeai/equinox-client-ui-primitives'
 // Type-only: pulls the ui-conversation SlotMap merge (the hero seat).
-import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
+import type {} from '@solsticeai/equinox-client-ui-conversation/client'
 import type { AgentPresetSeatState } from './seat-store.ts'
 import { presetDisplayText } from './locales.ts'
 import css from './AgentPresetSeat.module.css'

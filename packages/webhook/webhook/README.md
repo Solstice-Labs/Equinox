@@ -3,7 +3,7 @@ description: "Webhook rule runtime for maintainers registering trusted external-
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-webhook
+# @solsticeai/equinox-webhook
 
 English | [中文](README.zh.md)
 

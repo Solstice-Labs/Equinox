@@ -18,15 +18,15 @@
  * durable descriptor, so it neither restores the prior budget nor inherits
  * the parent's current one; the resumed route's defaults apply instead.
  *
- * @module @deepseek-ai/dsh-subagent/descriptor
+ * @module @solsticeai/equinox-subagent/descriptor
  */
 
-import { snapshotJsonValue } from '@deepseek-ai/dsh-util-values'
-import type { SessionEvent } from '@deepseek-ai/dsh-session'
-import type { ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type { ToolRestriction } from '@deepseek-ai/dsh-tools'
+import { snapshotJsonValue } from '@solsticeai/equinox-util-values'
+import type { SessionEvent } from '@solsticeai/equinox-session'
+import type { ReasoningEffortId } from '@solsticeai/equinox-llm'
+import type { ToolRestriction } from '@solsticeai/equinox-tools'
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@solsticeai/equinox-session/types' {
   interface SessionEventMap {
     /**
      * Durable identity and lifecycle mode of a session-backed subagent child,

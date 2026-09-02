@@ -21,7 +21,7 @@ import {
   type WorkspacePackageManifest,
 } from './verify-package-dependencies.ts'
 
-const CORDIS = '@deepseek-ai/cordis'
+const CORDIS = '@solsticeai/cordis'
 const roots: string[] = []
 
 afterEach(() => {
@@ -60,26 +60,26 @@ function facts(manifest: PackageDependencyManifest): PackageDependencyFacts {
     manifest,
     workspaceNames: new Set([
       CORDIS,
-      '@deepseek-ai/dsh-runtime',
-      '@deepseek-ai/dsh-types',
-      '@deepseek-ai/dsh-stale',
-      '@deepseek-ai/schemastery',
+      '@solsticeai/equinox-runtime',
+      '@solsticeai/equinox-types',
+      '@solsticeai/equinox-stale',
+      '@solsticeai/schemastery',
     ]),
     allSourceUses: new Map([
-      ['@deepseek-ai/dsh-runtime', ['packages/core/probe/src/index.ts']],
-      ['@deepseek-ai/dsh-types', ['packages/core/probe/src/types.ts']],
+      ['@solsticeai/equinox-runtime', ['packages/core/probe/src/index.ts']],
+      ['@solsticeai/equinox-types', ['packages/core/probe/src/types.ts']],
     ]),
     hostRuntimeSourceUses: new Map([
-      ['@deepseek-ai/dsh-runtime', ['packages/core/probe/src/index.ts']],
+      ['@solsticeai/equinox-runtime', ['packages/core/probe/src/index.ts']],
     ]),
     hostRuntimeExportUses: [{
-      packageName: '@deepseek-ai/dsh-runtime',
-      specifier: '@deepseek-ai/dsh-runtime',
+      packageName: '@solsticeai/equinox-runtime',
+      specifier: '@solsticeai/equinox-runtime',
       exportName: 'runtimeValue',
       sourcePath: 'packages/core/probe/src/index.ts',
       line: 1,
       column: 10,
-      sourceLine: "import { runtimeValue } from '@deepseek-ai/dsh-runtime'",
+      sourceLine: "import { runtimeValue } from '@solsticeai/equinox-runtime'",
     }],
     peerRequiredHostDependencies: new Set(),
     configurationOnlyDevDependencies: new Set(),
@@ -123,39 +123,39 @@ function hostRuntimeFixture(): {
 describe('package dependency scope', () => {
   it('keeps the measured Host relay roster explicit', () => {
     expect(PACKAGE_DEPENDENCY_POLICY.clientFaceExclude).toEqual([
-      '@deepseek-ai/dsh-api-session-controller',
-      '@deepseek-ai/dsh-api-workspace-controller',
+      '@solsticeai/equinox-api-session-controller',
+      '@solsticeai/equinox-api-workspace-controller',
     ])
     expect(PACKAGE_DEPENDENCY_POLICY.hostPackages).toEqual([
-      '@deepseek-ai/dsh-llm',
-      '@deepseek-ai/dsh-session',
+      '@solsticeai/equinox-llm',
+      '@solsticeai/equinox-session',
     ])
     expect(PACKAGE_DEPENDENCY_POLICY.configurationOnlyDevDependencies).toEqual({
-      '@deepseek-ai/dsh-client-locale': ['@deepseek-ai/dsh-api-remotes'],
-      '@deepseek-ai/dsh-client-ui-conversation': [
-        '@deepseek-ai/dsh-api-remotes',
-        '@deepseek-ai/dsh-client-ui-workspace',
+      '@solsticeai/equinox-client-locale': ['@solsticeai/equinox-api-remotes'],
+      '@solsticeai/equinox-client-ui-conversation': [
+        '@solsticeai/equinox-api-remotes',
+        '@solsticeai/equinox-client-ui-workspace',
       ],
-      '@deepseek-ai/dsh-client-ui-model-selection': ['@deepseek-ai/dsh-client-ui-input-trigger'],
-      '@deepseek-ai/dsh-client-ui-sidebar': ['@deepseek-ai/dsh-client-ui-workspace'],
-      '@deepseek-ai/dsh-client-ui-subagent': ['@deepseek-ai/dsh-client-ui-input-trigger'],
-      '@deepseek-ai/dsh-client-ui-theme': ['@deepseek-ai/dsh-api-remotes'],
-      '@deepseek-ai/dsh-client-ui-tool': ['@deepseek-ai/dsh-api-remotes'],
+      '@solsticeai/equinox-client-ui-model-selection': ['@solsticeai/equinox-client-ui-input-trigger'],
+      '@solsticeai/equinox-client-ui-sidebar': ['@solsticeai/equinox-client-ui-workspace'],
+      '@solsticeai/equinox-client-ui-subagent': ['@solsticeai/equinox-client-ui-input-trigger'],
+      '@solsticeai/equinox-client-ui-theme': ['@solsticeai/equinox-api-remotes'],
+      '@solsticeai/equinox-client-ui-tool': ['@solsticeai/equinox-api-remotes'],
     })
     expect(PACKAGE_DEPENDENCY_POLICY.duplicateSafePackages).toEqual([
-      '@deepseek-ai/dsh-brand',
-      '@deepseek-ai/dsh-typert-protocol',
-      '@deepseek-ai/dsh-util-crypto',
-      '@deepseek-ai/dsh-util-values',
+      '@solsticeai/equinox-brand',
+      '@solsticeai/equinox-typert-protocol',
+      '@solsticeai/equinox-util-crypto',
+      '@solsticeai/equinox-util-values',
     ])
-    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@deepseek-ai/dsh-deque']).toEqual(['Deque'])
-    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@deepseek-ai/schemastery']).toEqual(['default'])
-    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@deepseek-ai/dsh-session/types']).toBeUndefined()
-    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@deepseek-ai/dsh-typert-protocol']).toBeUndefined()
-    expect(PACKAGE_DEPENDENCY_POLICY.peerRequiredHostExports['@deepseek-ai/dsh-scope']).toEqual([
+    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@solsticeai/equinox-deque']).toEqual(['Deque'])
+    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@solsticeai/schemastery']).toEqual(['default'])
+    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@solsticeai/equinox-session/types']).toBeUndefined()
+    expect(PACKAGE_DEPENDENCY_POLICY.safeHostDependencyExports['@solsticeai/equinox-typert-protocol']).toBeUndefined()
+    expect(PACKAGE_DEPENDENCY_POLICY.peerRequiredHostExports['@solsticeai/equinox-scope']).toEqual([
       'carrierKeyOf', 'scopeOf', 'scopeTarget',
     ])
-    expect(PACKAGE_DEPENDENCY_POLICY.peerRequiredHostExports['@deepseek-ai/dsh-typert-protocol']).toBeUndefined()
+    expect(PACKAGE_DEPENDENCY_POLICY.peerRequiredHostExports['@solsticeai/equinox-typert-protocol']).toBeUndefined()
   })
 
   it('discovers the Client directory, dsh.client declarations, and configured Host packages', () => {
@@ -351,15 +351,15 @@ describe('face-aware source classification', () => {
 describe('dependency sections', () => {
   it('does not leak repository configuration into captured dependency facts', () => {
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-client-locale',
-      dependencies: { '@deepseek-ai/dsh-runtime': 'workspace:^' },
-      devDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-types': 'workspace:^' },
+      name: '@solsticeai/equinox-client-locale',
+      dependencies: { '@solsticeai/equinox-runtime': 'workspace:^' },
+      devDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-types': 'workspace:^' },
       peerDependencies: { [CORDIS]: 'workspace:^' },
     }
     const base = facts(manifest)
     const subject: PackageDependencyFacts = {
       ...base,
-      workspaceNames: new Set([...base.workspaceNames, '@deepseek-ai/dsh-api-remotes']),
+      workspaceNames: new Set([...base.workspaceNames, '@solsticeai/equinox-api-remotes']),
     }
 
     expect(collectPackageDependencyViolations({
@@ -369,15 +369,15 @@ describe('dependency sections', () => {
 
   it('requires non-workspace Host runtime imports in dependencies', () => {
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-probe',
-      dependencies: { '@deepseek-ai/dsh-runtime': 'workspace:^' },
-      devDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-types': 'workspace:^', external: '^1.0.0' },
+      name: '@solsticeai/equinox-probe',
+      dependencies: { '@solsticeai/equinox-runtime': 'workspace:^' },
+      devDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-types': 'workspace:^', external: '^1.0.0' },
       peerDependencies: { [CORDIS]: 'workspace:^' },
     }
     const subject: PackageDependencyFacts = {
       ...facts(manifest),
       hostRuntimeSourceUses: new Map([
-        ['@deepseek-ai/dsh-runtime', ['packages/core/probe/src/index.ts']],
+        ['@solsticeai/equinox-runtime', ['packages/core/probe/src/index.ts']],
         ['external', ['packages/core/probe/src/index.ts']],
       ]),
     }
@@ -402,14 +402,14 @@ describe('dependency sections', () => {
 
   it('accepts Host dependencies, development-only inputs, and shared Cordis', () => {
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-probe',
+      name: '@solsticeai/equinox-probe',
       dependencies: {
-        '@deepseek-ai/dsh-runtime': 'workspace:^',
-        '@deepseek-ai/schemastery': 'workspace:^',
+        '@solsticeai/equinox-runtime': 'workspace:^',
+        '@solsticeai/schemastery': 'workspace:^',
         external: '^1.0.0',
       },
       devDependencies: {
-        '@deepseek-ai/dsh-types': 'workspace:^',
+        '@solsticeai/equinox-types': 'workspace:^',
         [CORDIS]: 'workspace:^',
       },
       peerDependencies: { [CORDIS]: 'workspace:^' },
@@ -420,20 +420,20 @@ describe('dependency sections', () => {
   })
 
   it('lists managed Host runtime dependencies for fix review', () => {
-    const subject = facts({ name: '@deepseek-ai/dsh-probe' })
+    const subject = facts({ name: '@solsticeai/equinox-probe' })
     expect(formatManagedRuntimeDependencies({
       facts: [subject], packages: [], policyViolations: [], workspaceNames: subject.workspaceNames,
     })).toEqual([
       'verify-package-dependencies: 1 managed Host runtime edge(s) remain in dependencies across 1 package(s):',
-      '  @deepseek-ai/dsh-probe -> @deepseek-ai/dsh-runtime: @deepseek-ai/dsh-runtime#runtimeValue',
+      '  @solsticeai/equinox-probe -> @solsticeai/equinox-runtime: @solsticeai/equinox-runtime#runtimeValue',
     ])
   })
 
   it('reports an unapproved Host runtime export without rewriting its dependency section', () => {
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-probe',
-      dependencies: { '@deepseek-ai/dsh-runtime': 'workspace:^' },
-      devDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-types': 'workspace:^' },
+      name: '@solsticeai/equinox-probe',
+      dependencies: { '@solsticeai/equinox-runtime': 'workspace:^' },
+      devDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-types': 'workspace:^' },
       peerDependencies: { [CORDIS]: 'workspace:^' },
     }
     const subject = facts(manifest)
@@ -447,23 +447,23 @@ describe('dependency sections', () => {
     }
 
     expect(safetyViolations).toEqual([
-      'packages/core/probe/src/index.ts:1:10: @deepseek-ai/dsh-runtime#runtimeValue is not classified as '
-      + 'safe or peer-required — import { runtimeValue } from \'@deepseek-ai/dsh-runtime\'',
+      'packages/core/probe/src/index.ts:1:10: @solsticeai/equinox-runtime#runtimeValue is not classified as '
+      + 'safe or peer-required — import { runtimeValue } from \'@solsticeai/equinox-runtime\'',
     ])
     expect(fixPackageDependencies('/unused', state)).toEqual([])
-    expect(manifest.dependencies).toEqual({ '@deepseek-ai/dsh-runtime': 'workspace:^' })
+    expect(manifest.dependencies).toEqual({ '@solsticeai/equinox-runtime': 'workspace:^' })
   })
 
   it('keeps an edge as a peer when one imported export requires shared identity', () => {
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-probe',
-      dependencies: { '@deepseek-ai/dsh-runtime': 'workspace:^' },
-      devDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-types': 'workspace:^' },
+      name: '@solsticeai/equinox-probe',
+      dependencies: { '@solsticeai/equinox-runtime': 'workspace:^' },
+      devDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-types': 'workspace:^' },
       peerDependencies: { [CORDIS]: 'workspace:^' },
     }
     const subject: PackageDependencyFacts = {
       ...facts(manifest),
-      peerRequiredHostDependencies: new Set(['@deepseek-ai/dsh-runtime']),
+      peerRequiredHostDependencies: new Set(['@solsticeai/equinox-runtime']),
     }
     expect(collectHostDependencyExportPolicyViolations(
       [subject],
@@ -471,7 +471,7 @@ describe('dependency sections', () => {
       {
         safeHostDependencyExports: {},
         peerRequiredHostExports: {
-          '@deepseek-ai/dsh-runtime': ['runtimeValue'],
+          '@solsticeai/equinox-runtime': ['runtimeValue'],
         },
       },
     )).toEqual([])
@@ -480,38 +480,38 @@ describe('dependency sections', () => {
     expect(manifest.dependencies).toBeUndefined()
     expect(manifest.peerDependencies).toMatchObject({
       [CORDIS]: 'workspace:^',
-      '@deepseek-ai/dsh-runtime': 'workspace:^',
+      '@solsticeai/equinox-runtime': 'workspace:^',
     })
     expect(manifest.devDependencies).toMatchObject({
       [CORDIS]: 'workspace:^',
-      '@deepseek-ai/dsh-runtime': 'workspace:^',
+      '@solsticeai/equinox-runtime': 'workspace:^',
     })
     expect(formatPeerRequiredRuntimeDependencies({
       facts: [subject], packages: [], policyViolations: [], workspaceNames: subject.workspaceNames,
     })).toEqual([
       'verify-package-dependencies: 1 Host runtime edge(s) remain in peerDependencies because their exports require shared identity across 1 package(s):',
-      '  @deepseek-ai/dsh-probe -> @deepseek-ai/dsh-runtime: @deepseek-ai/dsh-runtime#runtimeValue',
+      '  @solsticeai/equinox-probe -> @solsticeai/equinox-runtime: @solsticeai/equinox-runtime#runtimeValue',
     ])
   })
 
   it('reports wrong sections, workspace ranges, and stale peer metadata', () => {
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-probe',
-      dependencies: { '@deepseek-ai/dsh-types': 'workspace:*' },
-      devDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-runtime': 'workspace:^' },
-      peerDependencies: { [CORDIS]: 'workspace:*', '@deepseek-ai/dsh-runtime': 'workspace:^' },
-      peerDependenciesMeta: { '@deepseek-ai/dsh-missing': { optional: true } },
+      name: '@solsticeai/equinox-probe',
+      dependencies: { '@solsticeai/equinox-types': 'workspace:*' },
+      devDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-runtime': 'workspace:^' },
+      peerDependencies: { [CORDIS]: 'workspace:*', '@solsticeai/equinox-runtime': 'workspace:^' },
+      peerDependenciesMeta: { '@solsticeai/equinox-missing': { optional: true } },
     }
     const state = {
       facts: [facts(manifest)], packages: [], policyViolations: [], workspaceNames: facts(manifest).workspaceNames,
     }
     const violations = collectPackageDependencyViolations(state)
     expect(violations).toEqual(expect.arrayContaining([
-      expect.stringContaining('@deepseek-ai/dsh-runtime'),
-      expect.stringContaining('@deepseek-ai/dsh-types'),
+      expect.stringContaining('@solsticeai/equinox-runtime'),
+      expect.stringContaining('@solsticeai/equinox-types'),
       expect.stringContaining(`${CORDIS} must be matching peerDependencies + devDependencies`),
-      expect.stringContaining('dependencies.@deepseek-ai/dsh-types must use workspace:^'),
-      expect.stringContaining('peerDependenciesMeta.@deepseek-ai/dsh-missing has no matching'),
+      expect.stringContaining('dependencies.@solsticeai/equinox-types must use workspace:^'),
+      expect.stringContaining('peerDependenciesMeta.@solsticeai/equinox-missing has no matching'),
     ]))
   })
 
@@ -520,15 +520,15 @@ describe('dependency sections', () => {
     roots.push(root)
     const manifestPath = 'package.json'
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-probe',
-      dependencies: { '@deepseek-ai/schemastery': 'workspace:*', external: '^1.0.0' },
-      devDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-runtime': 'workspace:^' },
+      name: '@solsticeai/equinox-probe',
+      dependencies: { '@solsticeai/schemastery': 'workspace:*', external: '^1.0.0' },
+      devDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-runtime': 'workspace:^' },
       peerDependencies: {
         [CORDIS]: 'workspace:^',
-        '@deepseek-ai/dsh-runtime': 'workspace:^',
-        '@deepseek-ai/dsh-stale': 'workspace:^',
+        '@solsticeai/equinox-runtime': 'workspace:^',
+        '@solsticeai/equinox-stale': 'workspace:^',
       },
-      peerDependenciesMeta: { '@deepseek-ai/dsh-stale': { optional: true } },
+      peerDependenciesMeta: { '@solsticeai/equinox-stale': { optional: true } },
     }
     writeFileSync(join(root, manifestPath), `${JSON.stringify(manifest, null, 2)}\n`)
     const subject = { ...facts(manifest), manifestPath }
@@ -537,14 +537,14 @@ describe('dependency sections', () => {
     expect(fixPackageDependencies(root, state)).toEqual([manifestPath])
     const fixed = JSON.parse(readFileSync(join(root, manifestPath), 'utf8')) as PackageDependencyManifest
     expect(fixed.dependencies).toEqual({
-      '@deepseek-ai/schemastery': 'workspace:^',
+      '@solsticeai/schemastery': 'workspace:^',
       external: '^1.0.0',
-      '@deepseek-ai/dsh-runtime': 'workspace:^',
+      '@solsticeai/equinox-runtime': 'workspace:^',
     })
     expect(fixed.devDependencies).toEqual({
       [CORDIS]: 'workspace:^',
-      '@deepseek-ai/dsh-types': 'workspace:^',
-      '@deepseek-ai/dsh-stale': 'workspace:^',
+      '@solsticeai/equinox-types': 'workspace:^',
+      '@solsticeai/equinox-stale': 'workspace:^',
     })
     expect(fixed.peerDependencies).toEqual({ [CORDIS]: 'workspace:^' })
     expect(fixed.peerDependenciesMeta).toBeUndefined()
@@ -552,12 +552,12 @@ describe('dependency sections', () => {
 
   it('repairs an in-memory manifest for benchmark simulation', () => {
     const manifest: PackageDependencyManifest = {
-      name: '@deepseek-ai/dsh-probe',
-      peerDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-runtime': 'workspace:^' },
-      devDependencies: { [CORDIS]: 'workspace:^', '@deepseek-ai/dsh-runtime': 'workspace:^' },
+      name: '@solsticeai/equinox-probe',
+      peerDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-runtime': 'workspace:^' },
+      devDependencies: { [CORDIS]: 'workspace:^', '@solsticeai/equinox-runtime': 'workspace:^' },
     }
     repairPackageDependencyManifest(facts(manifest))
-    expect(manifest.dependencies).toEqual({ '@deepseek-ai/dsh-runtime': 'workspace:^' })
+    expect(manifest.dependencies).toEqual({ '@solsticeai/equinox-runtime': 'workspace:^' })
     expect(manifest.peerDependencies).toEqual({ [CORDIS]: 'workspace:^' })
   })
 })

@@ -1,10 +1,10 @@
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
+import { createUserMessage } from '@solsticeai/equinox-llm'
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm'
-import SessionStore, { Session, SessionId, SessionSeq, type SessionEvent } from '@deepseek-ai/dsh-session'
-import * as TimeInvariant from '@deepseek-ai/dsh-time-context/invariant'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
+import { Context } from '@solsticeai/cordis'
+import type { ContentBlock } from '@solsticeai/equinox-llm'
+import SessionStore, { Session, SessionId, SessionSeq, type SessionEvent } from '@solsticeai/equinox-session'
+import * as TimeInvariant from '@solsticeai/equinox-time-context/invariant'
+import InvariantRegistry from '@solsticeai/equinox-invariants'
 
 const SECOND = Date.parse('2026-07-14T00:00:00Z')
 

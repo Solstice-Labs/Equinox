@@ -2,27 +2,27 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
-import { ToolCallId, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { TOOL_ABORTED_BEFORE_DISPATCH } from '@deepseek-ai/dsh-tools'
-import { assembleContextFor, type Agent } from '@deepseek-ai/dsh-agent'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SubagentRuntime from '@deepseek-ai/dsh-subagent'
-import type { SubagentStartRequest } from '@deepseek-ai/dsh-subagent'
-import LocalJobRegistry from '@deepseek-ai/dsh-jobs-local'
-import * as SubagentSpawn from '@deepseek-ai/dsh-subagent-spawn-in-process'
-import * as ToolTasks from '@deepseek-ai/dsh-tool-jobs'
+import { Context } from '@solsticeai/cordis'
+import Loader from '@solsticeai/cordis-plugin-loader'
+import { ToolCallId, ReasoningEffortId } from '@solsticeai/equinox-llm'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import ToolRuntime, { TOOL_ABORTED_BEFORE_DISPATCH } from '@solsticeai/equinox-tools'
+import { assembleContextFor, type Agent } from '@solsticeai/equinox-agent'
+import AgentRegistry from '@solsticeai/equinox-agent'
+import AgentLoop from '@solsticeai/equinox-agent-loop'
+import { mountAgentLoopTestDependencies } from '@solsticeai/equinox-agent-loop-testkit'
+import JsonlSessionPersistence from '@solsticeai/equinox-session-persistence-jsonl'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import SubagentRuntime from '@solsticeai/equinox-subagent'
+import type { SubagentStartRequest } from '@solsticeai/equinox-subagent'
+import LocalJobRegistry from '@solsticeai/equinox-jobs-local'
+import * as SubagentSpawn from '@solsticeai/equinox-subagent-spawn-in-process'
+import * as ToolTasks from '@solsticeai/equinox-tool-jobs'
 import { MockAdapter, textResponse } from '../../../core/agent-loop/tests/mock-adapter.ts'
 import { loadStoredSession } from '../../subagent/tests/persistence-helpers.ts'
 import * as mock from './scripted-provider.ts'
 import * as tool from '../src/index.ts'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
+import { Session, SessionId } from '@solsticeai/equinox-session'
 import {
   callSubagent,
   disposeSetupProvider,
@@ -928,7 +928,7 @@ describe('dsh-tool-subagent background mode', () => {
     const ctx = await setup({ provider: 'mock' })
     const result = await callSubagent(ctx, { description: 'd', prompt: 'p', run_in_background: true })
     expect(result.isError).toBe(true)
-    expect(text(result)).toContain('background jobs unavailable: load @deepseek-ai/dsh-jobs')
+    expect(text(result)).toContain('background jobs unavailable: load @solsticeai/equinox-jobs')
   })
 
   it('skips background startup when the tool signal is already aborted', async () => {

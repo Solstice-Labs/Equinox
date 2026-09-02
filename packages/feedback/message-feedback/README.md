@@ -3,7 +3,7 @@ description: "Per-message ratings and notes for finalized assistant messages, fo
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-message-feedback
+# @solsticeai/equinox-message-feedback
 
 English | [中文](README.zh.md)
 
@@ -35,7 +35,7 @@ Choose this service when a product surface should let users rate and annotate in
 
 ```yaml
 - id: message-feedback
-  name: '@deepseek-ai/dsh-message-feedback'
+  name: '@solsticeai/equinox-message-feedback'
   config:
     maxNoteBytes: 8192
 ```

@@ -1,6 +1,6 @@
-import type { AssistantMessage, TokenUsage } from '@deepseek-ai/dsh-llm/types'
-import type {} from '@deepseek-ai/dsh-llm-retry/types'
-import type { SessionEvent } from '@deepseek-ai/dsh-session/types'
+import type { AssistantMessage, TokenUsage } from '@solsticeai/equinox-llm/types'
+import type {} from '@solsticeai/equinox-llm-retry/types'
+import type { SessionEvent } from '@solsticeai/equinox-session/types'
 
 /** One provider/model route that contributed a billed request attempt. */
 export interface TurnTokenUsageRoute {

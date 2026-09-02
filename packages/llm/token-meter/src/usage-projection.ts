@@ -3,11 +3,11 @@
  */
 
 import { z } from 'zod'
-import type { TokenUsage } from '@deepseek-ai/dsh-llm'
-import type {} from '@deepseek-ai/dsh-llm-retry/types'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { SessionEvent } from '@deepseek-ai/dsh-session'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
+import type { TokenUsage } from '@solsticeai/equinox-llm'
+import type {} from '@solsticeai/equinox-llm-retry/types'
+import { SessionSeq } from '@solsticeai/equinox-session'
+import type { SessionEvent } from '@solsticeai/equinox-session'
+import type { ProjectionDefinition } from '@solsticeai/equinox-session-projection'
 import type { ContextPressureProjection, TokenUsageProjection } from './projection.ts'
 import { foldSurfaceProjection } from './surface-projection.ts'
 
@@ -86,7 +86,7 @@ const usageOf = (event: SessionEvent): TokenUsage | undefined =>
       ? event.data.usage
       : undefined
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@solsticeai/equinox-session-projection/types' {
   interface SessionProjectionStateMap {
     tokenUsage: TokenUsageState
     contextPressure: ContextPressureState

@@ -11,28 +11,28 @@
  */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@solsticeai/cordis'
 import { mkdtempSync, realpathSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, resolve as resolvePath } from 'node:path'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import SystemPrompt, { renderPrompt } from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { TOOL_ABORTED, TOOL_ABORTED_BEFORE_DISPATCH } from '@deepseek-ai/dsh-tools'
-import LocalJobRegistry from '@deepseek-ai/dsh-jobs-local'
-import * as ToolTasks from '@deepseek-ai/dsh-tool-jobs'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { SessionId, SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
-import ApprovalService from '@deepseek-ai/dsh-user-approval'
-import type { ApprovalOutcome } from '@deepseek-ai/dsh-user-approval'
-import { ShellExecutor } from '@deepseek-ai/dsh-shell'
-import type { ShellExecRequest, ShellExecSpec, ShellProcess, ShellRunResult } from '@deepseek-ai/dsh-shell'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import { turnBoundaryProjectionDefinition } from '@deepseek-ai/dsh-agent-loop'
-import SandboxPolicyService from '@deepseek-ai/dsh-sandbox-policy'
-import * as ToolPwsh from '@deepseek-ai/dsh-tool-pwsh'
-import * as BashEnvPlugin from '@deepseek-ai/dsh-shell-env'
-import type { ShellProcessRead } from '@deepseek-ai/dsh-shell'
+import { ToolCallId } from '@solsticeai/equinox-llm'
+import SystemPrompt, { renderPrompt } from '@solsticeai/equinox-system-prompt'
+import ToolRuntime, { TOOL_ABORTED, TOOL_ABORTED_BEFORE_DISPATCH } from '@solsticeai/equinox-tools'
+import LocalJobRegistry from '@solsticeai/equinox-jobs-local'
+import * as ToolTasks from '@solsticeai/equinox-tool-jobs'
+import AgentRegistry from '@solsticeai/equinox-agent'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { SessionId, SessionLogOffset, SessionSeq } from '@solsticeai/equinox-session'
+import ApprovalService from '@solsticeai/equinox-user-approval'
+import type { ApprovalOutcome } from '@solsticeai/equinox-user-approval'
+import { ShellExecutor } from '@solsticeai/equinox-shell'
+import type { ShellExecRequest, ShellExecSpec, ShellProcess, ShellRunResult } from '@solsticeai/equinox-shell'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import { turnBoundaryProjectionDefinition } from '@solsticeai/equinox-agent-loop'
+import SandboxPolicyService from '@solsticeai/equinox-sandbox-policy'
+import * as ToolPwsh from '@solsticeai/equinox-tool-pwsh'
+import * as BashEnvPlugin from '@solsticeai/equinox-shell-env'
+import type { ShellProcessRead } from '@solsticeai/equinox-shell'
 import { processOutcome } from '../src/background.ts'
 import { renderPwshProcessRead, renderPwshResult } from '../src/render.ts'
 
@@ -780,7 +780,7 @@ describe('background execution through the job runtime', () => {
     const { ctx } = await setup() // no LocalJobRegistry / ToolTasks
     const result = await call(ctx, 'pwsh', { command: 'Start-Sleep -Seconds 60', description: 'test command', run_in_background: true })
     expect(result.isError).toBe(true)
-    expect(text(result)).toContain('background jobs unavailable: load @deepseek-ai/dsh-jobs and @deepseek-ai/dsh-tool-jobs')
+    expect(text(result)).toContain('background jobs unavailable: load @solsticeai/equinox-jobs and @solsticeai/equinox-tool-jobs')
   })
 
   it('a pre-aborted call is skipped before the process starts', async () => {

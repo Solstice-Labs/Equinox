@@ -1,8 +1,8 @@
-import { Context } from '@deepseek-ai/cordis'
-import { HostConnectionService } from '@deepseek-ai/dsh-client-connection'
-import type { BrowserAuth } from '@deepseek-ai/dsh-client-connection/src/browser-auth.ts'
-import type { SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionHandle } from '@deepseek-ai/dsh-session-persistence'
+import { Context } from '@solsticeai/cordis'
+import { HostConnectionService } from '@solsticeai/equinox-client-connection'
+import type { BrowserAuth } from '@solsticeai/equinox-client-connection/src/browser-auth.ts'
+import type { SessionHeader, SessionId } from '@solsticeai/equinox-session'
+import type { SessionHandle } from '@solsticeai/equinox-session-persistence'
 import { strFromU8, unzipSync } from 'fflate'
 import { describe, expect, it } from 'vitest'
 import {

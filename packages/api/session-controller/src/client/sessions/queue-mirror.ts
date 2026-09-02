@@ -1,6 +1,6 @@
-import type { ContentBlock } from '@deepseek-ai/dsh-llm/types'
+import type { ContentBlock } from '@solsticeai/equinox-llm/types'
 import type { SessionQueuedItem } from '../../types.ts'
-import type { SessionEvent } from '@deepseek-ai/dsh-session/types'
+import type { SessionEvent } from '@solsticeai/equinox-session/types'
 import type { QueuedMessage } from '../contract/snapshot.ts'
 
 const QUEUE_PREVIEW_CHARS = 200

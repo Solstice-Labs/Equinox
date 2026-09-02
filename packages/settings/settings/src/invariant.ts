@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-settings`.
- * @module @deepseek-ai/dsh-settings/invariant
+ * Package-owned invariant companion for `@solsticeai/equinox-settings`.
+ * @module @solsticeai/equinox-settings/invariant
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantFailure, InvariantInstaller } from '@deepseek-ai/dsh-invariants'
-import { deepEqualJson } from '@deepseek-ai/dsh-util-values'
+import type { Context } from '@solsticeai/cordis'
+import type { InvariantFailure, InvariantInstaller } from '@solsticeai/equinox-invariants'
+import { deepEqualJson } from '@solsticeai/equinox-util-values'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-settings'
+const PACKAGE_NAME = '@solsticeai/equinox-settings'
 
 /** Cordis companion plugin name. */
 export const name = 'settings-invariant'

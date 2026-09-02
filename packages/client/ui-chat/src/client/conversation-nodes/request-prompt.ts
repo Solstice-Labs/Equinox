@@ -1,7 +1,7 @@
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@solsticeai/cordis'
 import type {
   ConversationMatch, ConversationNodeContext, ConversationNodeDefinition, RequestPromptInspector,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@solsticeai/equinox-client-ui-conversation/client'
 import type { ChatNode } from '../contract/chat-nodes.ts'
 import { chatNode } from './common.ts'
 

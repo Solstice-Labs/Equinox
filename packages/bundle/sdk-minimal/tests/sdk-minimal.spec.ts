@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as yaml from 'js-yaml'
 import { describe, expect, it } from 'vitest'
-import { entryListSchema } from '@deepseek-ai/cordis-plugin-include'
+import { entryListSchema } from '@solsticeai/cordis-plugin-include'
 
 function packageName(specifier: string): string {
   return specifier.startsWith('@') ? specifier.split('/').slice(0, 2).join('/') : specifier.split('/')[0]!
@@ -26,39 +26,39 @@ describe('dsh-sdk-minimal bundle', () => {
     expect(patches).toHaveLength(1)
     const rows = patches[0]?.insert ?? []
     expect(rows.map(row => [row.id, row.name])).toEqual([
-      ['sdk-app-startup', '@deepseek-ai/dsh-sdk-app'],
-      ['sdk-jsonrpc-server', '@deepseek-ai/dsh-sdk-jsonrpc-server'],
-      ['deepseek-llm-api-extensions', '@deepseek-ai/dsh-deepseek-llm-api-extensions'],
-      ['session-log-deepseek', '@deepseek-ai/dsh-session-log-deepseek'],
-      ['plugin-package-inventory-deepseek', '@deepseek-ai/dsh-plugin-package-inventory-deepseek'],
-      ['llm-deepseek', '@deepseek-ai/dsh-llm-deepseek'],
-      ['sandbox', '@deepseek-ai/dsh-sandbox-local'],
-      ['session-projection', '@deepseek-ai/dsh-session-projection'],
-      ['sandbox-policy', '@deepseek-ai/dsh-sandbox-policy'],
-      ['subprocess', '@deepseek-ai/dsh-subprocess-local'],
-      ['pty', '@deepseek-ai/dsh-terminal'],
-      ['terminal-bash', '@deepseek-ai/dsh-terminal-bash'],
-      ['terminal-pwsh', '@deepseek-ai/dsh-terminal-bash'],
-      ['fs-local', '@deepseek-ai/dsh-fs-local'],
-      ['timer', '@deepseek-ai/cordis-plugin-timer'],
-      ['llm', '@deepseek-ai/dsh-llm'],
-      ['session', '@deepseek-ai/dsh-session'],
-      ['session-title', '@deepseek-ai/dsh-session-title'],
-      ['system-prompt', '@deepseek-ai/dsh-system-prompt'],
-      ['tools', '@deepseek-ai/dsh-tools'],
-      ['agent', '@deepseek-ai/dsh-agent'],
-      ['llm-retry', '@deepseek-ai/dsh-llm-retry'],
-      ['jobs', '@deepseek-ai/dsh-jobs-local'],
-      ['invariants', '@deepseek-ai/dsh-invariants'],
-      ['session-invariant', '@deepseek-ai/dsh-session/invariant'],
-      ['agent-invariant', '@deepseek-ai/dsh-agent/invariant'],
-      ['scope-invariant', '@deepseek-ai/dsh-scope/invariant'],
-      ['agent-loop-invariant', '@deepseek-ai/dsh-agent-loop/invariant'],
-      ['agent-loop', '@deepseek-ai/dsh-agent-loop'],
-      ['persistent-bash', '@deepseek-ai/dsh-tool-bash-persistent'],
-      ['persistent-pwsh', '@deepseek-ai/dsh-tool-pwsh-persistent'],
-      ['str-replace-editor', '@deepseek-ai/dsh-tool-str-replace-editor'],
-      ['sessions', '@deepseek-ai/dsh-session-persistence-jsonl'],
+      ['sdk-app-startup', '@solsticeai/equinox-sdk-app'],
+      ['sdk-jsonrpc-server', '@solsticeai/equinox-sdk-jsonrpc-server'],
+      ['deepseek-llm-api-extensions', '@solsticeai/equinox-deepseek-llm-api-extensions'],
+      ['session-log-deepseek', '@solsticeai/equinox-session-log-deepseek'],
+      ['plugin-package-inventory-deepseek', '@solsticeai/equinox-plugin-package-inventory-deepseek'],
+      ['llm-deepseek', '@solsticeai/equinox-llm-deepseek'],
+      ['sandbox', '@solsticeai/equinox-sandbox-local'],
+      ['session-projection', '@solsticeai/equinox-session-projection'],
+      ['sandbox-policy', '@solsticeai/equinox-sandbox-policy'],
+      ['subprocess', '@solsticeai/equinox-subprocess-local'],
+      ['pty', '@solsticeai/equinox-terminal'],
+      ['terminal-bash', '@solsticeai/equinox-terminal-bash'],
+      ['terminal-pwsh', '@solsticeai/equinox-terminal-bash'],
+      ['fs-local', '@solsticeai/equinox-fs-local'],
+      ['timer', '@solsticeai/cordis-plugin-timer'],
+      ['llm', '@solsticeai/equinox-llm'],
+      ['session', '@solsticeai/equinox-session'],
+      ['session-title', '@solsticeai/equinox-session-title'],
+      ['system-prompt', '@solsticeai/equinox-system-prompt'],
+      ['tools', '@solsticeai/equinox-tools'],
+      ['agent', '@solsticeai/equinox-agent'],
+      ['llm-retry', '@solsticeai/equinox-llm-retry'],
+      ['jobs', '@solsticeai/equinox-jobs-local'],
+      ['invariants', '@solsticeai/equinox-invariants'],
+      ['session-invariant', '@solsticeai/equinox-session/invariant'],
+      ['agent-invariant', '@solsticeai/equinox-agent/invariant'],
+      ['scope-invariant', '@solsticeai/equinox-scope/invariant'],
+      ['agent-loop-invariant', '@solsticeai/equinox-agent-loop/invariant'],
+      ['agent-loop', '@solsticeai/equinox-agent-loop'],
+      ['persistent-bash', '@solsticeai/equinox-tool-bash-persistent'],
+      ['persistent-pwsh', '@solsticeai/equinox-tool-pwsh-persistent'],
+      ['str-replace-editor', '@solsticeai/equinox-tool-str-replace-editor'],
+      ['sessions', '@solsticeai/equinox-session-persistence-jsonl'],
     ])
     expect(rows.find(row => row.id === 'sdk-app-startup')?.config).toEqual({ profile: 'sdk-minimal' })
     expect(rows.find(row => row.id === 'sdk-jsonrpc-server')).toMatchObject({

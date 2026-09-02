@@ -18,25 +18,25 @@
  * disposed by then, and the release that wakes the parent's own settlement
  * watcher has already run. See {@link SubagentContinuationManager.notifySettlement}.
  *
- * @module @deepseek-ai/dsh-subagent
+ * @module @solsticeai/equinox-subagent
  */
 
 import { randomUUID } from 'node:crypto'
-import type { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
+import type { Context } from '@solsticeai/cordis'
+import { brandString } from '@solsticeai/equinox-brand'
 import type {
   Agent,
   AgentHandle,
   AgentOptions,
   CreateAgentOptions,
-} from '@deepseek-ai/dsh-agent'
-import { ReasoningEffortId, boundContextSummary, contentHasImage, createUserMessage, errorChain } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, MessageId, MessageSource } from '@deepseek-ai/dsh-llm'
-import { SessionLogOffset } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionId , SessionLogOffset as SessionLogOffsetType } from '@deepseek-ai/dsh-session'
-import type { SessionPersistence } from '@deepseek-ai/dsh-session-persistence'
-import type { SessionObservation, SessionQueryEngine } from '@deepseek-ai/dsh-session-query'
-import type { ToolRestriction } from '@deepseek-ai/dsh-tools'
+} from '@solsticeai/equinox-agent'
+import { ReasoningEffortId, boundContextSummary, contentHasImage, createUserMessage, errorChain } from '@solsticeai/equinox-llm'
+import type { ContentBlock, MessageId, MessageSource } from '@solsticeai/equinox-llm'
+import { SessionLogOffset } from '@solsticeai/equinox-session'
+import type { SessionEvent, SessionId , SessionLogOffset as SessionLogOffsetType } from '@solsticeai/equinox-session'
+import type { SessionPersistence } from '@solsticeai/equinox-session-persistence'
+import type { SessionObservation, SessionQueryEngine } from '@solsticeai/equinox-session-query'
+import type { ToolRestriction } from '@solsticeai/equinox-tools'
 import { foldSubagentDescriptor, snapshotSubagentDescriptor } from './descriptor.ts'
 import type { SubagentDescriptorData } from './descriptor.ts'
 import {
@@ -81,7 +81,7 @@ export interface SubagentSettledMessageSource {
   readonly senderSessionId: SessionId
 }
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@solsticeai/equinox-llm' {
   interface MessageSourceMap {
     'agent-message': AgentMessageSource
     'subagent-settled': SubagentSettledMessageSource
@@ -1706,7 +1706,7 @@ export class SubagentContinuationManager {
     const query = this.ctx.get('sessionQuery')
     if (query === undefined) {
       throw new SubagentError(
-        'continuable subagents require session query (load @deepseek-ai/dsh-session-query)',
+        'continuable subagents require session query (load @solsticeai/equinox-session-query)',
         'CONTINUATION_UNAVAILABLE',
       )
     }

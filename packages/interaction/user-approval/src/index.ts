@@ -1,26 +1,26 @@
 /**
  * Service Definition for the approval capability seam, covering requests, cancellation, audit, and per-session policy. Missing
  * answerers fail closed; grants apply only to the requested action.
- * @module @deepseek-ai/dsh-user-approval
+ * @module @solsticeai/equinox-user-approval
  */
 
 import { randomUUID } from 'node:crypto'
-import { Context, Service } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { createUserMessage, type ToolCallId } from '@deepseek-ai/dsh-llm'
-import { scopeTarget } from '@deepseek-ai/dsh-scope'
-import type { Session } from '@deepseek-ai/dsh-session'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-system-prompt'
+import { Context, Service } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { createUserMessage, type ToolCallId } from '@solsticeai/equinox-llm'
+import { scopeTarget } from '@solsticeai/equinox-scope'
+import type { Session } from '@solsticeai/equinox-session'
+import { SessionSeq } from '@solsticeai/equinox-session'
+import type {} from '@solsticeai/equinox-system-prompt'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     approval: ApprovalService
   }
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@solsticeai/equinox-session/types' {
   interface SessionEventMap {
     /**
      * The session's approval policy was switched — log-only, durable,

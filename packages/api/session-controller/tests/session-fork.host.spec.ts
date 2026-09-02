@@ -1,15 +1,15 @@
 /** Session Controller fork boundaries, lineage, and inherited model routing. */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry, { agentEvents } from '@deepseek-ai/dsh-agent'
-import type { Agent, AgentHandle, CreateAgentOptions } from '@deepseek-ai/dsh-agent'
-import { createUserMessage, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type { LlmCallConfig } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionLogOffset, SessionSeq } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import type { Workspace } from '@deepseek-ai/dsh-workspace'
+import { Context } from '@solsticeai/cordis'
+import AgentRegistry, { agentEvents } from '@solsticeai/equinox-agent'
+import type { Agent, AgentHandle, CreateAgentOptions } from '@solsticeai/equinox-agent'
+import { createUserMessage, ReasoningEffortId } from '@solsticeai/equinox-llm'
+import type { LlmCallConfig } from '@solsticeai/equinox-llm'
+import SessionStore, { SessionLogOffset, SessionSeq } from '@solsticeai/equinox-session'
+import type { Session, SessionEvent, SessionHeader, SessionId } from '@solsticeai/equinox-session'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import type { Workspace } from '@solsticeai/equinox-workspace'
 import {
   createSessionTestRemote, installSessionReadTestServices, testSessionPersistence,
 } from './test-remote.ts'

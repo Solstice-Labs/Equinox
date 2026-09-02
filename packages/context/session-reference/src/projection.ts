@@ -1,11 +1,11 @@
 /** Current-surface projection and byte-bounded rendering. */
 
-import { isCompactCheckpointSource } from '@deepseek-ai/dsh-compaction'
-import type { SessionSurfaceSnapshot } from '@deepseek-ai/dsh-session-query'
-import { TextRetainer } from '@deepseek-ai/dsh-output-retention'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import { SessionSeq } from '@deepseek-ai/dsh-session'
-import type { OptionalSessionSeq } from '@deepseek-ai/dsh-session'
+import { isCompactCheckpointSource } from '@solsticeai/equinox-compaction'
+import type { SessionSurfaceSnapshot } from '@solsticeai/equinox-session-query'
+import { TextRetainer } from '@solsticeai/equinox-output-retention'
+import { assertNever } from '@solsticeai/equinox-util-values'
+import { SessionSeq } from '@solsticeai/equinox-session'
+import type { OptionalSessionSeq } from '@solsticeai/equinox-session'
 import { stringifyTagSafeJson } from './serialization.ts'
 import type { ReferencedConversationItem } from './types.ts'
 

@@ -1,14 +1,14 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-workspace`.
- * @module @deepseek-ai/dsh-workspace/invariant
+ * Package-owned invariant companion for `@solsticeai/equinox-workspace`.
+ * @module @solsticeai/equinox-workspace/invariant
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
-import type { DomainChanged } from '@deepseek-ai/dsh-storage-domain'
-import { WorkspaceId } from '@deepseek-ai/dsh-workspace'
+import type { Context } from '@solsticeai/cordis'
+import type { InvariantInstaller } from '@solsticeai/equinox-invariants'
+import type { DomainChanged } from '@solsticeai/equinox-storage-domain'
+import { WorkspaceId } from '@solsticeai/equinox-workspace'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-workspace'
+const PACKAGE_NAME = '@solsticeai/equinox-workspace'
 
 /** Cordis companion plugin name. */
 export const name = 'workspace-invariant'

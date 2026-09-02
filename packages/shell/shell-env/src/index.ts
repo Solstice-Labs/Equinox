@@ -5,17 +5,17 @@
  * the registry itself while plugins can register additional, enumerable facts
  * with effect-scoped disposal.
  *
- * @module @deepseek-ai/dsh-shell-env
+ * @module @solsticeai/equinox-shell-env
  */
 
-import { Service, type Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { DSH_ENV_PREFIX } from '@deepseek-ai/dsh-shell'
-import type { DshEnvironment, DshEnvironmentKey } from '@deepseek-ai/dsh-shell'
-import { DSH_HOME_ENV, resolveDshHome } from '@deepseek-ai/dsh-home-paths'
-import type { ToolExecution } from '@deepseek-ai/dsh-tools'
+import { Service, type Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { DSH_ENV_PREFIX } from '@solsticeai/equinox-shell'
+import type { DshEnvironment, DshEnvironmentKey } from '@solsticeai/equinox-shell'
+import { DSH_HOME_ENV, resolveDshHome } from '@solsticeai/equinox-home-paths'
+import type { ToolExecution } from '@solsticeai/equinox-tools'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@solsticeai/cordis' {
   interface Context {
     shellEnv: ShellEnvRegistry
   }

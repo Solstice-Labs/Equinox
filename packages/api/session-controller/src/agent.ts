@@ -1,19 +1,19 @@
 /** Agent activation, composition, and model-selection policy owned by API Session. */
 
 import { mkdir } from 'node:fs/promises'
-import type { Context } from '@deepseek-ai/cordis'
-import { installModelSelection } from '@deepseek-ai/dsh-agent'
+import type { Context } from '@solsticeai/cordis'
+import { installModelSelection } from '@solsticeai/equinox-agent'
 import type {
   Agent, AgentOptions, AgentSetup, ModelSelection as AgentModelSelection, ModelSelectionRef,
-} from '@deepseek-ai/dsh-agent'
-import type {} from '@deepseek-ai/dsh-agent-default-model'
-import type {} from '@deepseek-ai/dsh-agent-presets'
-import { ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type { Session, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionInspection } from '@deepseek-ai/dsh-session-persistence'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
-import type {} from '@deepseek-ai/dsh-typert-registry'
+} from '@solsticeai/equinox-agent'
+import type {} from '@solsticeai/equinox-agent-default-model'
+import type {} from '@solsticeai/equinox-agent-presets'
+import { ReasoningEffortId } from '@solsticeai/equinox-llm'
+import type { Session, SessionId } from '@solsticeai/equinox-session'
+import type { SessionInspection } from '@solsticeai/equinox-session-persistence'
+import { SessionQueryError, type SessionObservation } from '@solsticeai/equinox-session-query'
+import { RemoteError } from '@solsticeai/equinox-typert-protocol'
+import type {} from '@solsticeai/equinox-typert-registry'
 import type { ModelSelection } from './types.ts'
 
 /** Cold Session identity absent from persistence. */

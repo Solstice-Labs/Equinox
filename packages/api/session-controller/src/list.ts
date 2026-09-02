@@ -1,14 +1,14 @@
 /** Cold-safe Session list and search projection. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type {} from '@deepseek-ai/dsh-agent-presets'
-import type { ImageAttachmentLimits } from '@deepseek-ai/dsh-attachment'
-import { SessionLogOffset } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type {} from '@deepseek-ai/dsh-session-projection-cache'
-import { SessionQueryError, type SessionSearchCursor } from '@deepseek-ai/dsh-session-query'
-import { RemoteError } from '@deepseek-ai/dsh-typert-protocol'
+import type { Context } from '@solsticeai/cordis'
+import type {} from '@solsticeai/equinox-agent-presets'
+import type { ImageAttachmentLimits } from '@solsticeai/equinox-attachment'
+import { SessionLogOffset } from '@solsticeai/equinox-session'
+import type { Session, SessionEvent, SessionHeader, SessionId } from '@solsticeai/equinox-session'
+import type {} from '@solsticeai/equinox-session-projection'
+import type {} from '@solsticeai/equinox-session-projection-cache'
+import { SessionQueryError, type SessionSearchCursor } from '@solsticeai/equinox-session-query'
+import { RemoteError } from '@solsticeai/equinox-typert-protocol'
 import { z } from 'zod'
 import {
   SESSION_SEARCH_RESULT_LIMIT,
@@ -254,7 +254,7 @@ export class ApiSessionList {
     if (provider === undefined) {
       throw new RemoteError(
         'gateway/internal',
-        'session search is unavailable: this deployment does not mount @deepseek-ai/dsh-session-query',
+        'session search is unavailable: this deployment does not mount @solsticeai/equinox-session-query',
         {},
       )
     }

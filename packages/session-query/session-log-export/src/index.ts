@@ -1,11 +1,11 @@
 /** Session-log download command and Host-owned streaming route. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import Schema from '@deepseek-ai/schemastery'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type {} from '@deepseek-ai/dsh-attachment'
-import type { CommandResult } from '@deepseek-ai/dsh-commands'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import type { Context } from '@solsticeai/cordis'
+import Schema from '@solsticeai/schemastery'
+import { brandString } from '@solsticeai/equinox-brand'
+import type {} from '@solsticeai/equinox-attachment'
+import type { CommandResult } from '@solsticeai/equinox-commands'
+import type { SessionId } from '@solsticeai/equinox-session/types'
 import {
   DEFAULT_SESSION_LOG_COMPRESSION_LEVEL,
   flushLiveSessionLog,

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-settings",
+  "name": "@solsticeai/equinox-client-ui-settings",
   "description": "Settings domain base plugin: the settings-namespace scope service and the canonical settings slot-type contract",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/client/ui-settings"
   },
   "type": "module",
@@ -39,19 +39,19 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-api-remotes": "workspace:^",
-    "@deepseek-ai/dsh-client-store": "workspace:^",
-    "@deepseek-ai/dsh-client-test-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-settings": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-api-remotes": "workspace:^",
+    "@solsticeai/equinox-client-store": "workspace:^",
+    "@solsticeai/equinox-client-test-runtime": "workspace:^",
+    "@solsticeai/equinox-client-ui-slots": "workspace:^",
+    "@solsticeai/equinox-settings": "workspace:^",
     "@types/react": "~18.3.1",
     "react": "^18.2.0",
-    "@deepseek-ai/schemastery": "workspace:^",
-    "@deepseek-ai/dsh-util-values": "workspace:^"
+    "@solsticeai/schemastery": "workspace:^",
+    "@solsticeai/equinox-util-values": "workspace:^"
   },
   "files": [
     "lib/index.js",

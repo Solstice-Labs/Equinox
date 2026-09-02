@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { PassThrough } from 'node:stream'
-import { Context } from '@deepseek-ai/cordis'
-import { scrubbedParentEnv, SubprocessRuntime } from '@deepseek-ai/dsh-subprocess'
+import { Context } from '@solsticeai/cordis'
+import { scrubbedParentEnv, SubprocessRuntime } from '@solsticeai/equinox-subprocess'
 import type {
   SubprocessHandle,
   SubprocessOutputRead,
   SubprocessSpawnSpec,
   SubprocessTerminalHandle,
   SubprocessTerminalSpawnSpec,
-} from '@deepseek-ai/dsh-subprocess'
+} from '@solsticeai/equinox-subprocess'
 
 /**
  * Minimal concrete service: a hand-built handle. The seam is spawn-only —

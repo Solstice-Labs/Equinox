@@ -1,17 +1,17 @@
 /**
  * Execution types for the bash executor seam. Background job semantics belong
- * to `@deepseek-ai/dsh-jobs`; this seam exposes only process handles. The
+ * to `@solsticeai/equinox-jobs`; this seam exposes only process handles. The
  * managed-environment and captured-output vocabulary is owned by the
  * subprocess seam and re-exported here so bash consumers keep one import
  * root.
  * @module dsh-shell/types
  */
 
-import type { SandboxEnforcement, SandboxExecutionPolicy, SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import type { CollectedOutput, DshEnvironment } from '@deepseek-ai/dsh-subprocess'
+import type { SandboxEnforcement, SandboxExecutionPolicy, SandboxMode } from '@solsticeai/equinox-sandbox'
+import type { CollectedOutput, DshEnvironment } from '@solsticeai/equinox-subprocess'
 
-export { DSH_ENV_PREFIX } from '@deepseek-ai/dsh-subprocess'
-export type { CollectedOutput, DshEnvironment, DshEnvironmentKey } from '@deepseek-ai/dsh-subprocess'
+export { DSH_ENV_PREFIX } from '@solsticeai/equinox-subprocess'
+export type { CollectedOutput, DshEnvironment, DshEnvironmentKey } from '@solsticeai/equinox-subprocess'
 
 /**
  * Sandbox facts for one run, present iff a sandboxing executor handled it.

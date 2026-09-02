@@ -1,5 +1,5 @@
-import z from '@deepseek-ai/schemastery'
-import { WebhookRuleId } from '@deepseek-ai/dsh-webhook'
+import z from '@solsticeai/schemastery'
+import { WebhookRuleId } from '@solsticeai/equinox-webhook'
 
 export const name = 'github-ready-review-rule'
 export const inject = ['webhookRuntime']

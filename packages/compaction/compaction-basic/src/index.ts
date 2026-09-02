@@ -1,22 +1,22 @@
 /**
  * Basic replay-aware compaction backend.
  *
- * @module @deepseek-ai/dsh-compaction-basic
+ * @module @solsticeai/equinox-compaction-basic
  */
 
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { CompactionEngine, ManualCompactionError } from '@deepseek-ai/dsh-compaction'
-import type { CompactionResult, CompactionTrigger } from '@deepseek-ai/dsh-compaction'
-import type { TokenMeter } from '@deepseek-ai/dsh-token-meter'
-import type { Session, SessionSeq } from '@deepseek-ai/dsh-session'
-import { CONTEXT_WINDOW_EXCEEDED_CODE } from '@deepseek-ai/dsh-llm'
-import type { LlmCallConfig } from '@deepseek-ai/dsh-llm'
-import { assertNever } from '@deepseek-ai/dsh-util-values'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import type { CommandId } from '@deepseek-ai/dsh-commands/brand'
+import { Context } from '@solsticeai/cordis'
+import z from '@solsticeai/schemastery'
+import { CompactionEngine, ManualCompactionError } from '@solsticeai/equinox-compaction'
+import type { CompactionResult, CompactionTrigger } from '@solsticeai/equinox-compaction'
+import type { TokenMeter } from '@solsticeai/equinox-token-meter'
+import type { Session, SessionSeq } from '@solsticeai/equinox-session'
+import { CONTEXT_WINDOW_EXCEEDED_CODE } from '@solsticeai/equinox-llm'
+import type { LlmCallConfig } from '@solsticeai/equinox-llm'
+import { assertNever } from '@solsticeai/equinox-util-values'
+import type { Agent, PreStepDecision } from '@solsticeai/equinox-agent'
+import type { CommandId } from '@solsticeai/equinox-commands/brand'
 // Type-only: makes the optional sibling service available to `ctx.get()`.
-import type {} from '@deepseek-ai/dsh-compaction-tool-result-pruner'
+import type {} from '@solsticeai/equinox-compaction-tool-result-pruner'
 import {
   resolveCompactSpec,
   resolveConfig,

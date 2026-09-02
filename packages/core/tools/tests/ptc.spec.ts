@@ -1,17 +1,17 @@
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { createUserMessage, ToolCallId  } from '@deepseek-ai/dsh-llm'
-import { createScope } from '@deepseek-ai/dsh-scope'
-import type { Scope } from '@deepseek-ai/dsh-scope'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import { CodeRuntime } from '@deepseek-ai/dsh-code-runtime'
-import type { CodeRunRequest, CodeRunResult } from '@deepseek-ai/dsh-code-runtime'
-import ToolRuntime, { CodeRunFailedError, RUN_CODE_NAME, TOOL_ABORTED_BEFORE_DISPATCH, defineContentToolFixture, defineTool } from '@deepseek-ai/dsh-tools'
-import type { Config, JsonSchemaNode, PostToolDecision, ToolExecutionResult } from '@deepseek-ai/dsh-tools'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionEventMap } from '@deepseek-ai/dsh-session'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
+import { Context } from '@solsticeai/cordis'
+import { createUserMessage, ToolCallId  } from '@solsticeai/equinox-llm'
+import { createScope } from '@solsticeai/equinox-scope'
+import type { Scope } from '@solsticeai/equinox-scope'
+import SystemPrompt from '@solsticeai/equinox-system-prompt'
+import { CodeRuntime } from '@solsticeai/equinox-code-runtime'
+import type { CodeRunRequest, CodeRunResult } from '@solsticeai/equinox-code-runtime'
+import ToolRuntime, { CodeRunFailedError, RUN_CODE_NAME, TOOL_ABORTED_BEFORE_DISPATCH, defineContentToolFixture, defineTool } from '@solsticeai/equinox-tools'
+import type { Config, JsonSchemaNode, PostToolDecision, ToolExecutionResult } from '@solsticeai/equinox-tools'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { Session, SessionId } from '@solsticeai/equinox-session'
+import type { SessionEventMap } from '@solsticeai/equinox-session'
+import type { JsonValue } from '@solsticeai/equinox-util-values'
 
 const testToolSignal = new AbortController().signal
 
@@ -1749,7 +1749,7 @@ describe('per-agent presentation', () => {
   })
 
   it('inherits a STANDING preset scope\'s mode down the chain, agents beside it unaffected', async () => {
-    const { bindScopeParent } = await import('@deepseek-ai/dsh-scope')
+    const { bindScopeParent } = await import('@solsticeai/equinox-scope')
     const { ctx, systemPrompt } = await setup({ mode: 'native' })
     const calls = registerEcho(ctx)
     // The preset's standing scope declares once; the agent only PARENTS to it

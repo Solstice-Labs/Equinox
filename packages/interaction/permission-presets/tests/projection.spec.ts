@@ -10,16 +10,16 @@
  */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import type { Session } from '@deepseek-ai/dsh-session'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { createScope } from '@deepseek-ai/dsh-scope'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import CommandRuntime from '@deepseek-ai/dsh-commands'
-import PermissionPresetService from '@deepseek-ai/dsh-permission-presets'
-import type { Config } from '@deepseek-ai/dsh-permission-presets'
-import ApprovalService from '@deepseek-ai/dsh-user-approval'
+import { Context } from '@solsticeai/cordis'
+import SessionStore, { SessionId } from '@solsticeai/equinox-session'
+import type { Session } from '@solsticeai/equinox-session'
+import type { Agent } from '@solsticeai/equinox-agent'
+import { createScope } from '@solsticeai/equinox-scope'
+import SessionProjectionRegistry from '@solsticeai/equinox-session-projection'
+import CommandRuntime from '@solsticeai/equinox-commands'
+import PermissionPresetService from '@solsticeai/equinox-permission-presets'
+import type { Config } from '@solsticeai/equinox-permission-presets'
+import ApprovalService from '@solsticeai/equinox-user-approval'
 
 async function harness(options: { withPermission?: boolean; config?: Config } = {}): Promise<{ ctx: Context; session: Session }> {
   const ctx = new Context()

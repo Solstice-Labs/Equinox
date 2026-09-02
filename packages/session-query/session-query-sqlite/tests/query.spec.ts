@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import { SessionSearchCursor, type SessionQueryErrorCode } from '@deepseek-ai/dsh-session-query'
+import { SessionId } from '@solsticeai/equinox-session'
+import { SessionSearchCursor, type SessionQueryErrorCode } from '@solsticeai/equinox-session-query'
 import {
   buildEventWhere,
   buildSessionWhere,

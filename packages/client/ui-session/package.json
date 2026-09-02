@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-session",
+  "name": "@solsticeai/equinox-client-ui-session",
   "description": "Session Controller adapter for React and session-scoped slots",
   "version": "0.1.2-alpha.5",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
     "directory": "packages/client/ui-session"
   },
   "type": "module",
@@ -40,15 +40,15 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@solsticeai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-api-session-controller": "workspace:^",
-    "@deepseek-ai/dsh-client-store": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-renderer": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-api-session-controller": "workspace:^",
+    "@solsticeai/equinox-client-store": "workspace:^",
+    "@solsticeai/equinox-client-ui-renderer": "workspace:^",
+    "@solsticeai/equinox-client-ui-slots": "workspace:^",
+    "@solsticeai/equinox-session": "workspace:^",
     "@types/react": "~18.3.1",
     "react": "^18.2.0"
   },

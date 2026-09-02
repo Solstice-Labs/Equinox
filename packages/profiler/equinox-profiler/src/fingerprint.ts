@@ -3,7 +3,8 @@
  * ModelProfile with a normalized asymmetric precision plan and runtime policy.
  */
 
-import type { CaptureBackend, LayerMoments, ModelProfile, QuantPlan, QuantRule } from './types.ts'
+import { forecastQuantPlan } from './capture/tensor-forecast.ts'
+import type { ApiFingerprint, CaptureBackend, LayerMoments, ModelProfile, QuantPlan, QuantRule, ReferenceTwin } from './types.ts'
 import { clamp, drift as driftFn, normalizeScores, quantTierFor, sha256Hex } from './math.ts'
 
 export interface FingerprintInput {
@@ -16,6 +17,10 @@ export interface FingerprintInput {
   scratchpadDrift?: number
   tempCode?: number
   tempReasoning?: number
+  /** API-hosted model fingerprint (backend 'api'). */
+  api?: ApiFingerprint
+  /** Locally profiled twins used to ground the tensor forecast for API models. */
+  twins?: ReferenceTwin[]
 }
 
 export interface LayerStatLikeImportance {
@@ -95,6 +100,10 @@ export function buildFingerprint(input: FingerprintInput, options: BuildOptions 
       input.baseline.map(b => ({ layer: b.layer, importance: b.importance })),
     )
   }
+  const api = input.api
+  if (api !== undefined) {
+    return buildApiProfile(input, api)
+  }
 
   if (hasCapture) {
     const tiers = stats.map(s => ({ layer: s.layer, tier: quantTierFor(s.importance) }))
@@ -125,6 +134,45 @@ export function buildFingerprint(input: FingerprintInput, options: BuildOptions 
         default: 0.4,
       },
     },
+    tensorGrounded: hasCapture,
+  }
+}
+
+/**
+ * API-hosted profile: policy derives from behavioral stability/calibration,
+ * and the quant plan comes from the tensor forecast (uniform + estimated when
+ * no local twin grounds it; twin plans carry their own base/token/output
+ * tensor types).
+ */
+function buildApiProfile(input: FingerprintInput, api: ApiFingerprint): ModelProfile {
+  const forecast = forecastQuantPlan(api, input.twins ?? [])
+  const stability = api.stability
+  const calibration = api.calibrationError
+  const scratchpad = stability < 0.55 ? 'always' : stability < 0.8 ? 'on-error' : 'off'
+  const reasoning = calibration !== null && calibration < 0.12 ? 0.6 : 0.35
+  const codeTemp = input.tempCode ?? 0.1
+  return {
+    schemaVersion: 1,
+    model: input.model,
+    backend: 'api',
+    generatedAt: new Date().toISOString(),
+    probeComposite: clamp(input.probeComposite, 0, 1),
+    domainScores: input.domainScores,
+    layerStats: [],
+    quantPlan: forecast.plan,
+    policy: {
+      scratchpad,
+      // Behavioral drift proxy: unstable answers behave like a drifting net.
+      drift: 1 - stability,
+      temperature: {
+        code: codeTemp,
+        reasoning,
+        default: 0.4,
+      },
+    },
+    tensorGrounded: forecast.grounded,
+    apiFingerprint: api,
+    tensorForecast: forecast,
   }
 }
 

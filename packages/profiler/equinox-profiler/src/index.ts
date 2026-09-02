@@ -73,6 +73,8 @@ export default Profiler
 
 // ——— public re-exports ———
 export type {
+  ApiCapabilityStats,
+  ApiFingerprint,
   CaptureBackend,
   ChatMessage,
   ChatOptions,
@@ -88,7 +90,9 @@ export type {
   QuantPlan,
   QuantRule,
   QuantTier,
+  ReferenceTwin,
   SuiteResult,
+  TensorForecast,
   TensorProxy,
   ToolCall,
 } from './types.ts'
@@ -149,3 +153,26 @@ export {
 export type { HiddenStatesOptions, HiddenStatesResult } from './capture/hidden-states.ts'
 export type { RunnerOptions } from './runner.ts'
 export type { FingerprintInput, LayerStatLikeImportance } from './fingerprint.ts'
+export {
+  apiClientFromEnv,
+  OpenAIClient,
+} from './client/openai-client.ts'
+export type {
+  OpenAIClientOptions,
+  SampledResponse,
+  SampleOptions,
+  TokenLogprob,
+} from './client/openai-client.ts'
+export {
+  perturbProbe,
+  perturbText,
+  pickRobustnessProbes,
+  reduceApiFingerprint,
+  runApiFingerprint,
+} from './capture/api-fingerprint.ts'
+export type { ApiFingerprintOptions, Sampler } from './capture/api-fingerprint.ts'
+export {
+  findTwin,
+  forecastQuantPlan,
+  normalizeFamily,
+} from './capture/tensor-forecast.ts'

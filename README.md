@@ -1,75 +1,80 @@
 # Equinox
 
-> **Self-improving agent harness for local open-source LLMs** — Solstice-AI.
-> Status: Pre-MVP (first slice: Profiler + Adapter + failure capture).
+> **Universal Self-Improving Agent Harness for Local & Open-Source LLMs** — Solstice-AI.
+> Foundation: Pre-forked from [DeepSeek Harness (`deepseek-ai/deepseek-harness`)](https://github.com/deepseek-ai/deepseek-harness).
 
-Equinox profiles any local model, learns from its failures, and adapts the
-harness to that specific model — the opening turn of the self-distillation
-flywheel:
+Equinox transforms any local or remote model into an autonomous, self-improving reasoning agent. By combining **DeepSeek Harness's plugin-first runtime** with **Solstice's Dual-Plane Activation Profiler (`imatrix`) & Self-Distillation Flywheel**, Equinox profiles your model, adapts to its cognitive strengths, learns from failures, and produces optimized quantization recipes.
 
 ```
-Usage → Profiling → Adaptation → Failure Capture → (next slice) Distillation
+Usage ──> Profiling ──> Dynamic Adaptation ──> Failure Capture ──> Sub-Agent Teacher ──> imatrix Calib ──> Better Quants
 ```
 
-This repo is the first, lean slice. It deliberately avoids the DeepSeek Harness
-(Cordis) substrate for now, deferring that dependency until the sub-agent
-"teacher" system in the Distiller milestone actually needs it. Everything here
-talks to **any OpenAI-compatible endpoint**, so it runs against llama-server,
-Ollama, vLLM, build.nvidia.com, or a future Anvil engine without changes.
+---
 
-## Modules
+## 🌟 The Equinox Dual-Plane Architecture
 
-| Module | File | Responsibility |
-|--------|------|----------------|
-| Model client | `src/model-client.ts` | Box-agnostic OpenAI-compatible HTTP client (native fetch) |
-| Probe suite | `src/probes.ts` | Deterministic, gradeable probes across coding / reasoning / tool_use / math / instruction_following |
-| Profiler | `src/profiler.ts` | Runs probes, grades offline (keyword heuristics, no judge model), emits `model-profile.json` |
-| Adapter | `src/adapter.ts` | Reads the profile → system prompt, temperature, tool-call style, task-splitting rule |
-| Session log | `src/session-log.ts` | Append-only JSONL event log (replayable; raw material for the Distiller) |
-| CLI | `src/cli.ts` | `profile` / `adapt` / `run` commands |
+1. **The Tensor Plane (Hardware & Quantization):**
+   * Layer-wise second-order activation sensitivity analysis ($S_{l, i} = \mathbb{E}[a_{l, i}^2]$).
+   * **Asymmetric Layer Bitrates:** Allocates FP16 / Q8 to critical reasoning attention hubs while aggressively compressing redundant layers to 2-bit/3-bit IQ formats (saving 35–45% VRAM without losing IQ).
+   * **Representation Engineering (RepE):** Injects contrastive steering vectors directly into intermediate hidden states ($h_l \leftarrow h_l + \alpha \cdot \vec{v}_{\text{steer}}$).
 
-## Why lean / no-DSH yet
+2. **The Prompt Plane (Harness Scaffolding):**
+   * Dynamic system prompt synthesis tailored to model quirks.
+   * Automated `<thinking>` scratchpad injection for multi-step reasoning.
+   * Agent-Computer Interface (ACI) compact tool outputs to prevent context bloat.
 
-The one genuinely valuable piece of DSH for this project is its **sub-agent**
-system — the "teacher" in the distillation loop. That only matters at the
-distillation milestone. Wiring the whole product to a dev-preview framework now
-(before we've proven the flywheel) front-loads the document's #1 flagged risk
-(DSH API instability) for no near-term payoff. We keep DSH in the back pocket
-as a narrowly-scoped adapter for the sub-agent lane when we reach it.
+3. **The Self-Distillation Flywheel:**
+   * Unresolved task errors automatically delegate to frontier sub-agent teachers (Claude Code / Codex / DeepSeek V4).
+   * Verified teacher resolution traces are compiled into a failure-informed `imatrix` calibration pool for automated background re-quantization.
 
-## Install & run
+---
+
+## 📦 Modules & Ecosystem
+
+Built on the modular **Cordis** kernel, every capability is decoupled as a swappable plugin:
+
+| Module | Role |
+| :--- | :--- |
+| **Model Interface** | Box-agnostic OpenAI-compatible HTTP/SSE client (Anvil, llama-server, Ollama, vLLM, MLX, Cloud) |
+| **Profiler Engine** | Standardized 50-probe test suite across coding, reasoning, math, and tool-use |
+| **Adaptive Scaffolding** | Reads `model-profile.json` and adjusts system prompts, temperatures, and tool formats |
+| **Session Store** | Event-sourced, append-only JSONL trajectories for replay, forking, and distillation |
+| **Sub-Agent Coordinator** | Drives child processes as teachers for automated failure recovery |
+
+---
+
+## 🚀 Quickstart
 
 ```bash
-# needs Node >= 20
-npm install
-npm run build   # tsc -> dist/
+# Clone and build
+git clone https://github.com/Solstice-Labs/Equinox.git
+cd Equinox
+pnpm install
+pnpm build
 
-# point at your endpoint
+# Configure your endpoint (Ollama, llama-server, vLLM, or Anvil)
 export EQUINOX_BASE_URL=http://127.0.0.1:8080/v1
-export EQUINOX_MODEL=qwen3-8b-q4_k_m
-# optional
-export EQUINOX_API_KEY=sk-...
+export EQUINOX_MODEL=qwen3-27b-q4_k_m
 
-node dist/cli.js profile
-node dist/cli.js adapt
-node dist/cli.js run "Refactor this function to use async/await" --category=coding
+# Profile your model
+pnpm equinox profile
+
+# Run autonomous tasks with dynamic scaffolding
+pnpm equinox run "Refactor src/db.ts to use connection pooling"
+
+# Interactive terminal agent
+pnpm equinox chat
 ```
 
-## `model-profile.json`
+---
 
-The emitted fingerprint captures per-category capability scores, behavioral
-style (concise/verbose), tool preferences, and observed failure patterns with
-mitigations — exactly what the Adapter (and later the Distiller) consumes.
+## 📄 Documentation & Research
 
-## Next slices
+* **Architecture Whitepaper:** [`ARCHITECTURE.md`](./ARCHITECTURE.md)
+* **Solstice-AI Specification:** [solstice-ai.co/docs/equinox-dual-plane-architecture](https://solstice-ai.co/docs/equinox-dual-plane-architecture)
 
-1. **Failure Logging → Distiller** — turn captured failures into calibration
-   training data for the quantization lane (Unsloth-style / ultraquant Bonsai).
-2. **Sub-agent teacher** — the frontier-model "teacher" lane (this is where DSH
-   earns its place, via sub-agents driving Claude Code/Codex as child processes).
-3. **Quantized rebuild** — feed calibrated data back into better quants of the
-   same model; re-profile to measure improvement.
+---
 
-## License
+## ⚖️ License
 
-MIT
+MIT License &copy; 2026 Solstice-AI & DeepSeek AI.

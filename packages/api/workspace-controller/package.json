@@ -40,11 +40,11 @@
   "dsh": {
     "client": {
       "external": [
-        "@deepseek-ai/dsh-api-gateway/client"
+        "@solsticeai/equinox-api-gateway/client"
       ],
       "inject": [
-        "@deepseek-ai/dsh-api-gateway",
-        "@deepseek-ai/dsh-client-connection"
+        "@solsticeai/equinox-api-gateway",
+        "@solsticeai/equinox-client-connection"
       ],
       "platform": "web"
     }

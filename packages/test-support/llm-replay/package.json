@@ -34,7 +34,7 @@
     "@solsticeai/equinox-session": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-deepseek-llm-api-extensions": {
+    "@solsticeai/equinox-deepseek-llm-api-extensions": {
       "optional": true
     }
   },

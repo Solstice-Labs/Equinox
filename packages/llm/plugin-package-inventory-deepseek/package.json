@@ -44,7 +44,7 @@
     "@solsticeai/equinox-session": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-agent-presets": {
+    "@solsticeai/equinox-agent-presets": {
       "optional": true
     }
   },

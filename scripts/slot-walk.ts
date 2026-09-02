@@ -15,7 +15,7 @@ import ts from 'typescript'
 const SLOTS_MODULE = '@solsticeai/equinox-client-ui-slots'
 
 /** Cheap textual prefilter for a slot-contract merge, quote-style agnostic. */
-const MERGE_HEAD = /declare module ['"]@deepseek-ai\/dsh-client-ui-slots['"]/
+const MERGE_HEAD = /declare module ['"]@solsticeai\/equinox-client-ui-slots['"]/
 
 /** Cheap textual prefilter for a registration call site. */
 const REGISTER_HEAD = /\.register\(/

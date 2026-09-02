@@ -2,7 +2,7 @@
 
 ## npm packages
 
-The public package family belongs to the `@deepseek-ai` scope and uses the `node-addon-landlock-run` package prefix; platform packages append platform information only:
+The public package family belongs to the `@solsticeai` scope and uses the `node-addon-landlock-run` package prefix; platform packages append platform information only:
 
 ```text
 @solsticeai/node-addon-landlock-run

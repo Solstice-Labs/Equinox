@@ -10,7 +10,7 @@ import {
   type RegistryIndex,
 } from './benchmark-npm-resolution.ts'
 
-const DSH_PACKAGE = '@solsticeai/equinox'
+const EQUINOX_PACKAGE = '@solsticeai/equinox'
 const CORDIS_PACKAGE = '@solsticeai/cordis'
 const NESTED_DSH_ALIAS = 'dsh-previous'
 const NESTED_DSH_PATH = `node_modules/${NESTED_DSH_ALIAS}`
@@ -30,13 +30,13 @@ interface MutableRegistryManifest {
 }
 
 /** Summary of a verified two-release npm layout. */
-export interface DshInstallLayoutSummary {
-  readonly dshPackagesPerVersion: number
-  readonly checkedDshEdges: number
+export interface EquinoxInstallLayoutSummary {
+  readonly equinoxPackagesPerVersion: number
+  readonly checkedEquinoxEdges: number
 }
 
-function isDshPackage(name: string): boolean {
-  return name === DSH_PACKAGE || name.startsWith(`${DSH_PACKAGE}-`)
+function isEquinoxPackage(name: string): boolean {
+  return name === EQUINOX_PACKAGE || name.startsWith(`${EQUINOX_PACKAGE}-`)
 }
 
 function cloneForVersion(manifest: object, version: string): MutableRegistryManifest {
@@ -46,7 +46,7 @@ function cloneForVersion(manifest: object, version: string): MutableRegistryMani
     const dependencies = cloned[field]
     if (dependencies === undefined) continue
     for (const name of Object.keys(dependencies)) {
-      if (isDshPackage(name)) dependencies[name] = `^${version}`
+      if (isEquinoxPackage(name)) dependencies[name] = `^${version}`
     }
   }
   return cloned
@@ -62,7 +62,7 @@ export function buildDualDshRegistry(index: RegistryIndex, sourceVersion: string
   const output = new Map(index)
   let dshPackages = 0
   for (const [name, versions] of index) {
-    if (!isDshPackage(name)) {
+    if (!isEquinoxPackage(name)) {
       output.set(name, versions)
       continue
     }
@@ -114,7 +114,7 @@ function setDifference(left: ReadonlySet<string>, right: ReadonlySet<string>): s
  * @param packageLock - Metadata-only package lock produced by npm.
  * @returns Counts for the verified DSH packages and dependency edges.
  */
-export function assertDualDshInstallLayout(packageLock: NpmPackageLock): DshInstallLayoutSummary {
+export function assertDualEquinoxInstallLayout(packageLock: NpmPackageLock): EquinoxInstallLayoutSummary {
   const [nestedVersion, rootVersion] = SYNTHETIC_DSH_VERSIONS
   const errors: string[] = []
   const namesByVersion = new Map<string, Set<string>>([
@@ -122,11 +122,11 @@ export function assertDualDshInstallLayout(packageLock: NpmPackageLock): DshInst
     [rootVersion, new Set()],
   ])
   const installed = Object.entries(packageLock.packages)
-  let checkedDshEdges = 0
+  let checkedEquinoxEdges = 0
 
   for (const [path, manifest] of installed) {
     const name = packageNameAtPath(path, manifest)
-    if (name === undefined || !isDshPackage(name)) continue
+    if (name === undefined || !isEquinoxPackage(name)) continue
     const version = manifest.version
     if (version !== nestedVersion && version !== rootVersion) {
       errors.push(`${path}: expected DSH version ${nestedVersion} or ${rootVersion}, got ${String(version)}`)
@@ -135,7 +135,7 @@ export function assertDualDshInstallLayout(packageLock: NpmPackageLock): DshInst
     namesByVersion.get(version)?.add(name)
     const expectedPath = version === rootVersion
       ? `node_modules/${name}`
-      : name === DSH_PACKAGE
+      : name === EQUINOX_PACKAGE
         ? NESTED_DSH_PATH
         : `${NESTED_DSH_PATH}/node_modules/${name}`
     if (path !== expectedPath) {
@@ -144,7 +144,7 @@ export function assertDualDshInstallLayout(packageLock: NpmPackageLock): DshInst
 
     for (const field of DEPENDENCY_FIELDS) {
       for (const dependency of Object.keys(manifest[field] ?? {})) {
-        if (!isDshPackage(dependency)) continue
+        if (!isEquinoxPackage(dependency)) continue
         const targetPath = resolvePackagePath(packageLock.packages, path, dependency)
         const optionalPeer = field === 'peerDependencies'
           && manifest.peerDependenciesMeta?.[dependency]?.optional === true
@@ -153,7 +153,7 @@ export function assertDualDshInstallLayout(packageLock: NpmPackageLock): DshInst
           errors.push(`${path}: ${field} ${dependency} does not resolve`)
           continue
         }
-        checkedDshEdges++
+        checkedEquinoxEdges++
         const targetVersion = packageLock.packages[targetPath]?.version
         if (targetVersion !== version) {
           errors.push(
@@ -166,8 +166,8 @@ export function assertDualDshInstallLayout(packageLock: NpmPackageLock): DshInst
 
   const nestedNames = namesByVersion.get(nestedVersion) ?? new Set<string>()
   const rootNames = namesByVersion.get(rootVersion) ?? new Set<string>()
-  if (!nestedNames.has(DSH_PACKAGE)) errors.push(`${NESTED_DSH_PATH}: missing ${DSH_PACKAGE}@${nestedVersion}`)
-  if (!rootNames.has(DSH_PACKAGE)) errors.push(`node_modules/${DSH_PACKAGE}: missing ${DSH_PACKAGE}@${rootVersion}`)
+  if (!nestedNames.has(EQUINOX_PACKAGE)) errors.push(`${NESTED_DSH_PATH}: missing ${EQUINOX_PACKAGE}@${nestedVersion}`)
+  if (!rootNames.has(EQUINOX_PACKAGE)) errors.push(`node_modules/${EQUINOX_PACKAGE}: missing ${EQUINOX_PACKAGE}@${rootVersion}`)
   const onlyNested = setDifference(nestedNames, rootNames)
   const onlyRoot = setDifference(rootNames, nestedNames)
   if (onlyNested.length > 0) errors.push(`only ${nestedVersion} contains: ${onlyNested.join(', ')}`)
@@ -180,7 +180,7 @@ export function assertDualDshInstallLayout(packageLock: NpmPackageLock): DshInst
   }
 
   if (errors.length > 0) throw new Error(`invalid npm install layout:\n${errors.map(error => `  - ${error}`).join('\n')}`)
-  return { dshPackagesPerVersion: rootNames.size, checkedDshEdges }
+  return { equinoxPackagesPerVersion: rootNames.size, checkedEquinoxEdges }
 }
 
 function workspaceVersion(root: string): string {
@@ -194,14 +194,14 @@ async function main(): Promise<void> {
   const index = buildDualDshRegistry(buildRegistryIndex(root), workspaceVersion(root))
   const [nestedVersion, rootVersion] = SYNTHETIC_DSH_VERSIONS
   const result = await resolveNpmPackageLock(index, {
-    [DSH_PACKAGE]: rootVersion,
-    [NESTED_DSH_ALIAS]: `npm:${DSH_PACKAGE}@${nestedVersion}`,
+    [EQUINOX_PACKAGE]: rootVersion,
+    [NESTED_DSH_ALIAS]: `npm:${EQUINOX_PACKAGE}@${nestedVersion}`,
   }, TIMEOUT_MS)
   if (result.archiveRequests !== 0) throw new Error(`npm requested ${String(result.archiveRequests)} package archive(s)`)
-  const summary = assertDualDshInstallLayout(result.packageLock)
+  const summary = assertDualEquinoxInstallLayout(result.packageLock)
   console.log(
-    `verify-npm-install-layout: ${String(summary.dshPackagesPerVersion)} DSH package(s) per release and `
-    + `${String(summary.checkedDshEdges)} internal edge(s) verified in ${(result.durationMs / 1000).toFixed(2)} s; `
+    `verify-npm-install-layout: ${String(summary.equinoxPackagesPerVersion)} DSH package(s) per release and `
+    + `${String(summary.checkedEquinoxEdges)} internal edge(s) verified in ${(result.durationMs / 1000).toFixed(2)} s; `
     + `both releases share one Cordis installation; ${String(result.unknownPackages.length)} unavailable optional `
     + 'package name(s) ignored by npm.',
   )

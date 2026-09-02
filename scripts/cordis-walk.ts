@@ -11,7 +11,7 @@ import ts from 'typescript'
 
 /** Cheap textual prefilter for a cordis module merge, quote-style agnostic
  * (the AST match below reads `stmt.name.text` and never sees the quotes). */
-const MERGE_HEAD = /declare module ['"](?:@deepseek-ai\/cordis|\.\/context\.ts)['"]/
+const MERGE_HEAD = /declare module ['"](?:@solsticeai\/cordis|\.\/context\.ts)['"]/
 
 /**
  * Parse every file matching `patterns` (repo-relative, sorted, `/`-normalized)

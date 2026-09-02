@@ -28,15 +28,15 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-connection",
-        "@deepseek-ai/dsh-cordis-client-runner",
-        "@deepseek-ai/dsh-api-remotes",
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-ui-input-trigger",
-        "@deepseek-ai/dsh-client-ui-renderer",
-        "@deepseek-ai/dsh-client-ui-session",
-        "@deepseek-ai/dsh-client-ui-tool",
-        "@deepseek-ai/dsh-client-ui-sidebar"
+        "@solsticeai/equinox-client-connection",
+        "@solsticeai/equinox-cordis-client-runner",
+        "@solsticeai/equinox-api-remotes",
+        "@solsticeai/equinox-client-locale",
+        "@solsticeai/equinox-client-ui-input-trigger",
+        "@solsticeai/equinox-client-ui-renderer",
+        "@solsticeai/equinox-client-ui-session",
+        "@solsticeai/equinox-client-ui-tool",
+        "@solsticeai/equinox-client-ui-sidebar"
       ],
       "platform": "web"
     }

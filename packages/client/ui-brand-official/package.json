@@ -28,8 +28,8 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-ui-renderer",
-        "@deepseek-ai/dsh-client-ui-sidebar"
+        "@solsticeai/equinox-client-ui-renderer",
+        "@solsticeai/equinox-client-ui-sidebar"
       ],
       "platform": "web"
     }

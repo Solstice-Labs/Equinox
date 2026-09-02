@@ -1095,6 +1095,19 @@ export const SERVICE_API: readonly ServiceApiEntry[] = [
     ],
   },
   {
+    key: 'lightning',
+    summary: 'Plugin entry: registers the lightning bridge service on every context.',
+    description: 'Plugin entry: registers the lightning bridge service on every context.',
+    methods: [
+      {
+        signature: 'reload(): EquinoxConfig',
+        description: 'Re-read configuration from the current environment.',
+        parameters: [],
+        returns: 'the freshly loaded Equinox configuration.',
+      },
+    ],
+  },
+  {
     key: 'llm',
     summary: 'The abstract `llm` service: an adapter registry plus a streaming model-call API, interceptable via the `llm/stream` waterfall.',
     description: 'The abstract `llm` service: an adapter registry plus a streaming model-call API, interceptable via the `llm/stream` waterfall.',
@@ -1284,6 +1297,56 @@ export const SERVICE_API: readonly ServiceApiEntry[] = [
         description: 'Select whether plan mode should be active. Between turns the method appends the change immediately because no in-turn pre-step will run until another prompt starts a turn. The open-turn fold is the idle signal: agent status stays `running` through post-turn checkpointing, when no further in-turn pre-step runs. During an open turn the selection remains pending until the next accepted in-turn pre-step. Repeated selection of the current or already-pending state is a no-op.',
         parameters: [{ name: 'agent', description: 'The agent to switch.' }, { name: 'active', description: 'Whether plan mode should be active.' }],
         returns: 'what happened: `committed` (logged now), `queued` (awaiting the next accepted in-turn pre-step), `cancelled` (an opposite pending selection was cleared; the logged state already matches), or `noop` (already in that state).',
+      },
+    ],
+  },
+  {
+    key: 'profiler',
+    summary: 'Plugin entry: registers the profiler service on every context.',
+    description: 'Plugin entry: registers the profiler service on every context.',
+    methods: [
+      {
+        signature: 'probes(): typeof ALL_PROBES',
+        description: 'The full 50-probe registry (10 per domain).',
+        parameters: [],
+        returns: 'the complete probe registry grouped by domain.',
+      },
+      {
+        signature: 'validate(): { ok: boolean; errors: string[] }',
+        description: 'Structural sanity check over the probe set.',
+        parameters: [],
+        returns: 'the validation outcome with the failing probe checks.',
+      },
+      {
+        signature: 'runSuite(options: Parameters<typeof runProbeSuite>[0]): ReturnType<typeof runProbeSuite>',
+        description: 'Run the suite against a model client (or a mock for dry runs).',
+        parameters: [{ name: 'options', description: 'the probe-suite execution options (model client, probe filter, budget).' }],
+        returns: 'the probe results with per-domain scoring.',
+      },
+      {
+        signature: 'fingerprint(input: Parameters<typeof buildFingerprint>[0]): ReturnType<typeof buildFingerprint>',
+        description: 'Build a model profile from probe scores + layer stats.',
+        parameters: [{ name: 'input', description: 'the probe results and optional layer statistics to fingerprint.' }],
+        returns: 'the compiled model profile with fingerprint and policy.',
+      },
+      {
+        signature: 'profileId(profile: ModelProfile): string',
+        description: 'Stable profile id used for artifact naming and drift baselines.',
+        parameters: [{ name: 'profile', description: 'the model profile to identify.' }],
+        returns: 'the stable profile id.',
+      },
+    ],
+  },
+  {
+    key: 'requant',
+    summary: 'Plugin entry: registers the requantizer service on every context.',
+    description: 'Plugin entry: registers the requantizer service on every context.',
+    methods: [
+      {
+        signature: 'run(options: Parameters<typeof runRequant>[0]): ReturnType<typeof runRequant>',
+        description: 'Run an asymmetric re-quantization pass for a profile.',
+        parameters: [{ name: 'options', description: 'the quant plan, model path, and execution options for the pass.' }],
+        returns: 'the re-quantization result with per-layer outcomes.',
       },
     ],
   },
@@ -3421,6 +3484,14 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export type AgentStatus = \'idle\' | \'running\';',
   },
   {
+    name: 'ApiCapabilityStats',
+    declaration: 'export interface ApiCapabilityStats {\n    domain: ProbeDomain;\n    baseScore: number;\n    consistency: number;\n    robustness: number | null;\n    commitment: number | null;\n    calibrationError: number | null;\n    samples: number;\n}',
+  },
+  {
+    name: 'ApiFingerprint',
+    declaration: 'export interface ApiFingerprint {\n    backend: \'api\';\n    model: string;\n    family?: string;\n    params?: number;\n    capabilities: ApiCapabilityStats[];\n    capabilityVector: number[];\n    composite: number;\n    stability: number;\n    calibrationError: number | null;\n    entropy: number | null;\n    samples: number;\n    logprobsAvailable: boolean;\n}',
+  },
+  {
     name: 'ApiKeyRecord',
     declaration: 'export interface ApiKeyRecord {\n    readonly kind: \'api-key\';\n    readonly key?: string;\n    readonly env?: Readonly<Record<string, string>>;\n}',
   },
@@ -3571,6 +3642,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'BrandedNumber',
     declaration: 'export type BrandedNumber<B extends string> = number & {\n    readonly [BRAND]: B;\n};',
+  },
+  {
+    name: 'CaptureBackend',
+    declaration: 'export type CaptureBackend = \'hidden-states\' | \'imatrix-proxy\' | \'api\' | \'none\';',
   },
   {
     name: 'ChunkRow',
@@ -3953,6 +4028,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface EpochHeader {\n    config: LlmCallConfig;\n    adapterDefaults?: LlmCallConfigAdapterDefaults;\n    system?: string;\n    tools?: ToolSchema[];\n}',
   },
   {
+    name: 'EquinoxConfig',
+    declaration: 'export interface EquinoxConfig {\n    cloud?: boolean;\n    dryRun?: boolean;\n    lightningStudio?: string;\n    lightningOwner?: string;\n    lightningTeamspace?: string;\n    machine?: string;\n    quantizeBin?: string;\n    imatrixBin?: string;\n}',
+  },
+  {
     name: 'FiberState',
     declaration: 'export type FiberState = FiberStateEnum;',
   },
@@ -4225,6 +4304,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface KvUnitDescriptor {\n    readonly name: string;\n    readonly version: number;\n    readonly tables: readonly string[];\n    readonly hasGlobal: boolean;\n    readonly layout?: \'single\' | \'per-record\';\n    readonly compatibleVersions?: readonly number[];\n}',
   },
   {
+    name: 'LayerMoments',
+    declaration: 'export interface LayerMoments {\n    layer: number;\n    variance: number;\n    kurtosis: number;\n    importance: number;\n    samples: number;\n}',
+  },
+  {
     name: 'LlmAdapter',
     declaration: 'export abstract class LlmAdapter {\n    providerInfo(provider: string): LlmProviderInfo;\n    providerRetryPolicy(_provider: string): ResolvedRetryPolicy | undefined;\n    imageRequestPricing(_provider: string, _model: string): LlmImageRequestPricing | undefined;\n    listModels(_provider: string): Promise<readonly LlmModelInfo[]>;\n    resolveModel(provider: string, model: string, _signal?: AbortSignal): Promise<LlmResolvedModelInfo>;\n    async prepareCall(provider: string, model: string, signal?: AbortSignal): Promise<PreparedAdapterCall>;\n    abstract stream(options: GenerateOptions): AsyncIterable<StreamChunk>;\n}',
   },
@@ -4449,6 +4532,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface ModelModalityMap {\n    text: \'text\';\n    image: \'image\';\n}',
   },
   {
+    name: 'ModelProfile',
+    declaration: 'export interface ModelProfile {\n    schemaVersion: 1;\n    model: string;\n    backend: CaptureBackend;\n    generatedAt: string;\n    probeComposite: number;\n    domainScores: Record<string, number>;\n    layerStats: LayerMoments[];\n    quantPlan: QuantPlan;\n    policy: {\n        scratchpad: \'always\' | \'on-error\' | \'off\';\n        drift: number;\n        temperature: {\n            code: number;\n            reasoning: number;\n            default: number;\n        };\n    };\n    tensorGrounded: boolean;\n    apiFingerprint?: ApiFingerprint;\n    tensorForecast?: TensorForecast;\n}',
+  },
+  {
     name: 'ModelProviderGroup',
     declaration: 'export interface ModelProviderGroup {\n    readonly id: string;\n    readonly name: string;\n    readonly models: readonly ModelCatalogModel[];\n}',
   },
@@ -4523,6 +4610,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'PreToolDecision',
     declaration: 'export type PreToolDecision = {\n    kind: \'allow\';\n} | {\n    kind: \'deny\';\n    reason: string;\n} | {\n    kind: \'ask\';\n    reason?: string;\n};',
+  },
+  {
+    name: 'ProbeDomain',
+    declaration: 'export type ProbeDomain = \'syntax\' | \'coding\' | \'logic\' | \'tools\' | \'instructions\';',
   },
   {
     name: 'ProjectionChangeListener',
@@ -5603,6 +5694,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'TeamWaitResult',
     declaration: 'export interface TeamWaitResult {\n    readonly timedOut: boolean;\n}',
+  },
+  {
+    name: 'TensorForecast',
+    declaration: 'export interface TensorForecast {\n    grounded: boolean;\n    confidence: number;\n    twin?: string;\n    plan: QuantPlan;\n    rationale: string;\n}',
   },
   {
     name: 'TerminalBackend',

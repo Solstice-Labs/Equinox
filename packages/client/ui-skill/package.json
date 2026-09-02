@@ -28,12 +28,12 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-session-controller",
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-ui-renderer",
-        "@deepseek-ai/dsh-client-ui-tool",
-        "@deepseek-ai/dsh-client-ui-input-trigger",
-        "@deepseek-ai/dsh-api-remotes"
+        "@solsticeai/equinox-api-session-controller",
+        "@solsticeai/equinox-client-locale",
+        "@solsticeai/equinox-client-ui-renderer",
+        "@solsticeai/equinox-client-ui-tool",
+        "@solsticeai/equinox-client-ui-input-trigger",
+        "@solsticeai/equinox-api-remotes"
       ],
       "platform": "web"
     }

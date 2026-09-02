@@ -40,7 +40,11 @@ export class Requantizer extends Service {
     validateConfigKeys(config)
   }
 
-  /** Run an asymmetric re-quantization pass for a profile. */
+  /**
+   * Run an asymmetric re-quantization pass for a profile.
+   * @param options the quant plan, model path, and execution options for the pass.
+   * @returns the re-quantization result with per-layer outcomes.
+   */
   run(options: Parameters<typeof runRequant>[0]): ReturnType<typeof runRequant> {
     return runRequant(options)
   }

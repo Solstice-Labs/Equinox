@@ -28,11 +28,11 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-ui-chat",
-        "@deepseek-ai/dsh-client-ui-conversation",
-        "@deepseek-ai/dsh-client-ui-renderer",
-        "@deepseek-ai/dsh-client-ui-trajectory",
-        "@deepseek-ai/dsh-client-ui-tool"
+        "@solsticeai/equinox-client-ui-chat",
+        "@solsticeai/equinox-client-ui-conversation",
+        "@solsticeai/equinox-client-ui-renderer",
+        "@solsticeai/equinox-client-ui-trajectory",
+        "@solsticeai/equinox-client-ui-tool"
       ],
       "platform": "web"
     }

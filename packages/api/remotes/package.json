@@ -32,7 +32,7 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@solsticeai/equinox-api-gateway"
       ],
       "platform": "web",
       "immediately": true

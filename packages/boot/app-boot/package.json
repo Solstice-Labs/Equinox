@@ -42,7 +42,7 @@
     "@solsticeai/cordis": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/cordis-plugin-hmr": {
+    "@solsticeai/cordis-plugin-hmr": {
       "optional": true
     }
   },

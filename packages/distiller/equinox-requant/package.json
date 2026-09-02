@@ -1,0 +1,41 @@
+{
+  "name": "@solsticeai/equinox-requant",
+  "description": "Asymmetric re-quant engine for the DeepSeek Harness (Project Equinox tensor plane): compiles 𝓘ₗ profiles into llama-quantize --tensor-type invocations with imatrix orchestration",
+  "version": "0.1.2-alpha.5",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
+    "directory": "packages/distiller/equinox-requant"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/types/**/*.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-lightning": "workspace:^",
+    "@solsticeai/equinox-profiler": "workspace:^",
+    "@solsticeai/schemastery": "workspace:^"
+  },
+  "devDependencies": {
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/equinox-lightning": "workspace:^",
+    "@solsticeai/equinox-profiler": "workspace:^",
+    "@solsticeai/schemastery": "workspace:^"
+  }
+}

@@ -3788,6 +3788,16 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
+  packages/cloud/equinox-lightning:
+    dependencies:
+      '@solsticeai/schemastery':
+        specifier: link:../../../vendor/schemastery
+        version: link:../../../vendor/schemastery
+    devDependencies:
+      '@solsticeai/cordis':
+        specifier: workspace:^
+        version: link:../../../vendor/cordis
+
   packages/code-runtime/code-runtime:
     devDependencies:
       '@solsticeai/cordis':
@@ -4466,6 +4476,22 @@ importers:
       '@solsticeai/equinox-launch-environment':
         specifier: workspace:^
         version: link:../../util/launch-environment
+
+  packages/distiller/equinox-requant:
+    dependencies:
+      '@solsticeai/schemastery':
+        specifier: link:../../../vendor/schemastery
+        version: link:../../../vendor/schemastery
+    devDependencies:
+      '@solsticeai/cordis':
+        specifier: workspace:^
+        version: link:../../../vendor/cordis
+      '@solsticeai/equinox-lightning':
+        specifier: workspace:^
+        version: link:../../cloud/equinox-lightning
+      '@solsticeai/equinox-profiler':
+        specifier: workspace:^
+        version: link:../../profiler/equinox-profiler
 
   packages/e2b/e2b:
     dependencies:
@@ -6595,6 +6621,19 @@ importers:
       '@solsticeai/equinox-system-prompt':
         specifier: workspace:^
         version: link:../../core/system-prompt
+
+  packages/profiler/equinox-profiler:
+    dependencies:
+      '@solsticeai/schemastery':
+        specifier: link:../../../vendor/schemastery
+        version: link:../../../vendor/schemastery
+      acorn:
+        specifier: ^8.17.0
+        version: 8.17.0
+    devDependencies:
+      '@solsticeai/cordis':
+        specifier: workspace:^
+        version: link:../../../vendor/cordis
 
   packages/runtime-diagnostics/invariants:
     dependencies:

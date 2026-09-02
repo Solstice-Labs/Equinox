@@ -328,6 +328,9 @@
     { "path": "./packages/lsp/lsp" },
     { "path": "./packages/lsp/lsp-stdio" },
     { "path": "./packages/lsp/tool-lsp" },
+    { "path": "./packages/profiler/equinox-profiler" },
+    { "path": "./packages/cloud/equinox-lightning" },
+    { "path": "./packages/distiller/equinox-requant" },
     { "path": "./apps/cli" }
   ]
 }

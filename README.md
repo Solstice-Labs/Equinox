@@ -11,7 +11,7 @@ Usage ──> Profiling ──> Dynamic Adaptation ──> Failure Capture ─�
 
 ---
 
-## 🌟 The Equinox Dual-Plane Architecture
+## The Equinox Dual-Plane Architecture
 
 1. **The Tensor Plane (Hardware & Quantization):**
    * Layer-wise second-order activation sensitivity analysis ($S_{l, i} = \mathbb{E}[a_{l, i}^2]$).
@@ -29,7 +29,7 @@ Usage ──> Profiling ──> Dynamic Adaptation ──> Failure Capture ─�
 
 ---
 
-## 📦 Modules & Ecosystem
+## Modules & Ecosystem
 
 Built on the modular **Cordis** kernel, every capability is decoupled as a swappable plugin:
 
@@ -43,7 +43,7 @@ Built on the modular **Cordis** kernel, every capability is decoupled as a swapp
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ```bash
 # Clone and build
@@ -68,13 +68,13 @@ pnpm equinox chat
 
 ---
 
-## 📄 Documentation & Research
+## Documentation & Research
 
 * **Architecture Whitepaper:** [`ARCHITECTURE.md`](./ARCHITECTURE.md)
 * **Solstice-AI Specification:** [solstice-ai.co/docs/equinox-dual-plane-architecture](https://solstice-ai.co/docs/equinox-dual-plane-architecture)
 
 ---
 
-## ⚖️ License
+## License
 
 MIT License &copy; 2026 Solstice-AI & DeepSeek AI.

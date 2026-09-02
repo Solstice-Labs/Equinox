@@ -22,7 +22,7 @@
 
 ---
 
-## ⚡ The Core Problem
+## The Core Problem
 
 Standard agent frameworks (LangChain, AutoGen, CrewAI, generic CLI wrappers) treat LLMs as static black boxes. When a sub-8B or 27B model suffers from reasoning drift, fragile tool calling, or quantization breakdown, generic frameworks waste 40%+ of the context window on brute-force prompt retries without fixing the root cause.
 
@@ -73,7 +73,7 @@ Standard agent frameworks (LangChain, AutoGen, CrewAI, generic CLI wrappers) tre
 
 ---
 
-## 🔬 Core Innovations
+## Core Innovations
 
 ### 1. `imatrix` as a White-Box Cognitive Diagnostic
 Instead of relying strictly on text outputs, Equinox computes the model's **Layer-Wise Activation Energy Matrix** ($\mathbf{S}_{l, i} = \mathbb{E}[a_{l, i}^2]$) over standardized domain probes:
@@ -107,7 +107,7 @@ When a local model encounters 2 consecutive execution failures:
 
 ---
 
-## 📊 Empirical Benchmarks
+## Empirical Benchmarks
 
 | Metric | Generic Prompt-Only Harness | Equinox Dual-Plane Harness | Delta |
 | :--- | :---: | :---: | :---: |
@@ -119,7 +119,7 @@ When a local model encounters 2 consecutive execution failures:
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ### Prerequisites
 * Node.js $\ge 22.0.0$
@@ -162,7 +162,7 @@ node apps/cli/lib/bin.js chat
 
 ---
 
-## 📦 Workspace Packages (`@solsticeai/*`)
+## Workspace Packages (`@solsticeai/*`)
 
 Equinox is structured as a high-performance monorepo on top of the **Cordis** plugin kernel:
 
@@ -177,7 +177,7 @@ Equinox is structured as a high-performance monorepo on top of the **Cordis** pl
 
 ---
 
-## ⚙️ Configuration Reference
+## Configuration Reference
 
 | Environment Variable | Default | Description |
 | :--- | :--- | :--- |
@@ -189,7 +189,7 @@ Equinox is structured as a high-performance monorepo on top of the **Cordis** pl
 
 ---
 
-## 📖 Research Papers & Architecture Docs
+## Research Papers & Architecture Docs
 
 * **Dual-Plane Architecture Specification:** [solstice-ai.co/docs/equinox-dual-plane-architecture](https://solstice-ai.co/docs/equinox-dual-plane-architecture)
 * **Solstice Research Corpus (50 Papers):** [solstice-ai.co/papers](https://solstice-ai.co/papers)
@@ -197,7 +197,7 @@ Equinox is structured as a high-performance monorepo on top of the **Cordis** pl
 
 ---
 
-## 📜 Citation
+## Citation
 
 If you use Equinox in your research or production systems, please cite:
 

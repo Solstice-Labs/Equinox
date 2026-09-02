@@ -1,0 +1,40 @@
+{
+  "name": "@solsticeai/equinox-profiler",
+  "description": "50-probe deterministic diagnostic engine and activation fingerprinting for the DeepSeek Harness (Project Equinox tensor plane)",
+  "version": "0.1.2-alpha.5",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solstice-Labs/Equinox.git",
+    "directory": "packages/profiler/equinox-profiler"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/types/**/*.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "acorn": "^8.17.0"
+  },
+  "peerDependencies": {
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/schemastery": "workspace:^"
+  },
+  "devDependencies": {
+    "@solsticeai/cordis": "workspace:^",
+    "@solsticeai/schemastery": "workspace:^"
+  }
+}

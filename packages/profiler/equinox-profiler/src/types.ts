@@ -92,7 +92,7 @@ export interface TensorProxy {
   columns: number
 }
 
-export type CaptureBackend = 'hidden-states' | 'imatrix-proxy' | 'none'
+export type CaptureBackend = 'hidden-states' | 'imatrix-proxy' | 'api' | 'none'
 
 export type QuantTier = 'f16' | 'q8_0' | 'q4_k_m' | 'iq2_xxs'
 
@@ -122,6 +122,73 @@ export interface ModelProfile {
     drift: number
     temperature: { code: number; reasoning: number; default: number }
   }
+  /** False when the quant plan is an estimate, not derived from local weights. */
+  tensorGrounded: boolean
+  /** Behavioral fingerprint for API-hosted models (backend 'api'). */
+  apiFingerprint?: ApiFingerprint
+  /** Behavioral → tensor transfer when a locally profiled twin exists. */
+  tensorForecast?: TensorForecast
+}
+
+/** Online (API-hosted) model fingerprint — behavioral, layer-free. */
+export interface ApiCapabilityStats {
+  domain: ProbeDomain
+  /** Low-temperature correctness over the domain's probes. */
+  baseScore: number
+  /** Agreement of high-temperature repeats with the base verdict (0..1). */
+  consistency: number
+  /** Verdict invariance under prompt perturbation (null when unmeasured). */
+  robustness: number | null
+  /** Mean response-token entropy in bits (null when logprobs unavailable). */
+  commitment: number | null
+  /** |consistency − baseScore| — self-confidence miscalibration proxy. */
+  calibrationError: number | null
+  /** Number of API calls contributing to this domain's stats. */
+  samples: number
+}
+
+export interface ApiFingerprint {
+  backend: 'api'
+  model: string
+  /** Architecture family for twin matching (e.g. 'llama3', 'qwen2.5'). */
+  family?: string
+  /** Parameter count in billions for twin matching. */
+  params?: number
+  /** One entry per domain, in PROBE_DOMAINS order. */
+  capabilities: ApiCapabilityStats[]
+  /** Normalized blended capability vector in PROBE_DOMAINS order. */
+  capabilityVector: number[]
+  composite: number
+  /** 1 − pooled pass/fail variance across repeated runs (activation-variance proxy). */
+  stability: number
+  /** Overall miscalibration (mean per-domain |consistency − baseScore|). */
+  calibrationError: number | null
+  /** Mean response-token entropy in bits over measured runs. */
+  entropy: number | null
+  /** Total API calls made for this fingerprint. */
+  samples: number
+  /** Whether the endpoint surfaced per-token logprobs. */
+  logprobsAvailable: boolean
+}
+
+/** Locally profiled twin used to transfer tensor behavior to an API model. */
+export interface ReferenceTwin {
+  model: string
+  family: string
+  params: number
+  backend: CaptureBackend
+  quantPlan: QuantPlan
+  layerCount?: number
+}
+
+export interface TensorForecast {
+  /** True when a same-family + close-params twin grounded the plan. */
+  grounded: boolean
+  confidence: number
+  /** Source twin model name when grounded. */
+  twin?: string
+  plan: QuantPlan
+  rationale: string
 }
 
 /** Shape accepted by {@link @solsticeai/equinox-lightning} quant planners. */

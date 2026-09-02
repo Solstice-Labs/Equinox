@@ -28,6 +28,13 @@ export interface RequantOptions {
   profile: ModelProfile
   modelIn: string
   modelOut: string
+  /**
+   * Permit re-quantizing from a profile whose quant plan is an *estimate*
+   * (`tensorGrounded: false` — e.g. an API-hosted model with no local twin
+   * grounding its tensor forecast). Defaults to false: estimated tier maps
+   * are refused because they are not derived from this checkpoint's weights.
+   */
+  allowEstimated?: boolean
   /** Pre-computed imatrix .dat; when omitted and `corpus` is given, compute it. */
   imatrixDat?: string
   corpus?: string
@@ -67,6 +74,21 @@ export function findImatrixBin(config: EquinoxConfig): string {
 export async function runRequant(options: RequantOptions): Promise<RequantManifest> {
   const config = options.config ?? loadConfig()
   const inSizeBytes = fileSizeOrZero(options.modelIn)
+  if (!options.profile.tensorGrounded && options.allowEstimated !== true) {
+    const manifest: RequantManifest = {
+      model: options.profile.model,
+      backend: options.profile.backend,
+      plan: options.profile.quantPlan,
+      imatrix: null,
+      inSizeBytes,
+      outSizeBytes: 0,
+      quantizeCmd: [],
+      imatrixCmd: null,
+      executed: false,
+      note: 'refusing estimated tensor plan (tensorGrounded: false — profile came from an API model without a local twin); pass allowEstimated to force',
+    }
+    return manifest
+  }
   const plan = options.profile.quantPlan
   const base: Omit<RequantManifest, 'imatrix' | 'quantizeCmd' | 'imatrixCmd' | 'executed' | 'note'> = {
     model: options.profile.model,

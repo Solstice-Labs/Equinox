@@ -43,6 +43,16 @@ function profile(): ModelProfile {
     layerStats: [],
     quantPlan: plan(),
     policy: { scratchpad: 'off', drift: 0, temperature: { code: 0.1, reasoning: 0.6, default: 0.4 } },
+    tensorGrounded: true,
+  }
+}
+
+/** Estimated plan — what an API-hosted profile carries without a local twin. */
+function estimatedProfile(): ModelProfile {
+  return {
+    ...profile(),
+    backend: 'api',
+    tensorGrounded: false,
   }
 }
 
@@ -60,6 +70,46 @@ describe('findQuantizeBin', () => {
 })
 
 describe('runRequant', () => {
+  it('refuses an estimated tensor plan (API profile without a twin) unless allowEstimated', async () => {
+    const dir = mkdtempSync(join(tmpdir(), 'equinox-quant-'))
+    dirs.push(dir)
+    const modelIn = join(dir, 'model.gguf')
+    writeFileSync(modelIn, 'GGUF-DATA')
+    let ran = false
+    const executor = {
+      run: async (): Promise<ExecResult> => {
+        ran = true
+        return { ok: true, stdout: '', stderr: '', code: 0 }
+      },
+    }
+    const refused = await runRequant({
+      profile: estimatedProfile(),
+      modelIn,
+      modelOut: join(dir, 'model-q.gguf'),
+      config: loadConfig({}),
+      executor,
+    })
+    expect(refused.executed).toBe(false)
+    expect(refused.note).toMatch(/estimated tensor plan/)
+    expect(ran).toBe(false)
+    const forced = await runRequant({
+      profile: estimatedProfile(),
+      modelIn,
+      modelOut: join(dir, 'model-q.gguf'),
+      imatrixDat: join(dir, 'm.dat'),
+      allowEstimated: true,
+      config: loadConfig({}),
+      bridge: localBridge(),
+      executor: {
+        run: async (argv: string[]): Promise<ExecResult> => {
+          writeFileSync(argv.slice(-2, -1)[0] as string, 'QUANTIZED')
+          return { ok: true, stdout: '', stderr: '', code: 0 }
+        },
+      },
+    })
+    expect(forced.executed).toBe(true)
+  })
+
   it('refuses when iq2_xxs literals need an imatrix but none can be computed', async () => {
     const dir = mkdtempSync(join(tmpdir(), 'equinox-quant-'))
     dirs.push(dir)

@@ -124,7 +124,7 @@ When a local model encounters 2 consecutive execution failures:
 ### Prerequisites
 * Node.js $\ge 22.0.0$
 * `pnpm` $\ge 10.0.0$
-* Any local backend (Anvil, llama-server, Ollama, vLLM, or MLX)
+* Any local backend (llama-server, Ollama, vLLM, SGLang, or MLX)
 
 ### 1. Install & Build Monorepo
 

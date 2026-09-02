@@ -1,80 +1,112 @@
-# Equinox
+# Project Equinox
 
-> **Universal Self-Improving Agent Harness for Local & Open-Source LLMs** — Solstice-AI.
-> Foundation: Pre-forked from [DeepSeek Harness (`deepseek-ai/deepseek-harness`)](https://github.com/Solstice-Labs/Equinox).
+A universal, model-agnostic, self-improving agent harness for local and open-source LLMs.
+Talks to **any OpenAI-compatible endpoint** (llama.cpp `llama-server`, Ollama, vLLM, SGLang,
+MLX-LM, or cloud APIs), profiles models across **50 deterministic probes**, captures per-layer
+activation statistics (locally via `llama-imatrix` or exactly via hidden states on a Lightning
+GPU), and compiles the results into **asymmetric per-layer quantization plans** executed with
+`llama-quantize --tensor-type`. When the local machine is too weak (no GPU / low RAM / low disk),
+compute-heavy work is delegated to a Lightning AI Studio (`EQUINOX_LIGHTNING_STUDIO`).
 
-Equinox transforms any local or remote model into an autonomous, self-improving reasoning agent. By combining **DeepSeek Harness's plugin-first runtime** with **Solstice's Dual-Plane Activation Profiler (`imatrix`) & Self-Distillation Flywheel**, Equinox profiles your model, adapts to its cognitive strengths, learns from failures, and produces optimized quantization recipes.
+## Monorepo layout
 
 ```
-Usage ──> Profiling ──> Dynamic Adaptation ──> Failure Capture ──> Sub-Agent Teacher ──> imatrix Calib ──> Better Quants
+packages/
+├── core/equinox-core        @solsticeai/core        env (EQUINOX_* → DSH_*), dual-plane math, shared types, hash-chained JSONL
+├── core/equinox-lightning   @solsticeai/lightning   cloud bridge: offload detection, llama.cpp argv builders, job dispatch/pull
+├── client/equinox-client    @solsticeai/client      resilient SSE parser + box-agnostic HTTP client (retry/backoff/backpressure)
+├── tools/equinox-tools      @solsticeai/tools       SWE-agent ACI tools: view_file / edit_file / run_command + sandbox FS
+├── profiler/equinox-profiler @solsticeai/profiler   50 probes (5 domains × 10), deterministic graders, 2 capture backends, fingerprint
+├── adapter/equinox-adapter  @solsticeai/adapter     profile-driven prompts, scratchpads, temperatures; agent loop w/ trajectory log
+└── distiller/equinox-distiller @solsticeai/distiller error interceptor, teacher sub-agents, DPO traces, calibration pool, re-quant engine
 ```
 
----
+## The dual-plane math
 
-## The Equinox Dual-Plane Architecture
+| Quantity | Formula | Meaning |
+|---|---|---|
+| Activation variance | σ²ᵢ = E[(a − μ)²] | information dynamic range per dimension |
+| Kurtosis | κᵢ = E[(a − μ)⁴] / (σ²)⁴ | κ > 3 ⇒ outlier activations / hallucination precursors |
+| Composite importance | 𝓘ₗ = (1/D) Σᵢ σ²ᵢ · log(1 + κᵢ) | layer importance (reasoning hubs) |
 
-1. **The Tensor Plane (Hardware & Quantization):**
-   * Layer-wise second-order activation sensitivity analysis ($S_{l, i} = \mathbb{E}[a_{l, i}^2]$).
-   * **Asymmetric Layer Bitrates:** Allocates FP16 / Q8 to critical reasoning attention hubs while aggressively compressing redundant layers to 2-bit/3-bit IQ formats (saving 35–45% VRAM without losing IQ).
-   * **Representation Engineering (RepE):** Injects contrastive steering vectors directly into intermediate hidden states ($h_l \leftarrow h_l + \alpha \cdot \vec{v}_{\text{steer}}$).
+Scores are min-max normalized to [0, 1] and mapped to asymmetric precision:
 
-2. **The Prompt Plane (Harness Scaffolding):**
-   * Dynamic system prompt synthesis tailored to model quirks.
-   * Automated `<thinking>` scratchpad injection for multi-step reasoning.
-   * Agent-Computer Interface (ACI) compact tool outputs to prevent context bloat.
+| 𝓘ₗ | Precision |
+|---|---|
+| > 0.85 | **FP16 / Q8_0** — reasoning hubs |
+| 0.35 – 0.85 | **Q4_K_M** — intermediate support |
+| < 0.35 | **IQ2_XXS** — redundant layers |
 
-3. **The Self-Distillation Flywheel:**
-   * Unresolved task errors automatically delegate to frontier sub-agent teachers (Claude Code / Codex / DeepSeek V4).
-   * Verified teacher resolution traces are compiled into a failure-informed `imatrix` calibration pool for automated background re-quantization.
-
----
-
-## Modules & Ecosystem
-
-Built on the modular **Cordis** kernel, every capability is decoupled as a swappable plugin:
-
-| Module | Role |
-| :--- | :--- |
-| **Model Interface** | Box-agnostic OpenAI-compatible HTTP/SSE client (Anvil, llama-server, Ollama, vLLM, MLX, Cloud) |
-| **Profiler Engine** | Standardized 50-probe test suite across coding, reasoning, math, and tool-use |
-| **Adaptive Scaffolding** | Reads `model-profile.json` and adjusts system prompts, temperatures, and tool formats |
-| **Session Store** | Event-sourced, append-only JSONL trajectories for replay, forking, and distillation |
-| **Sub-Agent Coordinator** | Drives child processes as teachers for automated failure recovery |
-
----
-
-## Quickstart
+The plan compiles into `llama-quantize` per-layer tensor rules such as:
 
 ```bash
-# Clone and build
-git clone https://github.com/Solstice-Labs/Equinox.git
-cd Equinox
-pnpm install
-pnpm build
-
-# Configure your endpoint (Ollama, llama-server, vLLM, or Anvil)
-export EQUINOX_BASE_URL=http://127.0.0.1:8080/v1
-export EQUINOX_MODEL=qwen3-27b-q4_k_m
-
-# Profile your model
-pnpm equinox profile
-
-# Run autonomous tasks with dynamic scaffolding
-pnpm equinox run "Refactor src/db.ts to use connection pooling"
-
-# Interactive terminal agent
-pnpm equinox chat
+llama-quantize --imatrix model.imatrix.dat \
+  --token-embedding-type q4_k --output-tensor-type q8_0 \
+  --tensor-type "blk\.(0|1)\.attn_.*=iq2_xxs" \
+  --tensor-type "blk\.(0|1)\.ffn_.*=iq2_xxs" \
+  --tensor-type "blk\.(28)\.attn_.*=q8_0" \
+  model.gguf model-q.gguf Q4_K_M
 ```
 
----
+## Activation capture — two backends, both available
 
-## Documentation & Research
+- **`imatrix-proxy` (universal, no GPU):** parses `llama-imatrix` `.dat` files (second moments
+  per tensor) → per-layer variance proxy with the Gaussian kurtosis prior (κ = 3). Works on any
+  GGUF model llama.cpp can run.
+- **`hidden-states` (exact):** a rendered Python script accumulates streaming moments
+  (n, Σx, Σx², Σx³, Σx⁴) per layer via `output_hidden_states=True` and computes exact σ², κ, 𝓘ₗ;
+  designed to be dispatched to a Lightning GPU.
 
-* **Architecture Whitepaper:** [`ARCHITECTURE.md`](./ARCHITECTURE.md)
-* **Solstice-AI Specification:** [solstice-ai.co/docs/equinox-dual-plane-architecture](https://solstice-ai.co/docs/equinox-dual-plane-architecture)
+## Env configuration
 
----
+Every option reads **`EQUINOX_*` first, then `DSH_*`**, then a default.
+
+| Key | Default | Purpose |
+|---|---|---|
+| `BASE_URL` / `API_KEY` / `MODEL` | `http://localhost:8080/v1` | any OpenAI-compatible endpoint |
+| `CLOUD` | `false` | force offload |
+| `DRY_RUN` | `false` | print Lightning commands instead of running them |
+| `LIGHTNING_STUDIO` | — | studio name (e.g. `converter`) |
+| `LIGHTNING_TEAMSPACE` / `LIGHTNING_OWNER` | — | needed for `lit://` URLs |
+| `LIGHTNING_MACHINE` | `T4` | job machine type |
+| `IMATRIX_BIN` / `QUANTIZE_BIN` | `llama-imatrix` / `llama-quantize` | llama.cpp binary paths |
+| `TEACHER` | `api` | `api` \| `claude` \| `codex` \| `gemini` |
+| `TEACHER_CMD` | — | override teacher CLI argv |
+| `CAL_POOL_SIZE` | `512` | calibration pool size |
+| `SCRATCHPAD_DRIFT` | `0.65` | composite-drift threshold for `<thinking>` injection |
+| `TEMP_CODE` / `TEMP_REASONING` | `0.1` / `0.6` | temperature policy |
+| `HOME_DIR` | `.equinox` | artifacts root |
+
+## Build & test
+
+```bash
+pnpm install
+pnpm test             # 161 vitest tests
+pnpm typecheck        # tsc --noEmit, 0 errors
+pnpm build:lib:host   # all 7 packages (esm + .d.ts via tsdown)
+pnpm build:lib:client # core + client + tools
+```
+
+## End-to-end sketch
+
+```ts
+// 1. Profile any model through any endpoint
+const client = EquinoxClient.fromConfig(loadConfig())
+const suite = await runProbeSuite({ client })
+const stats = loadImatrixCapture({ datFile })          // or hidden-states capture
+const profile = buildFingerprint({
+  model, backend: stats.backend, domainScores: suite.domainScores,
+  probeComposite: suite.composite, layerStats: stats.stats,
+})
+
+// 2. Re-quantize asymmetrically (imatrix-first; offloads when needed)
+const manifest = await runRequant({ profile, modelIn: 'model.gguf', modelOut: 'model-q.gguf', corpus })
+
+// 3. Distill: intercept 2x failures → teacher → DPO trace → calibration pool
+const traces = new DistillationTraces()
+const pool = compileCalibrationPool({ anchors, recoveries, poolSize: 512, seed: 42 })
+```
 
 ## License
 
-MIT License &copy; 2026 Solstice-AI & DeepSeek AI.
+MIT — see [LICENSE](./LICENSE).

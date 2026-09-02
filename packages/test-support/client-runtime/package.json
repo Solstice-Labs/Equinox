@@ -43,7 +43,7 @@
     "@solsticeai/equinox-subagent": "workspace:^",
     "@solsticeai/equinox-typert-protocol": "workspace:^",
     "@solsticeai/cordis": "workspace:^",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
@@ -61,10 +61,10 @@
     "@solsticeai/equinox-session": "workspace:^",
     "@solsticeai/equinox-subagent": "workspace:^",
     "@solsticeai/equinox-typert-protocol": "workspace:^",
-    "@types/react": "~18.3.1",
+    "@types/react": "~19.2.18",
     "@types/react-dom": "~18.3.0",
     "@solsticeai/cordis": "workspace:^",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "react-dom": "^18.2.0"
   },
   "files": [

@@ -77,9 +77,9 @@
     "@solsticeai/equinox-token-meter": "workspace:^",
     "@solsticeai/equinox-tools": "workspace:^",
     "@solsticeai/equinox-util-workspace-path": "workspace:^",
-    "@types/react": "~18.3.1",
+    "@types/react": "~19.2.18",
     "@types/react-dom": "~18.3.0",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "react-dom": "^18.2.0",
     "@solsticeai/equinox-settings": "workspace:^"
   },

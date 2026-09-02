@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@solsticeai/cordis": "workspace:^",
-    "@types/react": "~18.3.1",
+    "@types/react": "~19.2.18",
     "@types/react-dom": "~18.3.0",
     "@solsticeai/equinox-client-ui-chat": "workspace:^",
     "@solsticeai/equinox-client-ui-conversation": "workspace:^",
@@ -55,7 +55,7 @@
     "@solsticeai/equinox-client-ui-renderer": "workspace:^",
     "@solsticeai/equinox-client-ui-primitives": "workspace:^",
     "@solsticeai/equinox-client-ui-slots": "workspace:^",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "react-dom": "^18.2.0",
     "@solsticeai/equinox-attachment": "workspace:^",
     "@solsticeai/equinox-client-ui-tool": "workspace:^"

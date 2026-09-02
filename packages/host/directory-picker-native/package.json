@@ -34,7 +34,7 @@
   "dependencies": {
     "@solsticeai/equinox-host-directory-picker": "workspace:^",
     "@solsticeai/equinox-native-command": "workspace:^",
-    "koffi": "^3.1.0"
+    "koffi": "^3.1.2"
   },
   "peerDependencies": {
     "@solsticeai/cordis": "workspace:^"

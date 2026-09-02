@@ -32,8 +32,8 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-typert-registry",
-        "@deepseek-ai/dsh-client-connection"
+        "@solsticeai/equinox-typert-registry",
+        "@solsticeai/equinox-client-connection"
       ],
       "platform": "web",
       "immediately": true

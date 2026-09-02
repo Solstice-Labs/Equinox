@@ -108,7 +108,7 @@ describe('client bundle purity gate', () => {
     expect(() => resolveId('@solsticeai/equinox-goal/remote/nested')).toThrow(/purity/)
   })
 
-  it('throws on any other @deepseek-ai leak', () => {
+  it('throws on any other @solsticeai plugin leak', () => {
     expect(() => resolveId('@solsticeai/equinox-agent')).toThrow(/purity/)
     expect(() => resolveId('@solsticeai/equinox-client-web')).toThrow(/purity/)
   })

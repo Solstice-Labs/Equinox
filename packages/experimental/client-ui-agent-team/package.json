@@ -26,11 +26,11 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-remotes",
-        "@deepseek-ai/dsh-api-session-controller",
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-ui-conversation",
-        "@deepseek-ai/dsh-client-ui-primitives"
+        "@solsticeai/equinox-api-remotes",
+        "@solsticeai/equinox-api-session-controller",
+        "@solsticeai/equinox-client-locale",
+        "@solsticeai/equinox-client-ui-conversation",
+        "@solsticeai/equinox-client-ui-primitives"
       ],
       "platform": "web"
     }

@@ -1,7 +1,32 @@
+---
+description: "Deterministic 50-probe diagnostic engine and activation fingerprint builder for Project Equinox — scores models offline with zero judge-model cost and emits the asymmetric precision plan consumed by the re-quant engine, for local weights and API-hosted models alike."
+kind: "package-reference"
+---
+
 # @solsticeai/equinox-profiler
 
 Deterministic 50-probe diagnostic engine and activation fingerprint builder for
-Project Equinox — the tensor plane of the DeepSeek Harness fork.
+Project Equinox — the tensor plane of the dual-plane harness.
+
+## Summary
+
+`equinox-profiler` runs 50 deterministic probes (10 each across JSON syntax,
+coding, logic, tools, and instructions) and grades them **offline** — pure
+regex + AST + constraint-solver heuristics with zero judge-model cost. It
+fuses probe scores with layer statistics into a `model-profile.json` carrying
+a normalized asymmetric precision plan (0.85 / 0.35 tiers) that
+`@solsticeai/equinox-requant` consumes. Layer math (σ², κ, 𝓘ₗ) is captured via
+`imatrix-proxy` (any model llama.cpp can sample, no GPU) or `hidden-states`
+(GPU / offload runs); API-hosted models without weights get a black-box
+behavioral fingerprint (`backend: 'api'`) covering consistency, logprob
+entropy, calibration, and robustness, with a twin-grounded tensor forecast
+when a same-family local profile exists.
+
+## Table of Contents
+
+- [What it does](#what-it-does)
+- [Usage](#usage)
+- [Dev Note](#dev-note)
 
 ## What it does
 
@@ -92,3 +117,11 @@ twin-grounded quant plan from an honest estimate.
 `EQUINOX_*` (falling back to `DSH_*`) environment variables configure capture
 paths and the API client; see the lightning bridge package for offload
 orchestration.
+
+## Dev Note
+
+The probe corpus and graders are pure and carry no Cordis dependency; only the
+package entry is the thin `ctx.profiler` service. The offline heuristic
+strictness is part of the API contract for the 50-probe suite — keep graders
+deterministic (no LLM, no network, no RNG) so a profile is reproducible
+across machines and capture backends.

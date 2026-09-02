@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { NpmPackageLock, RegistryIndex } from './benchmark-npm-resolution.ts'
 import {
-  assertDualDshInstallLayout,
+  assertDualEquinoxInstallLayout,
   buildDualDshRegistry,
 } from './verify-npm-install-layout.ts'
 
@@ -71,9 +71,9 @@ describe('npm install layout verifier', () => {
   })
 
   it('accepts isolated DSH releases with one shared Cordis installation', () => {
-    expect(assertDualDshInstallLayout(validLayout())).toEqual({
-      dshPackagesPerVersion: 3,
-      checkedDshEdges: 4,
+    expect(assertDualEquinoxInstallLayout(validLayout())).toEqual({
+      equinoxPackagesPerVersion: 3,
+      checkedEquinoxEdges: 4,
     })
   })
 
@@ -82,7 +82,7 @@ describe('npm install layout verifier', () => {
     const packages = { ...layout.packages }
     Reflect.deleteProperty(packages, 'node_modules/dsh-previous/node_modules/@solsticeai/equinox-leaf')
 
-    expect(() => assertDualDshInstallLayout({ ...layout, packages })).toThrow(
+    expect(() => assertDualEquinoxInstallLayout({ ...layout, packages })).toThrow(
       'node_modules/dsh-previous/node_modules/@solsticeai/equinox-child: dependencies '
       + '@solsticeai/equinox-leaf resolves to node_modules/@solsticeai/equinox-leaf@0.2.0, expected 0.1.0',
     )
@@ -95,7 +95,7 @@ describe('npm install layout verifier', () => {
       'node_modules/dsh-previous/node_modules/@solsticeai/cordis': { version: '4.0.1' },
     }
 
-    expect(() => assertDualDshInstallLayout({ ...layout, packages })).toThrow(
+    expect(() => assertDualEquinoxInstallLayout({ ...layout, packages })).toThrow(
       'expected one shared @solsticeai/cordis',
     )
   })

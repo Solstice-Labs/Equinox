@@ -33,7 +33,7 @@
     "@solsticeai/cordis": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-session-persistence": {
+    "@solsticeai/equinox-session-persistence": {
       "optional": true
     }
   },

@@ -41,7 +41,10 @@ export class Lightning extends Service {
     this.config = loadConfig()
   }
 
-  /** Re-read configuration from the current environment. */
+  /**
+   * Re-read configuration from the current environment.
+   * @returns the freshly loaded Equinox configuration.
+   */
   reload(): EquinoxConfig {
     this.config = loadConfig()
     return this.config

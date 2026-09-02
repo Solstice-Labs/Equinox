@@ -31,7 +31,7 @@ uv run --project python/sdk pytest
 
 ```sh
 uv run --project python/sdk python scripts/smoke-python-runtime.py \
-  --scenario sdk-minimal --exe dist-exe/deepseek-harness-sdk-runtime-macos-arm64
+  --scenario sdk-minimal --exe dist-exe/equinox-harness-sdk-runtime-macos-arm64
 ```
 
 其中三个场景会比对 `scripts/snapshots/python-sdk-single-exe/` 下已提交的期望输出。`minimal/model-visible.json` 固定 Linux／macOS `sdk-minimal` profile 所组装的系统提示词、对外公布的工具 schema 与模型可见消息；`minimal/win-x64/model-visible.json` 固定对应的 PowerShell 版本。因此，插件一旦贡献出计划外的系统分段或 user 消息，该任务即失败，且该 profile 发出的每条消息都会参与比对。`advanced/` 跨所有目标固定一个复杂进程的 SDK 结果及父／子会话日志。`restart/` 针对同一持久化根目录启动两个完整 SDK 运行时进程，并跨所有目标固定其彼此隔离的模型历史、高层结果与独立持久日志。重新运行对应场景时加上 `--update-snapshots`，并在提交前审阅该差异。
@@ -41,9 +41,9 @@ uv run --project python/sdk python scripts/smoke-python-runtime.py \
 交互式冒烟测试需要环境变量或仓库根目录 `.env` 中存在 `DEEPSEEK_API_KEY`：
 
 ```python
-from deepseek_harness import DeepSeekHarness
+from equinox_harness import Solstice AIHarness
 
-with DeepSeekHarness(dsh_home="/absolute/path/to/test-dsh-home") as harness:
+with Solstice AIHarness(dsh_home="/absolute/path/to/test-dsh-home") as harness:
     print(harness.run("say hi").final_response)
 ```
 
@@ -60,7 +60,7 @@ with DeepSeekHarness(dsh_home="/absolute/path/to/test-dsh-home") as harness:
 
 ## 构建分发包
 
-根目录 `package.json` 的版本是两个 Python 分发包的权威版本。暂存脚本会将该版本注入两个 wheel 包，并将 SDK 固定到同版本的 `deepseek-harness-runtime-bin`。
+根目录 `package.json` 的版本是两个 Python 分发包的权威版本。暂存脚本会将该版本注入两个 wheel 包，并将 SDK 固定到同版本的 `equinox-harness-runtime-bin`。
 
 纯 SDK wheel 包只需构建一次；每个原生平台分别构建一个运行时 wheel 包：
 
@@ -73,10 +73,10 @@ print(release["pep440_version"](release["repository_version"]()))
 PY
 )"
 python scripts/build-python-release.py --package sdk --output-dir dist-python
-python scripts/build-python-release.py --package runtime --platform macos-arm64 --runtime-exe dist-exe/deepseek-harness-sdk-runtime-macos-arm64 --output-dir dist-python
+python scripts/build-python-release.py --package runtime --platform macos-arm64 --runtime-exe dist-exe/equinox-harness-sdk-runtime-macos-arm64 --output-dir dist-python
 pip install \
-  "dist-python/deepseek_harness_sdk-$version-py3-none-any.whl" \
-  "dist-python/deepseek_harness_runtime_bin-$version-py3-none-macosx_14_0_arm64.whl"
+  "dist-python/equinox_harness_sdk-$version-py3-none-any.whl" \
+  "dist-python/equinox_harness_runtime_bin-$version-py3-none-macosx_14_0_arm64.whl"
 ```
 
 运行时分发包仅提供 wheel 包。发布流水线会连同纯 SDK wheel 包一起发布四个平台 wheel 包：Linux x64、Linux arm64、macOS 14 或更高版本的 arm64，以及 Windows x64（`win_amd64`）。只有与仓库版本匹配时，才接受 `python-v<repository-version>` 标签；`0.0.1-rc.1` 之类的仓库预发布版本在 wheel 包文件名和元数据中使用规范化的 PEP 440 写法，例如 `0.0.1rc1`。

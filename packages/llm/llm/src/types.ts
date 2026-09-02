@@ -378,8 +378,8 @@ export type StreamChunk =
 /**
  * JSON-schema description of a tool, as sent to the model.
  *
- * Declared here (not in dsh-tools) because it is part of {@link GenerateOptions};
- * dsh-tools' ToolDefinition and dsh-system-prompt's PromptAssembly both import
+ * Declared here (not in equinox-tools) because it is part of {@link GenerateOptions};
+ * equinox-tools' ToolDefinition and equinox-system-prompt's PromptAssembly both import
  * it from this package.
  */
 export interface ToolSchema {

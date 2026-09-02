@@ -63,7 +63,7 @@
     "@solsticeai/equinox-typert-protocol": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-session-projection-cache": {
+    "@solsticeai/equinox-session-projection-cache": {
       "optional": true
     }
   },

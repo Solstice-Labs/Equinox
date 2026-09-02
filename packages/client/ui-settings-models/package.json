@@ -28,9 +28,9 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-ui-settings",
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-api-remotes"
+        "@solsticeai/equinox-client-ui-settings",
+        "@solsticeai/equinox-client-locale",
+        "@solsticeai/equinox-api-remotes"
       ],
       "platform": "web"
     }

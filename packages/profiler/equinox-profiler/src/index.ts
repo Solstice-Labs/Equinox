@@ -43,27 +43,45 @@ export class Profiler extends Service {
     validateConfigKeys(config)
   }
 
-  /** The full 50-probe registry (10 per domain). */
+  /**
+   * The full 50-probe registry (10 per domain).
+   * @returns the complete probe registry grouped by domain.
+   */
   probes(): typeof ALL_PROBES {
     return ALL_PROBES
   }
 
-  /** Structural sanity check over the probe set. */
+  /**
+   * Structural sanity check over the probe set.
+   * @returns the validation outcome with the failing probe checks.
+   */
   validate(): { ok: boolean; errors: string[] } {
     return validateProbeSet()
   }
 
-  /** Run the suite against a model client (or a mock for dry runs). */
+  /**
+   * Run the suite against a model client (or a mock for dry runs).
+   * @param options the probe-suite execution options (model client, probe filter, budget).
+   * @returns the probe results with per-domain scoring.
+   */
   runSuite(options: Parameters<typeof runProbeSuite>[0]): ReturnType<typeof runProbeSuite> {
     return runProbeSuite(options)
   }
 
-  /** Build a model profile from probe scores + layer stats. */
+  /**
+   * Build a model profile from probe scores + layer stats.
+   * @param input the probe results and optional layer statistics to fingerprint.
+   * @returns the compiled model profile with fingerprint and policy.
+   */
   fingerprint(input: Parameters<typeof buildFingerprint>[0]): ReturnType<typeof buildFingerprint> {
     return buildFingerprint(input)
   }
 
-  /** Stable profile id used for artifact naming and drift baselines. */
+  /**
+   * Stable profile id used for artifact naming and drift baselines.
+   * @param profile the model profile to identify.
+   * @returns the stable profile id.
+   */
   profileId(profile: ModelProfile): string {
     return fingerprintProfileId(profile)
   }

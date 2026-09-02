@@ -43,7 +43,7 @@
     "@solsticeai/equinox-user-approval": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-token-meter": {
+    "@solsticeai/equinox-token-meter": {
       "optional": true
     }
   },

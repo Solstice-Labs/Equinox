@@ -53,7 +53,7 @@
     "@solsticeai/cordis": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-commands": {
+    "@solsticeai/equinox-commands": {
       "optional": true
     }
   },

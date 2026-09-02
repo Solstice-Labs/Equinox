@@ -42,8 +42,8 @@ afterEach(() => {
 })
 
 describe('release families', () => {
-  it('excludes private experimental packages from the dsh release', () => {
-    const members = releaseFamily('dsh').members(resolve(import.meta.dirname, '../..'))
+  it('excludes private experimental packages from the equinox release', () => {
+    const members = releaseFamily('equinox').members(resolve(import.meta.dirname, '../..'))
 
     expect(members.some(member => member.directory.startsWith('packages/experimental/'))).toBe(false)
     expect(members.map(member => member.name)).not.toContain('@solsticeai/equinox-experimental-agent-team')
@@ -56,40 +56,40 @@ describe('release families', () => {
     write(join(root, 'packages/experimental/prototype/package.json'), '{"version":"0.0.1","private":true}\n')
     write(join(root, 'packages/core/unselected/package.json'), '{"version":"0.0.1"}\n')
 
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const published = member('packages/core/published', '@solsticeai/equinox-published')
     const { planned } = planShared(dsh, root, [published], '0.0.2')
 
     expect(planned.map(entry => ({ path: entry.manifestPath, tag: entry.tag }))).toEqual([
       { path: 'package.json', tag: undefined },
-      { path: 'packages/core/published/package.json', tag: 'dsh-v0.0.2' },
+      { path: 'packages/core/published/package.json', tag: 'equinox-v0.0.2' },
       { path: 'packages/experimental/prototype/package.json', tag: undefined },
     ])
   })
 
   it.each(['0.0.2-alpha.1', '0.0.2-canary.1', '0.0.2-rc.1'])(
-    'accepts the explicit dsh prerelease version %s',
+    'accepts the explicit equinox prerelease version %s',
     (version) => {
       const root = mkdtempSync(join(tmpdir(), 'dsh-release-prerelease-'))
       roots.push(root)
       write(join(root, 'package.json'), '{"version":"0.0.1"}\n')
 
-      const dsh = releaseFamily('dsh')
+      const dsh = releaseFamily('equinox')
       const published = member('packages/core/published', '@solsticeai/equinox-published')
       const plan = planShared(dsh, root, [published], version)
 
       expect(plan.version).toBe(version)
-      expect(plan.planned[1]?.tag).toBe(`dsh-v${version}`)
+      expect(plan.planned[1]?.tag).toBe(`equinox-v${version}`)
     },
   )
 
-  it('names one tag for the whole dsh family and one per vendored package', () => {
-    const dsh = releaseFamily('dsh')
+  it('names one tag for the whole equinox family and one per vendored package', () => {
+    const dsh = releaseFamily('equinox')
     const vendor = releaseFamily('vendor')
     const cli = member('apps/cli', '@solsticeai/equinox')
     const cordis = { ...member('vendor/cordis', '@solsticeai/cordis'), version: '4.0.1' }
 
-    expect(dsh.tagFor(cli)).toBe('dsh-v0.0.1')
+    expect(dsh.tagFor(cli)).toBe('equinox-v0.0.1')
     expect(vendor.tagFor(cordis)).toBe('vendor-cordis-v4.0.1')
     // The prefix is constructed, not recovered from a tag: a version with a
     // hyphen would defeat any suffix-stripping.
@@ -97,8 +97,8 @@ describe('release families', () => {
     expect(vendor.tagFor({ ...cordis, version: '4.0.0-rc.7' })).toBe('vendor-cordis-v4.0.0-rc.7')
   })
 
-  it('assigns alpha and canary dist-tags only to dsh releases', () => {
-    const dsh = releaseFamily('dsh')
+  it('assigns alpha and canary dist-tags only to equinox releases', () => {
+    const dsh = releaseFamily('equinox')
     const vendor = releaseFamily('vendor')
 
     expect(dsh.distTagForVersion('0.0.2-alpha.1')).toBe('alpha')
@@ -110,7 +110,7 @@ describe('release families', () => {
   })
 
   it('rejects a family whose members disagree on the shared version', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [member('apps/cli', '@solsticeai/equinox'), { ...member('apps/web', '@solsticeai/equinox-web-frontend'), version: '0.0.2' }]
 
     expect(() => { dsh.verifyVersions(members) }).toThrow(/must share one version/)
@@ -128,8 +128,8 @@ describe('release families', () => {
     expect(() => { vendor.verifyVersions([{ ...members[0]!, version: 'latest' }]) }).toThrow(/unpublishable version/)
   })
 
-  it('requires a current official client build only for dsh artifacts', () => {
-    const dsh = releaseFamily('dsh')
+  it('requires a current official client build only for equinox artifacts', () => {
+    const dsh = releaseFamily('equinox')
     const vendor = releaseFamily('vendor')
     const officialEnvironment = officialClientBuildEnvironment(resolve(import.meta.dirname, '../..'))
     vi.stubEnv('DSH_CLIENT_COMMIT_HASH', officialEnvironment.DSH_CLIENT_COMMIT_HASH)
@@ -148,7 +148,7 @@ describe('release families', () => {
   })
 
   it('publishes a dependency before its consumer, and orders ties by name', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [
       member('packages/a/consumer', '@solsticeai/equinox-consumer', { dependencies: { '@solsticeai/equinox-library': 'workspace:^' } }),
       member('packages/a/library', '@solsticeai/equinox-library'),
@@ -163,7 +163,7 @@ describe('release families', () => {
   })
 
   it('reports a runtime dependency cycle instead of emitting an arbitrary order', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [
       member('packages/a/left', '@solsticeai/equinox-left', { dependencies: { '@solsticeai/equinox-right': 'workspace:^' } }),
       member('packages/a/right', '@solsticeai/equinox-right', { dependencies: { '@solsticeai/equinox-left': 'workspace:^' } }),
@@ -173,7 +173,7 @@ describe('release families', () => {
   })
 
   it('publishes a peer before its consumer', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [
       member('packages/a/consumer', '@solsticeai/equinox-consumer', { peerDependencies: { '@solsticeai/equinox-zebra': 'workspace:^' } }),
       member('packages/a/zebra', '@solsticeai/equinox-zebra'),
@@ -187,7 +187,7 @@ describe('release families', () => {
   })
 
   it('orders around a peer cycle rather than refusing to publish, and reports the edge it dropped', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [
       member('packages/a/left', '@solsticeai/equinox-left', { peerDependencies: { '@solsticeai/equinox-right': 'workspace:^' } }),
       member('packages/a/right', '@solsticeai/equinox-right', { peerDependencies: { '@solsticeai/equinox-left': 'workspace:^' } }),
@@ -207,7 +207,7 @@ describe('release families', () => {
   })
 
   it('honours an install edge even when a peer cycle surrounds it', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [
       member('packages/a/base', '@solsticeai/equinox-base', { peerDependencies: { '@solsticeai/equinox-consumer': 'workspace:^' } }),
       member('packages/a/consumer', '@solsticeai/equinox-consumer', {
@@ -229,7 +229,7 @@ describe('release families', () => {
   })
 
   it('refuses an order that would publish a consumer before a dependency it installs', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [
       member('packages/a/alpha', '@solsticeai/equinox-alpha', { peerDependencies: { '@solsticeai/equinox-bravo': 'workspace:^' } }),
       member('packages/a/bravo', '@solsticeai/equinox-bravo', { peerDependencies: { '@solsticeai/equinox-charlie': 'workspace:^' } }),
@@ -240,11 +240,13 @@ describe('release families', () => {
     // would order this, and the traversal drops the install edge instead. That
     // order would publish charlie before the alpha it installs, so it is refused
     // here rather than published.
-    expect(() => { dsh.publishOrder(members) }).toThrow(/no publish order honours @deepseek-ai\/dsh-charlie -> @deepseek-ai\/dsh-alpha/)
+    expect(() => { dsh.publishOrder(members) }).toThrow(
+      /no publish order honours @solsticeai\/equinox-charlie -> @solsticeai\/equinox-alpha/,
+    )
   })
 
   it('ignores devDependencies when ordering', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const members = [
       member('packages/a/alpha', '@solsticeai/equinox-alpha', { devDependencies: { '@solsticeai/equinox-zebra': 'workspace:^' } }),
       member('packages/a/zebra', '@solsticeai/equinox-zebra'),
@@ -259,7 +261,7 @@ describe('release families', () => {
   })
 
   it('applies the harness payload policy to dsh and keeps upstream payloads for vendored packages', () => {
-    const dsh = releaseFamily('dsh')
+    const dsh = releaseFamily('equinox')
     const vendor = releaseFamily('vendor')
     const harness = member('packages/a/library', '@solsticeai/equinox-library')
     const vendored = member('vendor/cordis', '@solsticeai/cordis')
@@ -271,7 +273,7 @@ describe('release families', () => {
   })
 
   it('drives the installed entry only for the family that publishes one', () => {
-    expect(releaseFamily('dsh').installedEntry).toEqual({ packageName: '@solsticeai/equinox', binPath: 'lib/bin.js' })
+    expect(releaseFamily('equinox').installedEntry).toEqual({ packageName: '@solsticeai/equinox', binPath: 'lib/bin.js' })
     expect(releaseFamily('vendor').installedEntry).toBeUndefined()
   })
 

@@ -1,5 +1,5 @@
 /**
- * Enforce dsh profiles as the only supported Node application launcher.
+ * Enforce equinox profiles as the only supported Node application launcher.
  * Vendor CLIs, build tools, and test tools are explicit classifications
  * rather than implicit holes.
  */
@@ -23,9 +23,9 @@ interface DemoPolicy {
   readonly wrapper?: string
 }
 
-/** Public product launcher plus the private build-only WebWorker packer. */
+/** Public product launcher (equinox, eq, and the legacy dsh alias) plus the private build-only WebWorker packer. */
 const MANIFEST_BIN_ALLOWLIST = new Map<string, ManifestBin>([
-  ['apps/cli/package.json', { dsh: 'lib/bin.js' }],
+  ['apps/cli/package.json', { equinox: 'lib/bin.js', eq: 'lib/bin.js', dsh: 'lib/bin.js' }],
   ['packages/experimental/webworker-packer/package.json', { 'dsh-pack-vfs-image': './bin.js' }],
 ])
 

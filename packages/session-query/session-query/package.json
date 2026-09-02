@@ -38,13 +38,13 @@
     "@solsticeai/cordis": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-session-persistence": {
+    "@solsticeai/equinox-session-persistence": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-projection": {
+    "@solsticeai/equinox-session-projection": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-projection-cache": {
+    "@solsticeai/equinox-session-projection-cache": {
       "optional": true
     }
   },

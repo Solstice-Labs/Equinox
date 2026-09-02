@@ -80,31 +80,31 @@
     "@solsticeai/equinox-util-time": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-agent-presets": {
+    "@solsticeai/equinox-agent-presets": {
       "optional": true
     },
-    "@deepseek-ai/dsh-sandbox": {
+    "@solsticeai/equinox-sandbox": {
       "optional": true
     },
-    "@deepseek-ai/dsh-sandbox-policy": {
+    "@solsticeai/equinox-sandbox-policy": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-persistence": {
+    "@solsticeai/equinox-session-persistence": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-projection": {
+    "@solsticeai/equinox-session-projection": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-projection-cache": {
+    "@solsticeai/equinox-session-projection-cache": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-query": {
+    "@solsticeai/equinox-session-query": {
       "optional": true
     },
-    "@deepseek-ai/dsh-jobs": {
+    "@solsticeai/equinox-jobs": {
       "optional": true
     },
-    "@deepseek-ai/dsh-user-approval": {
+    "@solsticeai/equinox-user-approval": {
       "optional": true
     }
   },

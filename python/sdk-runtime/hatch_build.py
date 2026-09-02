@@ -51,7 +51,7 @@ def _host_platform_tag() -> str:
     try:
         return _PLATFORMS[key][0]
     except KeyError as exc:
-        raise RuntimeError(f"unsupported deepseek-harness-runtime-bin build platform: {key}") from exc
+        raise RuntimeError(f"unsupported equinox-harness-runtime-bin build platform: {key}") from exc
 
 
 class RuntimeBuildHook(BuildHookInterface):
@@ -62,7 +62,7 @@ class RuntimeBuildHook(BuildHookInterface):
             return
         if self.target_name == "sdist":
             raise RuntimeError(
-                "deepseek-harness-runtime-bin is wheel-only; build and publish platform wheels only."
+                "equinox-harness-runtime-bin is wheel-only; build and publish platform wheels only."
             )
 
         platform_tag = os.environ.get("DSH_RUNTIME_PLATFORM_TAG") or _host_platform_tag()
@@ -73,9 +73,9 @@ class RuntimeBuildHook(BuildHookInterface):
                 f"unsupported DSH_RUNTIME_PLATFORM_TAG {platform_tag!r}; expected one of {supported}"
             )
         expected_executable = matches[0][1]
-        runtime_dir = Path(self.root) / "src" / "deepseek_harness_runtime" / "runtime"
+        runtime_dir = Path(self.root) / "src" / "equinox_harness_runtime" / "runtime"
         runtime_files = sorted(
-            runtime_dir.glob("deepseek-harness-sdk-runtime-*") if runtime_dir.is_dir() else []
+            runtime_dir.glob("equinox-harness-sdk-runtime-*") if runtime_dir.is_dir() else []
         )
         expected_files = (
             [expected_executable, f"{expected_executable.removesuffix('.exe')}-rg.exe"]

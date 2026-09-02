@@ -6,7 +6,7 @@ Runnable Python SDK example over the sole application launcher, `dsh --profile s
 
 ## Run the minimal agent
 
-Install `deepseek-harness-sdk`, export a model credential, then supply an isolated Harness home and workspace:
+Install `equinox-harness-sdk`, export a model credential, then supply an isolated Harness home and workspace:
 
 ```sh
 export DEEPSEEK_API_KEY=sk-your-key-here
@@ -24,7 +24,7 @@ The shipped [`@solsticeai/equinox-sdk-minimal` bundle](../../../packages/bundle/
 - owner-scoped persistent `bash` on Linux/macOS or `pwsh` on Windows
 - `str_replace_editor` with `view`, `create`, `str_replace`, and `insert`
 
-The bundle does not include `dsh-base`, so every additional row is an explicit profile change. Runtime context, local instruction discovery, compaction, settings, managed credentials, telemetry, Web tools, subagents, and the full default tool roster are absent. The tree retains SDK startup and JSON-RPC serving, one environment-configured DeepSeek adapter, local execution, and JSONL persistence.
+The bundle does not include `dsh-base`, so every additional row is an explicit profile change. Runtime context, local instruction discovery, compaction, settings, managed credentials, telemetry, Web tools, subagents, and the full default tool roster are absent. The tree retains SDK startup and JSON-RPC serving, one environment-configured Solstice AI adapter, local execution, and JSONL persistence.
 
 The persistent PTY and editor can modify any path available to the runtime process, so use a disposable checkout or container.
 

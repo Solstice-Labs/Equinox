@@ -412,7 +412,7 @@ function sweepImage(
       // philosophy instead — platform-dispatch branches the worker never
       // evaluates may request node-only modules, and such a request fails loud
       // at require time if it ever runs.
-      const external = importer.startsWith('node_modules/') && !importer.startsWith('node_modules/@deepseek-ai/')
+      const external = importer.startsWith('node_modules/') && !importer.startsWith('node_modules/@solsticeai/')
       // A meta-resolve request is a URL mapping, not a load: a missing target
       // is tolerable from any importer — the call throws if it ever runs.
       if (external || entry.meta === true) tolerated.add(`${importer}: "${specifier}"`)

@@ -68,11 +68,11 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-ui-commands",
-        "@deepseek-ai/dsh-client-ui-conversation",
-        "@deepseek-ai/dsh-client-ui-renderer",
-        "@deepseek-ai/dsh-client-ui-session"
+        "@solsticeai/equinox-client-locale",
+        "@solsticeai/equinox-client-ui-commands",
+        "@solsticeai/equinox-client-ui-conversation",
+        "@solsticeai/equinox-client-ui-renderer",
+        "@solsticeai/equinox-client-ui-session"
       ],
       "platform": "web"
     }

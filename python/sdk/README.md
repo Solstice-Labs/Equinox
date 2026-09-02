@@ -1,11 +1,11 @@
-# DeepSeek Harness Python SDK
+# Equinox Python SDK
 
 English | [中文](README.zh.md)
 
-Python subprocess SDK for driving DeepSeek Harness over newline-delimited JSON-RPC on stdio. Install `deepseek-harness-sdk`; it installs the exact same-version `deepseek-harness-runtime-bin` wheel for the current platform.
+Python subprocess SDK for driving Equinox over newline-delimited JSON-RPC on stdio. Install `equinox-harness-sdk`; it installs the exact same-version `equinox-harness-runtime-bin` wheel for the current platform.
 
 ```sh
-python -m pip install deepseek-harness-sdk
+python -m pip install equinox-harness-sdk
 ```
 
 ## Start a runtime
@@ -15,9 +15,9 @@ The Python SDK has no separate application entrypoint. It launches the bundled `
 Every launch requires an explicit Harness home. Pass `dsh_home` or provide a non-empty `DSH_HOME` in the child environment. The SDK deliberately never discovers `~/.dsh`.
 
 ```py
-from deepseek_harness import DeepSeekHarness
+from equinox_harness import Solstice AIHarness
 
-with DeepSeekHarness(
+with Solstice AIHarness(
     dsh_home="/absolute/path/to/isolated-dsh-home",
     cwd="/absolute/path/to/workspace",
     provider="deepseek-official",
@@ -30,7 +30,7 @@ with DeepSeekHarness(
 print(result.final_response)
 ```
 
-`DeepSeekHarness` starts lazily and reuses its runtime until `close()` or context-manager exit. The initial profile handshake has an independent 30-second default bound through `initialize_timeout_seconds`; ordinary turns remain unbounded unless `request_timeout_seconds` is set. A timeout names the selected profile and includes retained runtime diagnostics. `cwd` is the agent workspace; `runtime_cwd` independently selects the subprocess working directory. Both become absolute before launch. `provider`, `model`, optional `reasoning_effort`, and optional positive `max_tokens` are sent during JSON-RPC initialization. `base_url` and `api_key` explicitly override `DEEPSEEK_BASE_URL` and `DEEPSEEK_API_KEY` in the child environment.
+`Solstice AIHarness` starts lazily and reuses its runtime until `close()` or context-manager exit. The initial profile handshake has an independent 30-second default bound through `initialize_timeout_seconds`; ordinary turns remain unbounded unless `request_timeout_seconds` is set. A timeout names the selected profile and includes retained runtime diagnostics. `cwd` is the agent workspace; `runtime_cwd` independently selects the subprocess working directory. Both become absolute before launch. `provider`, `model`, optional `reasoning_effort`, and optional positive `max_tokens` are sent during JSON-RPC initialization. `base_url` and `api_key` explicitly override `DEEPSEEK_BASE_URL` and `DEEPSEEK_API_KEY` in the child environment.
 
 ## Customize plugins
 
@@ -47,7 +47,7 @@ The `file:` form installs the local bundle into the profile package tree, where 
 For an invocation-specific change, pass one or more patch files. They become absolute and are forwarded in order after the profile and home patch layers:
 
 ```py
-with DeepSeekHarness(
+with Solstice AIHarness(
     dsh_home="/absolute/path/to/isolated-dsh-home",
     profile="sdk",
     patches=("/absolute/path/to/first.patch.yml", "/absolute/path/to/last.patch.yml"),

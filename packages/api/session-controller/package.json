@@ -44,10 +44,10 @@
   "dsh": {
     "client": {
       "external": [
-        "@deepseek-ai/dsh-api-gateway/client"
+        "@solsticeai/equinox-api-gateway/client"
       ],
       "inject": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@solsticeai/equinox-api-gateway"
       ],
       "platform": "web"
     }
@@ -101,13 +101,13 @@
     "@solsticeai/equinox-workspace": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-jobs": {
+    "@solsticeai/equinox-jobs": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-persistence": {
+    "@solsticeai/equinox-session-persistence": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-projection-cache": {
+    "@solsticeai/equinox-session-projection-cache": {
       "optional": true
     }
   },

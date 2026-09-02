@@ -37,7 +37,7 @@
     "@solsticeai/equinox-token-meter": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-compaction-tool-result-pruner": {
+    "@solsticeai/equinox-compaction-tool-result-pruner": {
       "optional": true
     }
   },

@@ -11,8 +11,8 @@ from .models import JsonObject, Notification
 
 
 @dataclass(slots=True)
-class DeepSeekHarnessConfig:
-    """Configuration for launching the local DeepSeek Harness SDK runtime.
+class Solstice AIHarnessConfig:
+    """Configuration for launching the local Equinox SDK runtime.
 
     The runtime inherits the caller's environment by default, so existing
     DEEPSEEK_API_KEY and DEEPSEEK_BASE_URL settings keep working. Use ``env`` to
@@ -46,8 +46,8 @@ class RunResult:
     notifications: list[Notification]
 
 
-class DeepSeekHarness:
-    """Reusable synchronous SDK for running DeepSeek Harness agent turns.
+class Solstice AIHarness:
+    """Reusable synchronous SDK for running Equinox agent turns.
 
     The runtime subprocess starts lazily and remains owned by this instance
     across calls to :meth:`run`. Use the instance as a context manager, or call
@@ -56,14 +56,14 @@ class DeepSeekHarness:
 
     def __init__(
         self,
-        config: DeepSeekHarnessConfig | None = None,
+        config: Solstice AIHarnessConfig | None = None,
         *,
         _launch_args: tuple[str, ...] | None = None,
         **kwargs: object,
     ) -> None:
         if config is not None and kwargs:
-            raise TypeError("pass either DeepSeekHarnessConfig or keyword options, not both")
-        self.config = config or DeepSeekHarnessConfig(**kwargs)
+            raise TypeError("pass either Solstice AIHarnessConfig or keyword options, not both")
+        self.config = config or Solstice AIHarnessConfig(**kwargs)
         cwd = str(Path(self.config.cwd or Path.cwd()).resolve())
         runtime_cwd = str(Path(self.config.runtime_cwd).resolve()) if self.config.runtime_cwd is not None else cwd
         self._cwd = cwd
@@ -89,7 +89,7 @@ class DeepSeekHarness:
         )
         self._initialized = False
 
-    def __enter__(self) -> "DeepSeekHarness":
+    def __enter__(self) -> "Solstice AIHarness":
         self.start()
         return self
 
@@ -132,7 +132,7 @@ class DeepSeekHarness:
 
 
 class Session:
-    def __init__(self, harness: DeepSeekHarness, session_id: str) -> None:
+    def __init__(self, harness: Solstice AIHarness, session_id: str) -> None:
         self.harness = harness
         self.id = session_id
 

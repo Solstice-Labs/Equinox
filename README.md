@@ -34,7 +34,7 @@ Standard agent frameworks (LangChain, AutoGen, CrewAI, generic CLI wrappers) tre
 │                                                                            │
 │   ┌────────────────────────────────────────────────────────────────────┐   │
 │   │                 UNIVERSAL MODEL CLIENT (Box-Agnostic)              │   │
-│   │    Talks to Ollama, llama-server, vLLM, MLX-LM, SGLang, and Cloud  │   │
+│   │    Talks to Anvil, llama-server, Ollama, vLLM, MLX, and Cloud      │   │
 │   └─────────────────────────────────┬──────────────────────────────────┘   │
 │                                     │                                      │
 │               ┌─────────────────────┴─────────────────────┐                │
@@ -124,7 +124,7 @@ When a local model encounters 2 consecutive execution failures:
 ### Prerequisites
 * Node.js $\ge 22.0.0$
 * `pnpm` $\ge 10.0.0$
-* Any local backend (llama-server, Ollama, vLLM, SGLang, or MLX)
+* **Anvil** (recommended for hardware acceleration & direct imatrix support) or any OpenAI-compatible local backend (`llama-server`, `Ollama`, `vLLM`, `MLX`)
 
 ### 1. Install & Build Monorepo
 
@@ -138,9 +138,10 @@ pnpm build:lib:host
 ### 2. Configure Environment
 
 ```bash
-# Point to your local or remote OpenAI-compatible endpoint
+# Point to Anvil (or your local/remote OpenAI-compatible endpoint)
 export EQUINOX_BASE_URL="http://127.0.0.1:8080/v1"
 export EQUINOX_MODEL="Qwen3.8-27B-TURBO-Fable-Cold-Fusion"
+export EQUINOX_ENGINE="anvil"
 
 # Optional: Configure frontier teacher for self-distillation
 export ANTHROPIC_API_KEY="sk-ant-..."

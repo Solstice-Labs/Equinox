@@ -50,9 +50,9 @@
     "@solsticeai/equinox-client-modules": "workspace:^",
     "@solsticeai/equinox-client-ui-renderer": "workspace:^",
     "@solsticeai/equinox-client-ui-theme": "workspace:^",
-    "@types/react": "~18.3.1",
+    "@types/react": "~19.2.18",
     "@solsticeai/cordis": "workspace:^",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "@solsticeai/equinox-util-values": "workspace:^"
   },
   "files": [

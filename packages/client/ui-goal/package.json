@@ -61,9 +61,9 @@
     "@solsticeai/equinox-commands": "workspace:^",
     "@solsticeai/equinox-goal": "workspace:^",
     "@testing-library/react": "^16.1.0",
-    "@types/react": "~18.3.1",
+    "@types/react": "~19.2.18",
     "@solsticeai/cordis": "workspace:^",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "react-dom": "^18.2.0",
     "@solsticeai/equinox-session": "workspace:^",
     "@solsticeai/equinox-typert-protocol": "workspace:^"

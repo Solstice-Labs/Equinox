@@ -51,9 +51,9 @@
     "@solsticeai/equinox-client-ui-primitives": "workspace:^",
     "@solsticeai/equinox-client-ui-slots": "workspace:^",
     "@solsticeai/equinox-plan-mode": "workspace:^",
-    "@types/react": "~18.3.1",
+    "@types/react": "~19.2.18",
     "@solsticeai/cordis": "workspace:^",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "@solsticeai/equinox-session": "workspace:^",
     "@solsticeai/equinox-client-ui-renderer": "workspace:^",
     "@solsticeai/equinox-client-ui-session": "workspace:^"
